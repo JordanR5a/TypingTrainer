@@ -28,7 +28,7 @@ namespace TypingTrainer
     public sealed partial class MainPage : Page
     {
         static readonly int DISPLAY_SIZE = 150;
-        static string CURRENT_NOVEL = "Martial_World";
+        static string CURRENT_NOVEL = "Everything_Will_Be_My_Way!";
 
         int currentChapter;
         int startText;
@@ -95,33 +95,8 @@ namespace TypingTrainer
         {
             
 
-            if (e.VirtualKey == VirtualKey.Escape && !AnyContentDialogOpen())
-            {
-                Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
-                NewNovel contentDialog = new NewNovel();
-                ContentDialogResult result = await contentDialog.ShowAsync();
-
-                if (result == ContentDialogResult.Primary)
-                {
-                    int pastChapter = currentChapter;
-                    try
-                    {
-                        currentChapter = 1;
-                        StartChapter(@"Data\" + contentDialog.title + @"\" + currentChapter);
-                        CURRENT_NOVEL = contentDialog.title;
-                    }
-                    catch (DirectoryNotFoundException error)
-                    {
-                        await PlaySound("error.wav");
-                        currentChapter = pastChapter;
-                    }
-                }
-                Window.Current.CoreWindow.PointerCursor = null;
-            }
-            else if (e.VirtualKey == VirtualKey.CapitalLock && !AnyContentDialogOpen())
-            {
-                updateWPMDisplay();
-            }
+            if (e.VirtualKey == VirtualKey.Escape && !AnyContentDialogOpen()) changeNovelPrompt();
+            else if (e.VirtualKey == VirtualKey.CapitalLock && !AnyContentDialogOpen()) updateWPMDisplay();
             else if (e.VirtualKey == VirtualKey.Right && !AnyContentDialogOpen())
             {
                 try
@@ -146,54 +121,10 @@ namespace TypingTrainer
                     await PlaySound("error.wav");
                 }
             }
-            else if (e.VirtualKey == VirtualKey.Down && !AnyContentDialogOpen())
-            {
-                if (trainer.Forward(1))
-                {
-                    timer.Stop();
-                    await PlaySound("return.mp3");
-                    startText = trainer.Place;
-                    trainer.Restart();
-                    updateMainDisplay();
-                }
-                else await PlaySound("error.wav");
-            }
-            else if (e.VirtualKey == VirtualKey.PageDown && !AnyContentDialogOpen())
-            {
-                if (trainer.Forward(5))
-                {
-                    timer.Stop();
-                    await PlaySound("shortMove.wav");
-                    startText = trainer.Place;
-                    trainer.Restart();
-                    updateMainDisplay();
-                }
-                else await PlaySound("error.wav");
-            }
-            else if (e.VirtualKey == VirtualKey.Up && !AnyContentDialogOpen())
-            {
-                if (trainer.Rewind(2))
-                {
-                    timer.Stop();
-                    await PlaySound("return.mp3");
-                    startText = trainer.Place;
-                    trainer.Restart();
-                    updateMainDisplay();
-                }
-                else await PlaySound("error.wav");
-            }
-            else if (e.VirtualKey == VirtualKey.PageUp && !AnyContentDialogOpen())
-            {
-                if (trainer.Rewind(6))
-                {
-                    timer.Stop();
-                    await PlaySound("shortMove.wav");
-                    startText = trainer.Place;
-                    trainer.Restart();
-                    updateMainDisplay();
-                }
-                else await PlaySound("error.wav");
-            }
+            else if (e.VirtualKey == VirtualKey.Down && !AnyContentDialogOpen()) moveDown(1, "return.mp3");
+            else if (e.VirtualKey == VirtualKey.PageDown && !AnyContentDialogOpen()) moveDown(5, "shortMove.wav");
+            else if (e.VirtualKey == VirtualKey.Up && !AnyContentDialogOpen()) moveUp(2, "return.mp3");
+            else if (e.VirtualKey == VirtualKey.PageUp && !AnyContentDialogOpen()) moveUp(6, "shortMove.wav");
             else if (e.VirtualKey == VirtualKey.Enter && !AnyContentDialogOpen())
             {
                 if (trainer.Space())
@@ -224,6 +155,56 @@ namespace TypingTrainer
             updateMainDisplay();
         }
 
+        async void moveDown(int change, string goodSound)
+        {
+            if (trainer.Forward(change))
+            {
+                timer.Stop();
+                await PlaySound(goodSound);
+                startText = trainer.Place;
+                trainer.Restart();
+                updateMainDisplay();
+            }
+            else await PlaySound("error.wav");
+        }
+
+        async void moveUp(int change, string goodSound)
+        {
+            if (trainer.Rewind(change))
+            {
+                timer.Stop();
+                await PlaySound(goodSound);
+                startText = trainer.Place;
+                trainer.Restart();
+                updateMainDisplay();
+            }
+            else await PlaySound("error.wav");
+        }
+
+        async void changeNovelPrompt()
+        {
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
+            NewNovel contentDialog = new NewNovel();
+            ContentDialogResult result = await contentDialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                int pastChapter = currentChapter;
+                try
+                {
+                    currentChapter = 1;
+                    StartChapter(@"Data\" + contentDialog.title + @"\" + currentChapter);
+                    CURRENT_NOVEL = contentDialog.title;
+                }
+                catch (DirectoryNotFoundException error)
+                {
+                    await PlaySound("error.wav");
+                    currentChapter = pastChapter;
+                }
+            }
+            Window.Current.CoreWindow.PointerCursor = null;
+        }
+
         bool AnyContentDialogOpen()
         {
             var openedpopups = VisualTreeHelper.GetOpenPopups(Window.Current);
@@ -241,7 +222,7 @@ namespace TypingTrainer
                 timer.Stop();
                 WPMDisplay.Opacity = 0.8;
                 double average = WPMData.Average();
-                WPMDisplay.Text = string.Format("Seconds: {0}\n WPM: {1:F2}", totalSeconds, average);
+                WPMDisplay.Text = $"Seconds: {totalSeconds}\n WPM: {string.Format("0:F2", average)}";
             }
             else PlaySound("error.wav");
         }
@@ -274,8 +255,8 @@ namespace TypingTrainer
                 for (int loc = startText; loc < dynamicDisplaySize; loc++)
                 {
                     Section currentSection = trainer.Sections[loc];
-                    if (currentSection.ToString().First().Equals('"')) inQuotes = true;
-                    else if (currentSection.ToString().Last().Equals('"')) inQuotes = false;
+                    if (currentSection.ToString().First().Equals(Trainer.START_QUOTATION)) inQuotes = true;
+                    else if (currentSection.ToString().Last().Equals(Trainer.END_QUOTATION)) inQuotes = false;
                     for (int innerLoc = 0; innerLoc < currentSection.Word.Length; innerLoc++)
                     {
                         Unit focus = currentSection.Word[innerLoc];
@@ -345,6 +326,9 @@ namespace TypingTrainer
 
     public class Trainer
     {
+        public static readonly char START_QUOTATION = (char)8220;
+        public static readonly char END_QUOTATION = (char)8221;
+
         Section[] sections;
         public Section[] Sections { get { return sections; } set { sections = value; } }
 
@@ -437,10 +421,9 @@ namespace TypingTrainer
 
             rawText = rawText.Replace("&nbsp;", "");
             rawText = rawText.Replace((char)8217, '\'');
-            rawText = rawText.Replace((char)171, '"');
-            rawText = rawText.Replace((char)187, '"');
-            rawText = rawText.Replace((char)8221, '"');
-            rawText = rawText.Replace((char)8220, '"');
+            rawText = rawText.Replace((char)171, START_QUOTATION);
+            rawText = rawText.Replace((char)187, END_QUOTATION);
+
 
             return rawText;
         }
@@ -453,8 +436,8 @@ namespace TypingTrainer
             for (int focus = place; focus > 0; focus--)
             {
                 Section section = sections[focus - 1];
-                if (section.ToString().Last().Equals('"')) inQuotes = true;
-                else if (section.ToString().First().Equals('"')) inQuotes = false;
+                if (section.ToString().Last().Equals(END_QUOTATION)) inQuotes = true;
+                else if (section.ToString().First().Equals(START_QUOTATION)) inQuotes = false;
                 if (change <= 0)
                 {
                     place = focus + 1;
@@ -499,8 +482,8 @@ namespace TypingTrainer
                 for (int focus = place; focus <= sections.Length; focus++)
                 {
                     Section section = sections[focus + 1];
-                    if (section.ToString().First().Equals('"')) inQuotes = true;
-                    else if (section.ToString().Last().Equals('"')) inQuotes = false;
+                    if (section.ToString().First().Equals(START_QUOTATION)) inQuotes = true;
+                    else if (section.ToString().Last().Equals(END_QUOTATION)) inQuotes = false;
                     if (change <= 0)
                     {
                         place = focus + 1;
@@ -552,7 +535,11 @@ namespace TypingTrainer
 
         public bool Check(char character)
         {
-            if (focus >= sections[place].Word.Length) return false;
+            if (focus >= sections[place].Word.Length)
+            {
+                focus = sections[place].Word.Length;
+                return false;
+            }
             Unit currentUnit = sections[place].Word[focus];
             if (character.Equals(currentUnit.Character) || SpecialMatch(character, currentUnit))
             {

@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-03-09T19:32:36.481</Modified>
+      <Modified>2021-03-09T21:11:09.236</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\TypingTrainer.exe">
       <PackagePath>entrypoint\TypingTrainer.exe</PackagePath>
-      <Modified>2021-03-09T19:32:35.995</Modified>
+      <Modified>2021-03-09T21:11:08.742</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\.nuget\packages\htmlagilitypack\1.11.31\lib\uap10.0\HtmlAgilityPack.dll">
       <PackagePath>HtmlAgilityPack.dll</PackagePath>
@@ -178,19 +178,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\TypingTrainer.xr.xml">
       <PackagePath>TypingTrainer.xr.xml</PackagePath>
-      <Modified>2021-03-09T04:35:03.220</Modified>
+      <Modified>2021-03-09T21:00:39.714</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-03-09T19:30:09.223</Modified>
+      <Modified>2021-03-09T21:11:08.666</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-03-09T19:30:09.223</Modified>
+      <Modified>2021-03-09T21:11:08.666</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\NewNovel.xbf">
       <PackagePath>NewNovel.xbf</PackagePath>
-      <Modified>2021-03-09T19:30:09.223</Modified>
+      <Modified>2021-03-09T21:11:08.667</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -198,11 +198,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-03-09T19:32:36.109</Modified>
+      <Modified>2021-03-09T21:11:08.862</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\Core\TypingTrainer.exe">
       <PackagePath>TypingTrainer.exe</PackagePath>
-      <Modified>2021-03-09T19:32:36.477</Modified>
+      <Modified>2021-03-09T21:11:09.232</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -14,24 +14,29 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="1" Orientation="Vertical">
-            <TextBlock x:Name="WPMDisplay" 
-                       HorizontalAlignment="Center"
+        <TextBlock x:Name="WPMDisplay" 
+                       HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="34"
+                       FontFamily="Palatino Linotype"
+                       FontWeight="Bold"
                        Opacity="0"/>
+        <StackPanel Grid.Column="1" 
+                    Orientation="Vertical">
+            
             <TextBlock x:Name="CurrentChapterDisplay"
-                       Text="Current Chapter: "
-                       Margin="0 150 0 0"
+                       Margin="0 120 0 0"
                        Foreground="White"
-                       FontSize="30"
+                       FontSize="34"
+                       FontFamily="Palatino Linotype"
+                       FontWeight="Bold"
                        Opacity="0.7"/>
             <TextBlock Grid.Column="1"
                    Margin="0 70 0 0"
                    x:Name="Display"
                    Foreground="White"
                    FontSize="34"
-                   FontFamily="Calibri"
+                   FontFamily="Imprint MT Shadow"
                    TextWrapping="WrapWholeWords" 
                    LineHeight="10" 
                    Opacity="0.8">
