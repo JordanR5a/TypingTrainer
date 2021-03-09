@@ -279,27 +279,20 @@ namespace TypingTrainer
                     for (int innerLoc = 0; innerLoc < currentSection.Word.Length; innerLoc++)
                     {
                         Unit focus = currentSection.Word[innerLoc];
+                        string spacing = buildSpacing(loc, focus, currentSection, innerLoc, inQuotes);
                         if (focus.Typed && focus.Correct)
                         {
-                            Run typedText = new Run();
-                            typedText.Text = buildText(currentSection, innerLoc, focus, inQuotes);
-                            typedText.Foreground = new SolidColorBrush(Colors.DarkGray);
-
+                            Run typedText = buildRun(focus, spacing, Colors.DarkGray);
                             Display.Inlines.Add(typedText);
                         }
                         else if (focus.Typed && !focus.Correct)
                         {
-                            Run incorrectText = new Run();
-                            incorrectText.Text = buildText(currentSection, innerLoc, focus, inQuotes);
-                            incorrectText.Foreground = new SolidColorBrush(Colors.DarkRed);
-
+                            Run incorrectText = buildRun(focus, spacing, Colors.DarkRed);
                             Display.Inlines.Add(incorrectText);
                         }
                         else
                         {
-                            Run untypedText = new Run();
-                            untypedText.Text = buildText(currentSection, innerLoc, focus, inQuotes);
-
+                            Run untypedText = buildRun(focus, spacing, Colors.White);
                             Display.Inlines.Add(untypedText);
                         }
 
@@ -308,22 +301,38 @@ namespace TypingTrainer
             }
         }
 
-        string buildText(Section section, int innerLoc, Unit focus, bool inQuotes)
+        string buildSpacing(int loc, Unit focus, Section currentSection, int innerLoc, bool inQuotes)
+        {
+            string spacing = "";
+            if (loc < trainer.Sections.Length - 1)
+            {
+                if (focus.Equals('"') && trainer.Sections[loc + 1].ToString().First().Equals('"')) spacing = "\n\n";
+                else if (inQuotes && innerLoc == currentSection.Word.Length - 1) spacing = " ";
+                else if (innerLoc == currentSection.Word.Length - 1)
+                {
+                    if (focus.Equals('.') || focus.Equals('!') || focus.Equals('?')) spacing = "\n\n";
+                    else spacing = " ";
+                }
+            }
+            return spacing;
+        }
+
+        string buildText(Unit focus, string spacing)
         {
             StringBuilder builder = new StringBuilder();
             builder.Append(focus);
-            if (innerLoc == section.Word.Length - 1) builder.Append(" ");
-
-            if (!inQuotes)
-            {
-                builder.Replace(". ", ".\n\n");
-                builder.Replace("! ", "!\n\n");
-                builder.Replace("? ", "?\n\n");
-                //builder.Replace($"{(char)34} ", $"{(char)34}\n\n");
-            }
-
+            builder.Append(spacing);
 
             return builder.ToString();
+        }
+
+        Run buildRun(Unit focus, string spacing, Color color)
+        {
+            Run run = new Run();
+            run.Text = buildText(focus, spacing);
+            run.Foreground = new SolidColorBrush(color);
+
+            return run;
         }
 
         bool EndOfChapter()
@@ -440,16 +449,19 @@ namespace TypingTrainer
         {
 
             if (place == 0) return false;
+            bool inQuotes = false;
             for (int focus = place; focus > 0; focus--)
             {
                 Section section = sections[focus - 1];
+                if (section.ToString().Last().Equals('"')) inQuotes = true;
+                else if (section.ToString().First().Equals('"')) inQuotes = false;
                 if (change <= 0)
                 {
                     place = focus + 1;
                     Restart();
                     return true;
                 }
-                else if (section.ToString().Last().Equals('.') || section.ToString().Last().Equals('!') || section.ToString().Last().Equals('?'))
+                else if (!inQuotes && (section.ToString().Last().Equals('.') || section.ToString().Last().Equals('!') || section.ToString().Last().Equals('?')))
                 {
                     change--;
                 }
@@ -483,16 +495,19 @@ namespace TypingTrainer
             if (place == sections.Length) return false;
             try
             {
+                bool inQuotes = false;
                 for (int focus = place; focus <= sections.Length; focus++)
                 {
                     Section section = sections[focus + 1];
+                    if (section.ToString().First().Equals('"')) inQuotes = true;
+                    else if (section.ToString().Last().Equals('"')) inQuotes = false;
                     if (change <= 0)
                     {
                         place = focus + 1;
                         Restart();
                         return true;
                     }
-                    else if (section.ToString().Last().Equals('.') || section.ToString().Last().Equals('!') || section.ToString().Last().Equals('?'))
+                    else if (!inQuotes && (section.ToString().Last().Equals('.') || section.ToString().Last().Equals('!') || section.ToString().Last().Equals('?')))
                     {
                         change--;
                     }
