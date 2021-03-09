@@ -1,0 +1,83 @@
+.header-logo img {
+    display: block;
+}
+.desc .desc-text {
+    max-height: 200px;
+}
+.desc .rate {
+    position: relative;
+}
+#text__rating {
+    display: inline-block;
+    position: absolute;
+    margin-left: 10px;
+}
+#container {
+    position: relative;
+    background-color: #f4f4f4;
+}
+.toggleNav #container {
+    z-index: 10;
+}
+#container.active {
+}
+.header {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+}
+#list-index {
+    min-height: 700px;
+}
+.list.index-intro {
+    width: 100%;
+}
+#options {
+    display: none;
+}
+.nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.dark-background .chapter .chapter-c p {
+    color: rgba(255,255,255,0.6) !important;
+}
+.dark-background .chapter .chapter-c p span {
+    color: rgba(255,255,255,0.6) !important;
+}
+.books .desc h3.title {
+    position: relative;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: -40px 0 10px 0;
+}
+.archive .list>.row {
+    display: block;
+    border-bottom: 1px dashed #CCC;
+    margin: 0;
+}
+.archive .list>.row>div {
+    border-bottom: none !important;
+}
+#list-index .list {
+    display: block;
+}
+#list-index .list>.row {
+    display: block;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+

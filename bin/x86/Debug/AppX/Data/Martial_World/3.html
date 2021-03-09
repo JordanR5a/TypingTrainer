@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)https://novelfull.com/martial-world/chapter-1406-imperial-prince-naqi.html -->
+<html lang="en-US"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link" href="chrome-extension://dmghijelimhndkbmpgbldicpogfkceaj/data/content_script/general/dark_16.css"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"><meta name="csrf-param" content="_csrf"><meta name="csrf-token" content="NjM2NGQzZjBmNDk1YjZhYjlkY2Y4ZDNiNWM2ZTBiMDEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="><!-- TODO: Meta --><meta name="title" content="Read Martial World - Chapter 1406 – Imperial Prince Naqi online free - Novel Full"><meta name="description" content="Read Martial World - Chapter 1406 – Imperial Prince Naqi online free from your Mobile, Table, PC... Novel Updates Daily "><meta name="image" content="https://novelfull.com/uploads/thumbs/martial-world-1fc87929f8-2239c49aee6b961904acf173b7e4602a.png"><meta name="keywords" content="Martial World - Chapter 1406 – Imperial Prince Naqi"><title>Read Martial World - Chapter 1406 – Imperial Prince Naqi online free - Novel Full</title><link rel="preload" href="https://novelfull.com/web/fonts/RobotoCondensed-Regular.woff" as="font" crossorigin="anonymous"><link rel="preload" href="https://novelfull.com/web/fonts/glyphicons-halflings-regular.woff2" as="font" crossorigin="anonymous"><link rel="shortcut icon" href="https://novelfull.com/web/images/favicon.ico" type="image/x-icon"><link rel="icon" href="https://novelfull.com/web/images/favicon.ico" type="image/x-icon"><!--[if lt IE 9]><link rel="stylesheet" href="/web/css/iefix.css"><script defer src="/web/js/html5shiv.min.js"></script><script defer src="/web/js/respond.min.js"></script><![endif]--><script type="text/javascript" async="" src="./3_files/analytics.js.download"></script><script type="text/javascript">
+            var adblock = true;
+            var ajaxSearchUrl = 'https://novelfull.com/ajax-search';
+            var ajaxNovelRateUrl = 'https://novelfull.com/ajax-novel-rate';
+            var ajaxReportChapterUrl = 'https://novelfull.com/ajax-report-chapter';
+            var ajaxUserSettingsUrl = 'https://novelfull.com/ajax-user-settings';
+            var ajaxChapterOptionUrl = 'https://novelfull.com/ajax-chapter-option';
+        </script><!-- <script type="text/javascript" src="/web/js/adframe.js?v=1"></script> --><script type="text/javascript" src="./3_files/plugins.js.download"></script><script type="text/javascript" src="./3_files/scripts.js.download"></script><!-- TODO: ExtraScript --><script type="text/javascript">
+        $(document).ready(function() {
+            $navBar = $('.toggle-nav-open');
+            $navBar.on('click', function() {
+                var open = $(this).hasClass('active') ? 'close' : 'open';
+                changeStyle('nav-bar', open);
+                saveStyle('nav-bar', open);
+                $('header').toggle();
+                $('.navbar-breadcrumb').toggle();
+            });
+
+            // Key for the chapter navigation
+            $nextChap = $('#next_chap');
+            $prevChap = $('#prev_chap');
+            $(document).keydown(function (e) {
+                var tag = e.target.tagName.toLowerCase();
+                if (tag == 'input' || tag == 'textarea') return;
+
+                var keypress = e.charCode ? e.charCode : e.keyCode;
+                if (keypress == 39 || keypress == 68) {
+                    if (!$nextChap.attr('disabled')) {
+                        window.location = $nextChap.attr('href');
+                    }
+                } else if (keypress == 37 || keypress == 65) {
+                    if (!$prevChap.attr('disabled')) {
+                        window.location = $prevChap.attr('href');
+                    }
+                }
+            });
+
+            // TODO: Theme
+            $container = $('#container');
+            $chapter = $('#chapter');
+            $chapterContent = $('#chapter-content');
+            var chapterContent = $chapterContent.html();
+            $options = $('#options');
+            $options.show();
+            $optionBackground = $('#option-background');
+            $optionFontFamily = $('#option-font-family');
+            $optionFontSize = $('#option-font-size');
+            $optionLineHeight = $('#option-line-height');
+            $optionFluidSwitch = $('input[type=radio][name=fluid-switch]');
+            $optionNoLineBreak = $('input[type=radio][name=onebreak-switch]');
+            $optionBackground.on('change', function() {
+                changeStyle('background', $(this).val());
+                saveStyle('background', $(this).val());
+            });
+            $optionFontFamily.on('change', function() {
+                changeStyle('font-family', $(this).val());
+                saveStyle('font-family', $(this).val());
+            });
+            $optionFontSize.on('change', function() {
+                changeStyle('font-size', $(this).val());
+                saveStyle('font-size', $(this).val());
+            });
+            $optionLineHeight.on('change', function() {
+                changeStyle('line-height', $(this).val());
+                saveStyle('line-height', $(this).val());
+            });
+            $optionFluidSwitch.on('change', function() {
+                changeStyle('fluid-switch', $(this).val());
+                saveStyle('fluid-switch', $(this).val());
+            });
+            $optionNoLineBreak.on('change', function() {
+                changeStyle('onebreak-switch', $(this).val());
+                saveStyle('onebreak-switch', $(this).val());
+            });
+
+            function changeStyle(style, value) {
+                if (!value) return;
+                switch (style) {
+                    case "background":
+                        $container.css('background-color', value);
+                        if (value == '#232323') {
+                            $container.addClass('dark-background');
+                        } else {
+                            $container.removeClass('dark-background');
+                        }
+                        break;
+                    case "font-family":
+                        $chapterContent.css('font-family', value);
+                        break;
+                    case "font-size":
+                        $chapterContent.css('font-size', value);
+                        break;
+                    case "line-height":
+                        $chapterContent.css('line-height', value);
+                        break;
+                    case "nav-bar":
+                        if ( value == 'open' ) {
+                            $('body').addClass('toggleNav');
+                            $('#container').addClass('active');
+                            $navBar.find('.glyphicon').removeClass('glyphicon-menu-up').addClass('glyphicon-menu-down');
+                            $navBar.addClass('active');
+                        } else {
+                            $navBar.removeClass('active');
+                            $('#container').removeClass('active');
+                            $navBar.find('.glyphicon').removeClass('glyphicon-menu-down').addClass('glyphicon-menu-up');
+                            $('body').removeClass('toggleNav');
+                        }
+                        break;
+                    case "fluid-switch":
+                        if (value == 'yes') {
+                            $chapter.removeClass('container');
+                            $chapter.addClass('container-fluid');
+                        } else {
+                            $chapter.addClass('container');
+                            $chapter.removeClass('container-fluid');
+                        }
+                        break;
+                    case "onebreak-switch":
+                        if (value == 'yes') {
+                            $chapterContent.html(removeLineBreak($chapterContent.html()));
+                        } else {
+                            $chapterContent.html(addLineBreak(chapterContent));
+                        }
+                        break;
+                }
+            }
+
+            function saveStyle(style, value) {
+                // Save to cookies
+                var chapterStyle = getStyle();
+
+                switch (style) {
+                    case "background":
+                        chapterStyle.background = value;
+                        break;
+                    case "font-family":
+                        chapterStyle.fontFamily = value;
+                        break;
+                    case "font-size":
+                        chapterStyle.fontSize = value;
+                        break;
+                    case "line-height":
+                        chapterStyle.lineHeight = value;
+                        break;
+                    case "nav-bar":
+                        chapterStyle.navBar = value;
+                        break;
+                    case "fluid-switch":
+                        chapterStyle.fluidSwitch = value;
+                        break;
+                    case "onebreak-switch":
+                        chapterStyle.onebreakSwitch = value;
+                        break;
+                }
+                var expDate = new Date();
+                expDate.setTime(expDate.getTime() + (7 * 24 * 60 * 60 * 1000));
+                $.cookie("chapter_style", JSON.stringify(chapterStyle), {path: '/', expires: expDate});
+                var settings = {
+                    style: chapterStyle
+                };
+                $.ajax({
+                    method: "POST",
+                    url: ajaxUserSettingsUrl,
+                    data: {
+                        settings: JSON.stringify(settings)
+                    }
+                }).done(function (data) {
+                    console.log(data);
+                });
+            }
+
+            function addLineBreak(content) {
+                var delimiter = '</p>';
+                if (content.indexOf(delimiter) == -1 || content.indexOf('<br/>') > 5 || content.indexOf('<br>') > 5) {
+                    delimiter = '<br/>';
+                    if (content.indexOf(delimiter) == -1) {
+                        delimiter = '<br>';
+                    }
+                }
+                var contentArray = content.split(delimiter);
+                if (contentArray.length == 1) return content;
+                var newContent = '';
+                for (var i in contentArray) {
+                    var contentItem = contentArray[i].trim();
+                    if (contentItem != '<p>') {
+                        newContent += contentItem;
+                        newContent += '<br>';
+                    } 
+                }
+                newContent = newContent.replace(/(<br\s*\/?>){1,}/gi, '<br>');
+                newContent = newContent.replace(/<p><br><br><\/p>/gi, '');
+                return newContent;
+            }
+
+            function removeLineBreak(content) {
+                var newContent = content;
+                newContent = newContent.replace(/(<br\s*\/?>){1,}/gi, '');
+                return newContent;
+            }
+
+            function getStyle() {
+                var chapterStyle = $.cookie("chapter_style");
+                if (chapterStyle) {
+                    chapterStyle = JSON.parse(chapterStyle);
+                } else {
+                    chapterStyle = {};
+                }
+                if (!chapterStyle.background) chapterStyle.background = "#F4F4F4";
+                if (!chapterStyle.fontFamily) chapterStyle.fontFamily = "Arial, sans-serif";
+                if (!chapterStyle.fontSize) chapterStyle.fontSize = "18px";
+                if (!chapterStyle.lineHeight) chapterStyle.lineHeight = "160%";
+                if (!chapterStyle.fluidSwitch) chapterStyle.fluidSwitch = 'no';
+                if (!chapterStyle.onebreakSwitch) chapterStyle.onebreakSwitch = 'no';
+                if (!chapterStyle.navBar) chapterStyle.navBar = 'close';
+                return chapterStyle;
+            }
+
+            var chapterStyle = getStyle();
+            $optionBackground.val(chapterStyle.background);
+            $optionFontFamily.val(chapterStyle.fontFamily);
+            $optionFontSize.val(chapterStyle.fontSize);
+            $optionLineHeight.val(chapterStyle.lineHeight);
+            if (chapterStyle.navBar == 'open') {
+                //$('body').addClass('toggleNav');
+//                $('#container').addClass('active');
+//                $navBar.find('.glyphicon').removeClass('glyphicon-menu-up').addClass('glyphicon-menu-down');
+//                $navBar.addClass('active');
+//                $('header').hide();
+//                $('.navbar-breadcrumb').hide();
+            }
+            $optionFluidSwitch.val([chapterStyle.fluidSwitch]);
+            $optionNoLineBreak.val([chapterStyle.onebreakSwitch]);
+            //changeStyle('onebreak-switch', chapterStyle.onebreakSwitch);
+
+            // TODO: Chapter Nav
+            $('.chapter_jump').on('change', function() {
+                window.location = $(this).val();
+            });
+
+            // TODO: Novel history
+            var novel = {
+                id: 57,
+                name: 'Martial World',
+                url: '/martial-world.html',
+                chapter: {
+                    id: 475186,
+                    name: 'Chapter 1406 – Imperial Prince Naqi',
+                    url: '/martial-world/chapter-1406-imperial-prince-naqi.html',
+                }
+            };
+
+            jQuery(document).ready(function () {
+                var limit = 10;
+                var novels = $.cookie("novels_history");
+                if (novels) novels = JSON.parse(novels);
+                else novels = [];
+
+                for (var i in novels) {
+                    var nv = novels[i];
+                    if (nv.id == novel.id) {
+                        novels.splice(i, 1);
+                        break;
+                    }
+                }
+
+                if (novels.length == limit) {
+                    novels.splice(-1,1);
+                }
+                novels.unshift(novel);
+
+                var expDate = new Date();
+                expDate.setTime(expDate.getTime() + (7 * 24 * 60 * 60 * 1000));
+                $.cookie("novels_history", JSON.stringify(novels), {path: '/', expires: expDate});
+            });
+
+            $('#chapter_error').on('click', function() {
+                console.log('chapter_error');
+                var reason = prompt("Please describe error", "");
+                if (reason != null) {
+                    $.ajax({
+                        method: "GET",
+                        url: ajaxReportChapterUrl,
+                        data: {
+                            chapter: $(this).data('chapter-id'),
+                            reason: reason
+                        }
+                    }).done(function (data) {
+                        console.log(data);
+                    });
+                    alert('Thanks report');
+                }
+            });
+
+            chapterJump(novel.id, novel.chapter.id, novel.chapter.url);
+        });
+    </script><link rel="stylesheet" href="./3_files/style.css"><link rel="stylesheet" href="./3_files/rateit.css"><link rel="stylesheet" href="./3_files/custom.css"><link rel="stylesheet" href="./3_files/responsive.css"></head><body data-new-gr-c-s-check-loaded="14.997.0" data-gr-ext-installed=""><div id="wrapper"><header class="header" style="display: block"><div class="navbar navbar-default navbar-static-top" role="navigation" id="nav"><div class="container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Show menu</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><h5><a class="header-logo" href="https://novelfull.com/" title="Read novel online"><img src="./3_files/banner-75b2b7a774-e3b318a6dc29b96947534819abc91cd3.webp"></a></h5></div><div class="navbar-collapse collapse"><ul class="control nav navbar-nav "><li class="dropdown"><a href="https://novelfull.com/martial-world/chapter-1406-imperial-prince-naqi.html#" class="dropdown-toggle" data-toggle="dropdown" title=""><span class="glyphicon glyphicon-list"></span> Novel List <span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li><a href="https://novelfull.com/latest-release-novel" title="Latest Release">Latest Release</a></li><li><a href="https://novelfull.com/hot-novel" title="Hot Novel">Hot Novel</a></li><li><a href="https://novelfull.com/completed-novel" title="Completed Novel">Completed Novel</a></li><li><a href="https://novelfull.com/most-popular" title="Most Popular">Most Popular</a></li></ul></li><li class="dropdown"><a href="https://novelfull.com/martial-world/chapter-1406-imperial-prince-naqi.html#" class="dropdown-toggle" data-toggle="dropdown" title=""><span class="glyphicon glyphicon-list"></span> Genre <span class="caret"></span></a><div class="dropdown-menu multi-column"><div class="row"><div class="col-md-4"><ul class="dropdown-menu"><li><a href="https://novelfull.com/genre/Shounen" title="Shounen">Shounen</a></li><li><a href="https://novelfull.com/genre/Harem" title="Harem">Harem</a></li><li><a href="https://novelfull.com/genre/Comedy" title="Comedy">Comedy</a></li><li><a href="https://novelfull.com/genre/Martial+Arts" title="Martial Arts">Martial Arts</a></li><li><a href="https://novelfull.com/genre/School+Life" title="School Life">School Life</a></li><li><a href="https://novelfull.com/genre/Mystery" title="Mystery">Mystery</a></li><li><a href="https://novelfull.com/genre/Shoujo" title="Shoujo">Shoujo</a></li><li><a href="https://novelfull.com/genre/Romance" title="Romance">Romance</a></li><li><a href="https://novelfull.com/genre/Sci-fi" title="Sci-fi">Sci-fi</a></li><li><a href="https://novelfull.com/genre/Gender+Bender" title="Gender Bender">Gender Bender</a></li><li><a href="https://novelfull.com/genre/Mature" title="Mature">Mature</a></li><li><a href="https://novelfull.com/genre/Fantasy" title="Fantasy">Fantasy</a></li></ul></div><div class="col-md-4"><ul class="dropdown-menu"><li><a href="https://novelfull.com/genre/Horror" title="Horror">Horror</a></li><li><a href="https://novelfull.com/genre/Drama" title="Drama">Drama</a></li><li><a href="https://novelfull.com/genre/Tragedy" title="Tragedy">Tragedy</a></li><li><a href="https://novelfull.com/genre/Supernatural" title="Supernatural">Supernatural</a></li><li><a href="https://novelfull.com/genre/Ecchi" title="Ecchi">Ecchi</a></li><li><a href="https://novelfull.com/genre/Xuanhuan" title="Xuanhuan">Xuanhuan</a></li><li><a href="https://novelfull.com/genre/Adventure" title="Adventure">Adventure</a></li><li><a href="https://novelfull.com/genre/Action" title="Action">Action</a></li><li><a href="https://novelfull.com/genre/Psychological" title="Psychological">Psychological</a></li><li><a href="https://novelfull.com/genre/Xianxia" title="Xianxia">Xianxia</a></li><li><a href="https://novelfull.com/genre/Wuxia" title="Wuxia">Wuxia</a></li><li><a href="https://novelfull.com/genre/Historical" title="Historical">Historical</a></li></ul></div><div class="col-md-4"><ul class="dropdown-menu"><li><a href="https://novelfull.com/genre/Slice+of+Life" title="Slice of Life">Slice of Life</a></li><li><a href="https://novelfull.com/genre/Seinen" title="Seinen">Seinen</a></li><li><a href="https://novelfull.com/genre/Lolicon" title="Lolicon">Lolicon</a></li><li><a href="https://novelfull.com/genre/Adult" title="Adult">Adult</a></li><li><a href="https://novelfull.com/genre/Josei" title="Josei">Josei</a></li><li><a href="https://novelfull.com/genre/Sports" title="Sports">Sports</a></li><li><a href="https://novelfull.com/genre/Smut" title="Smut">Smut</a></li><li><a href="https://novelfull.com/genre/Mecha" title="Mecha">Mecha</a></li><li><a href="https://novelfull.com/genre/Yaoi" title="Yaoi">Yaoi</a></li><li><a href="https://novelfull.com/genre/Shounen+Ai" title="Shounen Ai">Shounen Ai</a></li></ul></div></div></div></li><li class="dropdown" id="options" style="display: list-item;"><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> Options <span class="caret"></span></a><div class="dropdown-menu dropdown-menu-right settings"><form class="form-horizontal"><div class="form-group form-group-sm"><label class="col-sm-2 col-md-5 control-label" for="truyen-background">Background</label><div class="col-sm-5 col-md-7"><select class="form-control" id="option-background"><option value="#F4F4F4">Light gray</option><option value="#E9EBEE">Light blue</option><option value="#F4F4E4">Light yellow</option><option value="#EAE4D3">Sepia</option><option value="#D5D8DC">Dark blue</option><option value="#FAFAC8">Dark yellow</option><option value="#EFEFAB">Wood grain</option><option value="#FFF">White</option><option value="#232323">Dark</option></select></div></div><div class="form-group form-group-sm"><label class="col-sm-2 col-md-5 control-label" for="font-chu">Font family</label><div class="col-sm-5 col-md-7"><select class="form-control" id="option-font-family"><option value="&#39;Palatino Linotype&#39;, serif">Palatino Linotype</option><option value="Bookerly, serif">Bookerly</option><option value="Minion, serif">Minion</option><option value="&#39;Segoe UI&#39;, sans-serif">Segoe UI</option><option value="Roboto, sans-serif">Roboto</option><option value="&#39;Roboto Condensed&#39;, sans-serif">Roboto Condensed</option><option value="&#39;Patrick Hand&#39;, sans-serif">Patrick Hand</option><option value="&#39;Noticia Text&#39;, sans-serif">Noticia Text</option><option value="&#39;Times New Roman&#39;, serif">Times New Roman</option><option value="Verdana, sans-serif">Verdana</option><option value="Tahoma, sans-serif">Tahoma</option><option value="Arial, sans-serif">Arial</option></select></div></div><div class="form-group form-group-sm"><label class="col-sm-2 col-md-5 control-label" for="size-chu">Font size</label><div class="col-sm-5 col-md-7"><select class="form-control" id="option-font-size"><option value="16px">16</option><option value="18px">18</option><option value="20px">20</option><option value="22px">22</option><option value="24px">24</option><option value="26px">26</option><option value="28px">28</option><option value="30px">30</option><option value="32px">32</option><option value="34px">34</option><option value="36px">36</option><option value="38px">38</option><option value="40px">40</option></select></div></div><div class="form-group form-group-sm"><label class="col-sm-2 col-md-5 control-label" for="line-height">Line
+                                            height</label><div class="col-sm-5 col-md-7"><select class="form-control" id="option-line-height"><option value="100%">100%</option><option value="120%">120%</option><option value="140%">140%</option><option value="160%">160%</option><option value="180%">180%</option><option value="200%">200%</option></select></div></div><div class="form-group form-group-sm"><label class="col-sm-2 col-md-5 control-label">Full frame</label><div class="col-sm-5 col-md-7"><label class="radio-inline" for="fluid-yes"><input type="radio" name="fluid-switch" id="fluid-yes" value="yes" data-np-checked="1"> Yes</label><label class="radio-inline" for="fluid-no"><input type="radio" name="fluid-switch" id="fluid-no" value="no" checked="" data-np-checked="1"> No</label></div></div><div class="form-group form-group-sm"><label class="col-sm-2 col-md-5 control-label">No line break</label><div class="col-sm-5 col-md-7"><label class="radio-inline" for="onebreak-yes"><input type="radio" name="onebreak-switch" id="onebreak-yes" value="yes" data-np-checked="1"> Yes</label><label class="radio-inline" for="onebreak-no"><input type="radio" name="onebreak-switch" id="onebreak-no" value="no" checked="" data-np-checked="1"> No</label></div></div></form></div></li></ul><form class="navbar-form navbar-right" action="https://novelfull.com/search" data-np-checked="1"><div class="input-group search-holder"><input class="form-control" id="search-input" type="search" name="keyword" placeholder="Search..." value="" data-np-checked="1"><div class="input-group-btn"><button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button></div></div><div class="list-group list-search-res hide"></div></form><div id="login-status" class="hide"></div></div><!--/.nav-collapse --></div></div></header><main id="container" class=" " style="background-color: #F4F4F4"><div class="navbar-breadcrumb" style="display: block"><div class="container breadcrumb-container"><ol class="breadcrumb"><li><a href="https://novelfull.com/martial-world/chapter-1406-imperial-prince-naqi.html"><span class="glyphicon glyphicon-home"></span></a><a href="https://novelfull.com/" title="Read novel online"><span>Novel</span></a></li><li><h1><a href="https://novelfull.com/martial-world.html" title="Martial World"><span>Martial World</span></a></h1></li><li class="active"><a href="https://novelfull.com/martial-world/chapter-1406-imperial-prince-naqi.html" title="Chapter 1406 – Imperial Prince Naqi"><span>Chapter 1406 – Imperial Prince Naqi</span></a></li></ol></div></div><div id="chapter" class="chapter container"><div class="row"><div class="col-xs-12"><a class="truyen-title" href="https://novelfull.com/martial-world.html" title="Martial World">Martial World</a><h2><a class="chapter-title" href="https://novelfull.com/martial-world/chapter-1406-imperial-prince-naqi.html" title="Chapter 1406 – Imperial Prince Naqi"><span class="chapter-text">Chapter 1406 – Imperial Prince Naqi<span></span></span></a></h2><hr class="chapter-start"><button type="button" class="btn btn-responsive btn-success toggle-nav-open "><span class="glyphicon glyphicon-menu-up"></span></button><div class="chapter-nav" id="chapter-nav-top"><div class="btn-group"><a class="btn btn-success" href="https://novelfull.com/martial-world/chapter-1405-irreproachable-stupa.html" title="Chapter 1405 – Irreproachable Stupa" id="prev_chap"><span class="glyphicon glyphicon-chevron-left"></span><span class="hidden-xs">Prev Chapter</span></a><button type="button" class="btn btn-success chapter_jump"><span class="glyphicon glyphicon-list-alt"></span></button><a class="btn btn-success" href="https://novelfull.com/martial-world/chapter-1407-enlightenment-beneath-the-bodhi-tree.html" title="Chapter 1407 – Enlightenment Beneath the Bodhi Tree" id="next_chap"><span class="hidden-xs">Next Chapter</span><span class="glyphicon glyphicon-chevron-right"></span></a></div></div><hr class="chapter-end"><div id="chapter-content" class="chapter-c" style="font-family: Arial, sans-serif, serif; font-size: 18px; line-height: 160%;"><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- full thich ung --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2371791870283090" data-ad-slot="2009706278" data-ad-format="auto" data-full-width-responsive="true"></ins><script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><p></p><p>Chapter 1406 – Imperial Prince Naqi</p><p>…</p><p>…</p><p>…</p><p>Since ancient times, when peerless human powerhouses died they would often leave behind hidden legacies that they would wait for destined successors to inherit.</p><p>As for the skeletons of these unrivalled powerhouses, they were often buried in some far off and unknown place, or they simply destroyed their own bodies. This was because the corpse of a peerless powerhouse was in itself a priceless treasure.</p><p>Of these peerless powerhouses, which one hadn’t swallowed up countless heavenly materials during their lives? Their flesh and blood essence was comparable to a divine treasure of the heaven and earth, their bones and meridian channels were inscribed with dao patterns and Law runes. If one dug up their corpses and perceived them, it wouldn’t be inferior to chaos stones.</p><p>Because of these reasons, peerless powerhouses wouldn’t be buried in obvious tombs in order to prevent others from digging up their corpses after their deaths to refine pills, or be taken by others as objects to be perceived.</p><p>Only a sect like Mount Potala that had existed for 3.6 billion years, with a deep background that had reached unfathomable depths, could possess the ability to inter these skeletons at the Irreproachable Stupa to preserve them and allow these eminent monks to rest in peace within these Buddhist pagodas.</p><p>It could be imagined that the Buddhist bone relics in these pagodas were treasures amongst treasures.</p><p>As Lin Ming constantly neared the gathering of pagodas, he could hear faint Buddhist chants reverberate between the heavens and the earth. Shimmering golden Buddhist runes fluttered in the skies, bringing together all sorts of wonderful sights.</p><p>At this moment, Lin Ming could feel all the blood and true essence within his body boil up with excitement. His heart beat in tandem with the flow of Buddhist runes.</p><p>Hum –</p><p>The grandmist battle spirit trembled.</p><p>Lin Ming could feel the complete will within his body being baptized.</p><p>300 feet!</p><p>200 feet!</p><p>100 feet!</p><p>Lin Ming finally arrived in front of the forest of pagodas. A living Empyrean could conceal their own aura and also keep their battle spirit hidden within their spiritual sea, dormant until it was activated. For instance, Empyrean Divine Dream could appear like a completely ordinary mortal woman if she so chose.</p><p>But for an Empyrean that died, everything would return to nature. If a martial artist was lacking in will, it would be impossible for them to withstand the cleansing of the Irreproachable Stupa.</p><p>Lin Ming arrived at the first pagoda of the Irreproachable Stupa. This pagoda was eight stories high. In Buddhism, the most basic function of a Buddhist pagoda was a grave. It was used to bury the remains of the preeminent monks and their relics.</p><p>The doors to this pagoda began to open.</p><p>Lin Ming deeply bowed before entering the pagoda.</p><p>Looking all around, at the center of this pagoda was a relic. This relic was flat and wide, shaped like an oval. This relic was extremely different from what Lin Ming imagined relics to look like.</p><p>The remains of an eminent monk were normally buried in a chamber beneath the pagoda. But, this relic was actually placed in the center of the ground floor hall, revealed to the world without any jade box sealing it.</p><p>Looking down, there were a stone tablet beneath this relic with some words inscribed upon it. “Benevolent King, born 800 million years after the great calamity. He managed Mount Potala, and possessed an Empyrean cultivation. He became a monk at six years of age. His talent was extraordinary and his memory was wonderful. He studied the 300 Buddhist scriptures, and before 20 years of age, he did not practice martial arts at all, but fully invested himself in comprehending the dharma of Buddhism. The light of awakening came down to him and Benevolent King’s body was reborn through nirvana, and from that point on he condensed a Buddha body. That is the stage of Life Destruction…”</p><div class="ads ads-holder ads-middle text-center"><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2371791870283090" data-ad-slot="8264086020"></ins><script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><p>As Lin Ming read this description, he was incomparably astonished. The stone tablet recorded that Benevolent King didn’t study any martial arts cultivation method before he was 20 years old, and only meditated on the Buddhist scriptures. Even so, after that, his mortal body was reborn through nirvana, condensing into a Buddha body. That was the same stage as Life Destruction.</p><p>If this was true, then the path of Buddhism was far too mysterious and miraculous.</p><p>Further down, the stone tablet recorded the various achievements of Benevolent King. In addition, at the very bottom there was a brief string of words, “If I can preach to the infallible, then after I perish within my fires, let my tongue remain forever.”</p><p>These several words seemed gentle and quiet, like an ordinary sentence, but they actually emitted a deep and powerful momentum. Just by looking at them one felt the impulse to pray in worship and accept a baptism of Buddhism with all their heart.</p><p>This sort of feeling was only comparable to what Lin Ming had felt when he read the words that Empyrean Primordius left behind in the Eternal Demon Abyss. “The masterless rivers of star in the endless cosmos, I shall rewrite the infinite history!”</p><p>“These words should be Benevolent King’s own. And from their meaning, they should also be his last words.”</p><p>Lin Ming thought. The meaning behind these words was that if the teachings he passed on were without mistake, then once his mortal body perished and he burned away in the fires, let his tongue not be burnt to nothing.</p><p>The flames that Mount Potala used to cremate their eminent monks were not normal fire, but divine fire composed of the complete nine level Concepts of the Fire Laws. Normally, once an essence gathering system martial artist died, their origin energy would dissipate, leaving behind a spirit body that simply wasn’t able to withstand the blaze of this divine fire. But, these eminent monks were actually able to leave behind relics through the flames.</p><p>As Lin Ming thought of this, his mind stirred. He looked up towards the relic at the center of the pagoda. Looking closer, this flat relic actually resembled a tongue.</p><p>“When Benevolent King died, his tongue was actually left remaining and turned into a relic. Really, his words came true…”</p><p>As Lin Ming looked at this relic, his heart was shaken. It was unknown just what boundary this eminent monk had reached in his life; it should have been a level even higher than Great Limitless Buddha.</p><p>Lin Ming continued to look. He discovered that behind this stone tablet was also a section of scriptures.</p><p>These scriptures were not martial arts heart mantras, but pure Buddhist passages. Lin Ming held a heart of reverent awe as he read this passage from beginning to end.</p><p>In calming the mind, one could also further their understanding of Concepts.</p><p>Lin Ming stayed at the Irreproachable Stupa of Benevolent King for three whole days. Then, he left.</p><p>He moved towards the next Irreproachable Stupa.</p><p>This Irreproachable Stupa also had a stone tablet. The words carved upon it were, “Jiu Moye. He was born one billion and 80 million years after the great calamity. He shaved his head, undergoing tonsure at three years of age…</p><p>“…He died one billion and 90 million years after the great calamity. After his death, his ashes were divided into 48,000 parts, each integrated into the bricks of this Buddhist pagoda, becoming one with the Irreproachable Stupa. This pagoda is spiritual; without anyone refining it, it became an Empyrean spirit treasure…”</p><div class="ads ads-holder ads-middle text-center"><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2371791870283090" data-ad-slot="8264086020"></ins><script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><p>Lin Ming read onwards. Grandmaster Jiu Moye had also left behind his last words. “To respect all life, my heart shines as bright as a mirror. When my body returns to the earth, give my heart to all living creatures.”</p><p>These last words also gave Lin Ming some enlightenments. When Grandmaster Jiu Moye’s mortal body was burned away, his heart that was as bright and clear as a mirror was left behind for all living creatures. His achievements were no worse than those of Benevolent King’s.</p><p>He stayed in Jiu Moye’s Irreproachable Stupa for another three full days.</p><p>He continued to the next Irreproachable Stupa. As time passed, Lin Ming looked at the life history of these eminent Buddhist monks, experiencing their life and accepting a baptism of their will.</p><p>During this period of time, Lin Ming’s cultivation didn’t rise by much. But, his soul actually went through a subtle transformation, and the grandmist battle spirit within him also became increasingly blue…</p><p>………..</p><p>As Lin Ming was enlightening himself within the Irreproachable Stupas, there was actually a storm of blood and slaughter occurring on the Bright Luster Great World, with countless deaths and battles.</p><p>Many heroic young elites flocked towards the Bright Luster Great World to temper themselves on that battlefield of slaughter.</p><p>There were some people that made breakthroughs at the precipice of life and death, their cultivation rapidly rising. There were even those that obtained the treasures and secrets of the dead, making great strides in their progress.</p><p>But, there were even more people that died. They were burnt to ashes without even a skeleton remaining.</p><p>And among these corpses, there was a name that rose in splendor.</p><p>That was… Imperial Prince Naqi!</p><p>With a late Divine Transformation level cultivation, he could fight a Holy Lord!</p><p>He could instantly kill the weakest of Holy Lords. And even against a strong Holy Lord, he still had the means to preserve his life.</p><p>This degree of talent was simply too alarming. It had to be known that on the Bright Luster Great World, the highest cultivation martial artists on the battlefield were Holy Lords. In other words, it would be extremely difficult for Imperial Prince Naqi to meet an opponent who could threaten his life.</p><p>Many missions that were aimed specifically at him failed, one after another. Once, over a dozen powerhouses couldn’t withstand this shame and joined forces to kill Naqi, in order to strengthen the momentum of humanity and also make a name for themselves.</p><p>But afterwards, not only did their trap fail, but Naqi instead killed five of them. They were forced to retreat in disastrous defeat!</p><p>Following that battle, Naqi’s fame rose, shaking the world like an earthquake. Beside him was also a feather-robed woman and a dark and tall thin youth. Although they were weaker than Naqi, they weren’t common geniuses of their generation either.</p><p>If a normal peak Divine Lord martial artist were to run into them, they wouldn’t be a match at all!</p><p>“I heard that Imperial Prince Naqi was the first place champion in the saint race’s First Martial Meeting!”</p><p>“Yes, Naqi is nearly from the same batch of geniuses as Lin Ming, Xiao Moxian, and Frost Dream. This is a great coincidence. I heard that because of the great calamity, there were many rising talents in the saint race’s most recent First Martial Meeting, with countless masters rising together! And, this Naqi is also the direct disciple of the saint race’s True Divinity powerhouse, the Good Fortune Saint Sovereign. This title of Imperial Prince was also passed down from the Good Fortune Saint Sovereign!”</p><div class="ads ads-holder ads-middle text-center"><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2371791870283090" data-ad-slot="8264086020"></ins><script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><p>On the battlefield of the Bright Luster Great World, several human martial artists were talking about Naqi.</p><p>It was impossible for these humans to hold a candle to the reputation of a True Divinity disciple. After all, most of these people here were geniuses from ordinary Holy Lands. They were four or five levels different from a True Divinity disciple; there was no comparison at all.</p><p>For these months, the Good Fortune Saint Son had gone into seclusion. Because of the contract between the humans and the saints, humans weren’t allowed to attack the Good Fortune Saint Son, otherwise the balance at the Bright Luster Great World would be toppled. As for the saint race, they also agreed with this condition.</p><p>Thus, when the younger but equally talented Naqi appeared, rolling over the battlefield of the Bright Luster Great World was the same as turning over his palm!</p><p>This caused many human geniuses to be cautious with all their actions lest they meet Naqi. With their strength, they were the same as dead people if they were to stumble into Naqi! Moreover, their deaths would be worthless because they couldn’t put up any resistance at all.</p><p>“Not only is there Naqi, but that feather robe woman and that bamboo-like man that follow him around are also top ten ranked characters of the saints’ First Martial Meeting. They come from a True Divinity Holy Land too! If we encounter them, we must run as far away as we can.”</p><p>“How come several top ranked champions of the saint’s First Martial Meeting have appeared at the Bright Luster Great World battlefield, but you can’t even see the shadow of our human race’s First Martial Meeting geniuses!”</p><p>“Yah! What are they doing, are they still closed up in seclusion? How could that help them grow faster than life or death slaughters on the battlefield? Are they not coming out because they are scared?”</p><p>It was unknown who was speaking, but many martial artists glowered in his direction.</p><p>“Just what crap are you spouting!”</p><p>Some people immediately shut him down. The human race and saint race were mortal blood enemies. At this time, who could ruin the momentum of their own race?</p><p>Even so, although no one said it, there were some people who thought that the geniuses of humanity’s First Martial Meeting were too afraid to appear on the Bright Luster Great World because of Naqi. After all, one was an Empyrean descendant and the other was a True Divinity descendant; they were an entire boundary apart.</p><p>“Don’t speak so casually. I heard that Dragon Fang, Hang Chi, and the others have already entered the Bright Luster Great World. As for Frost Dream, she has entered some mystic realm with Empyrean Divine Dream so she can’t appear for some time. I have no idea what Lin Ming is doing, but he should still be deep in seclusion at Mount Potala…”</p><div align="left">
+        If you find any errors ( broken links, non-standard content, etc.. ), Please let us know &lt; report chapter &gt; so we can fix it as soon as possible. </div></div><hr class="chapter-end"><div class="chapter-nav" id="chapter-nav-top"><div class="btn-group"><a class="btn btn-success" href="https://novelfull.com/martial-world/chapter-1405-irreproachable-stupa.html" title="Chapter 1405 – Irreproachable Stupa" id="prev_chap"><span class="glyphicon glyphicon-chevron-left"></span><span class="hidden-xs">Prev Chapter</span></a><button type="button" class="btn btn-success chapter_jump"><span class="glyphicon glyphicon-list-alt"></span></button><a class="btn btn-success" href="https://novelfull.com/martial-world/chapter-1407-enlightenment-beneath-the-bodhi-tree.html" title="Chapter 1407 – Enlightenment Beneath the Bodhi Tree" id="next_chap"><span class="hidden-xs">Next Chapter</span><span class="glyphicon glyphicon-chevron-right"></span></a></div></div><div class="text-center"><button type="button" class="btn btn-warning" id="chapter_error" data-chapter-id="475186"><span class="glyphicon glyphicon-exclamation-sign"></span> Report chapter
+    </button><!--    <button type="button" class="btn btn-info" id="chapter_comment">--><!--        <span class="glyphicon glyphicon-comment"></span> Comment--><!--    </button>--></div><div class="bg-info text-center visible-md visible-lg box-notice">
+    Tip: You can use left, right, A and D keyboard keys to browse between chapters.
+</div><div class="col-xs-12"></div><script data-ad-client="ca-pub-2371791870283090" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></div></div></div></main><footer class="footer"><div class="container"><div class="hidden-xs col-sm-5"><p>
+	© Copyright NovelFull.Com. All Rights Reserved.</p></div><ul class="col-xs-12 col-sm-7 list-unstyled"><li class="text-right pull-right"><a href="https://novelfull.com/contact" title="Contact">Contact</a> -
+                    <a href="https://novelfull.com/tos" title="ToS">ToS</a> -
+                    <a href="https://novelfull.com/sitemap.xml" target="_blank">Sitemap</a><a class="backtop" href="https://novelfull.com/martial-world/chapter-1406-imperial-prince-naqi.html#" rel="nofollow" title=""><span class="glyphicon glyphicon-upload"></span></a></li></ul></div></footer></div><script async="" src="./3_files/js"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-101484867-2');
+</script></body><!-- Global site tag (gtag.js) - Google Analytics --></html>
