@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-03-09T17:21:16.998</Modified>
+      <Modified>2021-03-09T18:27:52.757</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\TypingTrainer.exe">
       <PackagePath>entrypoint\TypingTrainer.exe</PackagePath>
-      <Modified>2021-03-09T17:21:16.537</Modified>
+      <Modified>2021-03-09T18:27:52.259</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\.nuget\packages\htmlagilitypack\1.11.31\lib\uap10.0\HtmlAgilityPack.dll">
       <PackagePath>HtmlAgilityPack.dll</PackagePath>
@@ -53,6 +53,10 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2019-03-18T22:36:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\1.html">
+      <PackagePath>Data\Everything_Will_Be_My_Way!\1.html</PackagePath>
+      <Modified>2021-03-09T17:30:11.914</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1.html">
       <PackagePath>Data\Martial_World\1.html</PackagePath>
@@ -178,15 +182,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-03-09T17:15:46.178</Modified>
+      <Modified>2021-03-09T18:27:52.183</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-03-09T17:15:46.178</Modified>
+      <Modified>2021-03-09T18:27:52.183</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\NewNovel.xbf">
       <PackagePath>NewNovel.xbf</PackagePath>
-      <Modified>2021-03-09T17:15:46.179</Modified>
+      <Modified>2021-03-09T18:27:52.183</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -194,11 +198,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-03-09T15:48:26.553</Modified>
+      <Modified>2021-03-09T18:27:52.381</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\Core\TypingTrainer.exe">
       <PackagePath>TypingTrainer.exe</PackagePath>
-      <Modified>2021-03-09T17:21:16.994</Modified>
+      <Modified>2021-03-09T18:27:52.753</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

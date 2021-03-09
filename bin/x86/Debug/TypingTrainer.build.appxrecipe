@@ -40,6 +40,9 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\1.html">
+      <PackagePath>Data\Everything_Will_Be_My_Way!\1.html</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1.html">
       <PackagePath>Data\Martial_World\1.html</PackagePath>
     </AppxPackagedFile>

@@ -42,6 +42,7 @@ namespace TypingTrainer
         {
             this.InitializeComponent();
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
+            Window.Current.CoreWindow.PointerCursor = null;
             Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
 
             timer = new DispatcherTimer();
@@ -59,7 +60,7 @@ namespace TypingTrainer
             secondsPast = 0;
             totalSeconds = secondsPast;
 
-            trainer = new Trainer(filename + ".html", DISPLAY_SIZE);
+            trainer = new Trainer(filename + ".html");
 
             startText = trainer.Place;
             updateMainDisplay();
@@ -96,6 +97,7 @@ namespace TypingTrainer
 
             if (e.VirtualKey == VirtualKey.Escape && !AnyContentDialogOpen())
             {
+                Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
                 NewNovel contentDialog = new NewNovel();
                 ContentDialogResult result = await contentDialog.ShowAsync();
 
@@ -114,6 +116,7 @@ namespace TypingTrainer
                         currentChapter = pastChapter;
                     }
                 }
+                Window.Current.CoreWindow.PointerCursor = null;
             }
             else if (e.VirtualKey == VirtualKey.CapitalLock && !AnyContentDialogOpen())
             {
@@ -267,56 +270,35 @@ namespace TypingTrainer
                 if (startText + DISPLAY_SIZE > trainer.Sections.Length) dynamicDisplaySize = trainer.Sections.Length;
                 else dynamicDisplaySize = startText + DISPLAY_SIZE;
 
+                bool inQuotes = false;
                 for (int loc = startText; loc < dynamicDisplaySize; loc++)
                 {
                     Section currentSection = trainer.Sections[loc];
+                    if (currentSection.ToString().First().Equals('"')) inQuotes = true;
+                    else if (currentSection.ToString().Last().Equals('"')) inQuotes = false;
                     for (int innerLoc = 0; innerLoc < currentSection.Word.Length; innerLoc++)
                     {
                         Unit focus = currentSection.Word[innerLoc];
                         if (focus.Typed && focus.Correct)
                         {
-                            StringBuilder typedBuilder = new StringBuilder();
-                            typedBuilder.Append(focus);
-                            if (innerLoc == currentSection.Word.Length - 1) typedBuilder.Append(" ");
-                            typedBuilder.Replace(". ", ".\n\n");
-                            typedBuilder.Replace("! ", ".\n\n");
-                            typedBuilder.Replace("? ", ".\n\n");
-                            typedBuilder.Replace($"{(char)34} ", $"{(char)34}\n\n");
-
                             Run typedText = new Run();
-                            typedText.Text = typedBuilder.ToString();
+                            typedText.Text = buildText(currentSection, innerLoc, focus, inQuotes);
                             typedText.Foreground = new SolidColorBrush(Colors.DarkGray);
 
                             Display.Inlines.Add(typedText);
                         }
                         else if (focus.Typed && !focus.Correct)
                         {
-                            StringBuilder incorrectBuilder = new StringBuilder();
-                            incorrectBuilder.Append(focus);
-                            if (innerLoc == currentSection.Word.Length - 1) incorrectBuilder.Append(" ");
-                            incorrectBuilder.Replace(". ", ".\n\n");
-                            incorrectBuilder.Replace("! ", ".\n\n");
-                            incorrectBuilder.Replace("? ", ".\n\n");
-                            incorrectBuilder.Replace($"{(char)34} ", $"{(char)34}\n\n");
-
                             Run incorrectText = new Run();
-                            incorrectText.Text = incorrectBuilder.ToString();
+                            incorrectText.Text = buildText(currentSection, innerLoc, focus, inQuotes);
                             incorrectText.Foreground = new SolidColorBrush(Colors.DarkRed);
 
                             Display.Inlines.Add(incorrectText);
                         }
                         else
                         {
-                            StringBuilder untypedBuilder = new StringBuilder();
-                            untypedBuilder.Append(focus);
-                            if (innerLoc == currentSection.Word.Length - 1) untypedBuilder.Append(" ");
-                            untypedBuilder.Replace(". ", ".\n\n");
-                            untypedBuilder.Replace("! ", ".\n\n");
-                            untypedBuilder.Replace("? ", ".\n\n");
-                            untypedBuilder.Replace($"{(char)34} ", $"{(char)34}\n\n");
-
                             Run untypedText = new Run();
-                            untypedText.Text = untypedBuilder.ToString();
+                            untypedText.Text = buildText(currentSection, innerLoc, focus, inQuotes);
 
                             Display.Inlines.Add(untypedText);
                         }
@@ -324,6 +306,24 @@ namespace TypingTrainer
                     }
                 }
             }
+        }
+
+        string buildText(Section section, int innerLoc, Unit focus, bool inQuotes)
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.Append(focus);
+            if (innerLoc == section.Word.Length - 1) builder.Append(" ");
+
+            if (!inQuotes)
+            {
+                builder.Replace(". ", ".\n\n");
+                builder.Replace("! ", "!\n\n");
+                builder.Replace("? ", "?\n\n");
+                //builder.Replace($"{(char)34} ", $"{(char)34}\n\n");
+            }
+
+
+            return builder.ToString();
         }
 
         bool EndOfChapter()
@@ -348,11 +348,8 @@ namespace TypingTrainer
         int wordsTyped;
         public int WordsTyped { get { return wordsTyped; } set { wordsTyped = value; } }
 
-        int displaySize;
-
-        public Trainer(string filename, int displaySize)
+        public Trainer(string filename)
         {
-            this.displaySize = displaySize;
             wordsTyped = 0;
             place = 0;
             focus = 0;
@@ -390,7 +387,7 @@ namespace TypingTrainer
             }
             else throw new Exception("File type supported");
 
-            text = TrimContent(text);
+            text = ConvertContent(text);
             char[] textChars = text.ToCharArray();
 
             List<Section> words = new List<Section>();
@@ -417,7 +414,7 @@ namespace TypingTrainer
             return words.ToArray();
         }
 
-        string TrimContent(string rawText)
+        string ConvertContent(string rawText)
         {
 
             if (rawText.Contains((char)169))
@@ -428,10 +425,13 @@ namespace TypingTrainer
             {
                 rawText = rawText.Substring(0, rawText.IndexOf("Does anyone want to become a moderator for this novel?"));
             }
-            if (rawText.Contains("&nbsp;"))
-            {
-                rawText = rawText.Replace("&nbsp;", "");
-            }
+
+            rawText = rawText.Replace("&nbsp;", "");
+            rawText = rawText.Replace((char)8217, '\'');
+            rawText = rawText.Replace((char)171, '"');
+            rawText = rawText.Replace((char)187, '"');
+            rawText = rawText.Replace((char)8221, '"');
+            rawText = rawText.Replace((char)8220, '"');
 
             return rawText;
         }
@@ -449,7 +449,7 @@ namespace TypingTrainer
                     Restart();
                     return true;
                 }
-                else if (section.ToString().Contains(".") || section.ToString().Contains("!") || section.ToString().Contains("?"))
+                else if (section.ToString().Last().Equals('.') || section.ToString().Last().Equals('!') || section.ToString().Last().Equals('?'))
                 {
                     change--;
                 }
@@ -492,7 +492,7 @@ namespace TypingTrainer
                         Restart();
                         return true;
                     }
-                    else if (section.ToString().Contains(".") || section.ToString().Contains("!") || section.ToString().Contains("?"))
+                    else if (section.ToString().Last().Equals('.') || section.ToString().Last().Equals('!') || section.ToString().Last().Equals('?'))
                     {
                         change--;
                     }
@@ -557,11 +557,8 @@ namespace TypingTrainer
 
         private bool SpecialMatch(char character, Unit currentUnit)
         {
-            if (character.Equals('\'') && currentUnit.Equals((char)8217)) return true;
             if (character.Equals('-') && currentUnit.Equals((char)8211)) return true;
             if (character.Equals('.') && currentUnit.Equals((char)8230)) return true;
-            if (character.Equals('"') && currentUnit.Equals((char)8221)) return true;
-            if (character.Equals('"') && currentUnit.Equals((char)8220)) return true;
             if (character.Equals('c') && currentUnit.Equals((char)169)) return true;
             else return false;
         }
