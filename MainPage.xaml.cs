@@ -181,7 +181,7 @@ namespace TypingTrainer
             }
             else if (e.VirtualKey == VirtualKey.PageUp && !AnyContentDialogOpen())
             {
-                if (trainer.Rewind(5))
+                if (trainer.Rewind(6))
                 {
                     timer.Stop();
                     await PlaySound("shortMove.wav");
@@ -279,6 +279,9 @@ namespace TypingTrainer
                             typedBuilder.Append(focus);
                             if (innerLoc == currentSection.Word.Length - 1) typedBuilder.Append(" ");
                             typedBuilder.Replace(". ", ".\n\n");
+                            typedBuilder.Replace("! ", ".\n\n");
+                            typedBuilder.Replace("? ", ".\n\n");
+                            typedBuilder.Replace($"{(char)34} ", $"{(char)34}\n\n");
 
                             Run typedText = new Run();
                             typedText.Text = typedBuilder.ToString();
@@ -292,6 +295,9 @@ namespace TypingTrainer
                             incorrectBuilder.Append(focus);
                             if (innerLoc == currentSection.Word.Length - 1) incorrectBuilder.Append(" ");
                             incorrectBuilder.Replace(". ", ".\n\n");
+                            incorrectBuilder.Replace("! ", ".\n\n");
+                            incorrectBuilder.Replace("? ", ".\n\n");
+                            incorrectBuilder.Replace($"{(char)34} ", $"{(char)34}\n\n");
 
                             Run incorrectText = new Run();
                             incorrectText.Text = incorrectBuilder.ToString();
@@ -305,6 +311,9 @@ namespace TypingTrainer
                             untypedBuilder.Append(focus);
                             if (innerLoc == currentSection.Word.Length - 1) untypedBuilder.Append(" ");
                             untypedBuilder.Replace(". ", ".\n\n");
+                            untypedBuilder.Replace("! ", ".\n\n");
+                            untypedBuilder.Replace("? ", ".\n\n");
+                            untypedBuilder.Replace($"{(char)34} ", $"{(char)34}\n\n");
 
                             Run untypedText = new Run();
                             untypedText.Text = untypedBuilder.ToString();
@@ -380,7 +389,8 @@ namespace TypingTrainer
                 text = File.ReadAllText(filename);
             }
             else throw new Exception("File type supported");
-            
+
+            text = TrimContent(text);
             char[] textChars = text.ToCharArray();
 
             List<Section> words = new List<Section>();
@@ -410,8 +420,20 @@ namespace TypingTrainer
         string TrimContent(string rawText)
         {
 
+            if (rawText.Contains((char)169))
+            {
+                rawText = rawText.Substring(0, rawText.IndexOf((char)169));
+            }
+            if (rawText.Contains("Does anyone want to become a moderator for this novel?"))
+            {
+                rawText = rawText.Substring(0, rawText.IndexOf("Does anyone want to become a moderator for this novel?"));
+            }
+            if (rawText.Contains("&nbsp;"))
+            {
+                rawText = rawText.Replace("&nbsp;", "");
+            }
 
-            return null;
+            return rawText;
         }
 
         public bool Rewind(int change)
@@ -427,7 +449,7 @@ namespace TypingTrainer
                     Restart();
                     return true;
                 }
-                else if (section.ToString().Contains("."))
+                else if (section.ToString().Contains(".") || section.ToString().Contains("!") || section.ToString().Contains("?"))
                 {
                     change--;
                 }
@@ -458,24 +480,32 @@ namespace TypingTrainer
         public bool Forward(int change)
         {
 
-            if (place == sections.Length - (displaySize / 2)) return false;
-            for (int focus = place; focus <= sections.Length - (displaySize / 2); focus++)
+            if (place == sections.Length) return false;
+            try
             {
-                Section section = sections[focus + 1];
-                if (change <= 0)
+                for (int focus = place; focus <= sections.Length; focus++)
                 {
-                    place = focus + 1;
-                    Restart();
-                    return true;
+                    Section section = sections[focus + 1];
+                    if (change <= 0)
+                    {
+                        place = focus + 1;
+                        Restart();
+                        return true;
+                    }
+                    else if (section.ToString().Contains(".") || section.ToString().Contains("!") || section.ToString().Contains("?"))
+                    {
+                        change--;
+                    }
                 }
-                else if (section.ToString().Contains("."))
-                {
-                    change--;
-                }
-            }
-            place = sections.Length - (displaySize / 2);
-            return true;
+                place = sections.Length;
+                return false;
 
+            }
+            catch (IndexOutOfRangeException error)
+            {
+                place = sections.Length;
+                return true;
+            }
 
             // Old Implementation
             /*if (place + change <= sections.Length - displaySize)

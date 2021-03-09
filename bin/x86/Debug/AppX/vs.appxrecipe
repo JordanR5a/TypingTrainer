@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-03-09T15:51:50.834</Modified>
+      <Modified>2021-03-09T17:21:16.998</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\TypingTrainer.exe">
       <PackagePath>entrypoint\TypingTrainer.exe</PackagePath>
-      <Modified>2021-03-09T15:51:50.384</Modified>
+      <Modified>2021-03-09T17:21:16.537</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\.nuget\packages\htmlagilitypack\1.11.31\lib\uap10.0\HtmlAgilityPack.dll">
       <PackagePath>HtmlAgilityPack.dll</PackagePath>
@@ -178,15 +178,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-03-09T15:51:50.305</Modified>
+      <Modified>2021-03-09T17:15:46.178</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-03-09T15:51:50.305</Modified>
+      <Modified>2021-03-09T17:15:46.178</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\NewNovel.xbf">
       <PackagePath>NewNovel.xbf</PackagePath>
-      <Modified>2021-03-09T15:51:50.305</Modified>
+      <Modified>2021-03-09T17:15:46.179</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -198,7 +198,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\Core\TypingTrainer.exe">
       <PackagePath>TypingTrainer.exe</PackagePath>
-      <Modified>2021-03-09T15:51:50.830</Modified>
+      <Modified>2021-03-09T17:21:16.994</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
