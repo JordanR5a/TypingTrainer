@@ -134,6 +134,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Everything_Will_Be_My_Way!\1.html" />
+    <Content Include="Data\Everything_Will_Be_My_Way!\2.html" />
+    <Content Include="Data\Everything_Will_Be_My_Way!\3.html" />
+    <Content Include="Data\Everything_Will_Be_My_Way!\4.html" />
+    <Content Include="Data\Everything_Will_Be_My_Way!\5.html" />
+    <Content Include="Data\Everything_Will_Be_My_Way!\6.html" />
     <Content Include="Data\Martial_World\1.html" />
     <Content Include="Data\Martial_World\10.html" />
     <Content Include="Data\Martial_World\2.html" />

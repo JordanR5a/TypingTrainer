@@ -27,7 +27,7 @@ namespace TypingTrainer
 
     public sealed partial class MainPage : Page
     {
-        static readonly int DISPLAY_SIZE = 150;
+        static readonly int DISPLAY_SIZE = 200;
         static string CURRENT_NOVEL = "Everything_Will_Be_My_Way!";
 
         int currentChapter;
@@ -83,6 +83,7 @@ namespace TypingTrainer
 
         async Task PlaySound(string filename)
         {
+            if (filename != "error.wav") return;
             var element = new MediaElement();
             var folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync("Resources");
             var file = await folder.GetFileAsync(filename);
@@ -173,7 +174,7 @@ namespace TypingTrainer
             if (trainer.Rewind(change))
             {
                 timer.Stop();
-                await PlaySound(goodSound);
+                //await PlaySound(goodSound);
                 startText = trainer.Place;
                 trainer.Restart();
                 updateMainDisplay();
@@ -215,16 +216,16 @@ namespace TypingTrainer
             return false;
         }
 
-        void updateWPMDisplay()
+        async void updateWPMDisplay()
         {
             if (WPMData.Count > 0)
             {
                 timer.Stop();
                 WPMDisplay.Opacity = 0.8;
                 double average = WPMData.Average();
-                WPMDisplay.Text = $"Seconds: {totalSeconds}\n WPM: {string.Format("0:F2", average)}";
+                WPMDisplay.Text = $"Seconds: {totalSeconds}\n WPM: {string.Format("{0:F2}", average)}";
             }
-            else PlaySound("error.wav");
+            else await PlaySound("error.wav");
         }
 
         void updateMainDisplay()
@@ -232,6 +233,7 @@ namespace TypingTrainer
             Display.Inlines.Clear();
             if (EndOfChapter())
             {
+                CurrentChapterDisplay.Opacity = 0;
                 Display.Text = "End of Chapter\n";
                 Display.FontSize = 72;
                 Display.Inlines.Add(new Bold());
@@ -244,6 +246,7 @@ namespace TypingTrainer
             }
             else
             {
+                CurrentChapterDisplay.Opacity = 0.7;
                 Display.FontSize = 34;
                 Display.TextAlignment = TextAlignment.Left;
 
@@ -256,7 +259,7 @@ namespace TypingTrainer
                 {
                     Section currentSection = trainer.Sections[loc];
                     if (currentSection.ToString().First().Equals(Trainer.START_QUOTATION)) inQuotes = true;
-                    else if (currentSection.ToString().Last().Equals(Trainer.END_QUOTATION)) inQuotes = false;
+                    if (currentSection.ToString().Last().Equals(Trainer.END_QUOTATION)) inQuotes = false;
                     for (int innerLoc = 0; innerLoc < currentSection.Word.Length; innerLoc++)
                     {
                         Unit focus = currentSection.Word[innerLoc];
@@ -287,7 +290,7 @@ namespace TypingTrainer
             string spacing = "";
             if (loc < trainer.Sections.Length - 1)
             {
-                if (focus.Equals('"') && trainer.Sections[loc + 1].ToString().First().Equals('"')) spacing = "\n\n";
+                if (focus.Equals(Trainer.END_QUOTATION) && trainer.Sections[loc + 1].ToString().First().Equals(Trainer.START_QUOTATION)) spacing = "\n\n";
                 else if (inQuotes && innerLoc == currentSection.Word.Length - 1) spacing = " ";
                 else if (innerLoc == currentSection.Word.Length - 1)
                 {
@@ -417,6 +420,17 @@ namespace TypingTrainer
             if (rawText.Contains("Does anyone want to become a moderator for this novel?"))
             {
                 rawText = rawText.Substring(0, rawText.IndexOf("Does anyone want to become a moderator for this novel?"));
+            }
+            if (rawText.Contains("More Privileged Chapters Download the app"))
+            {
+                rawText = rawText.Substring(0, rawText.IndexOf("More Privileged Chapters Download the app"));
+            }
+            if (rawText.Contains("Find authorized novels in Webnovel"))
+            {
+                string fluff = rawText.Substring(rawText.IndexOf("Find authorized novels in Webnovel"),
+                                (rawText.LastIndexOf("a&gt; for visiting.") + 19) - rawText.IndexOf("Find authorized novels in Webnovel"));
+
+                rawText = rawText.Replace(fluff, "");
             }
 
             rawText = rawText.Replace("&nbsp;", "");
@@ -559,9 +573,11 @@ namespace TypingTrainer
 
         private bool SpecialMatch(char character, Unit currentUnit)
         {
-            if (character.Equals('-') && currentUnit.Equals((char)8211)) return true;
-            if (character.Equals('.') && currentUnit.Equals((char)8230)) return true;
             if (character.Equals('c') && currentUnit.Equals((char)169)) return true;
+            if (character.Equals('-') && currentUnit.Equals((char)8211)) return true;
+            if (character.Equals('"') && currentUnit.Equals((char)8220)) return true;
+            if (character.Equals('"') && currentUnit.Equals((char)8221)) return true;
+            if (character.Equals('.') && currentUnit.Equals((char)8230)) return true;
             else return false;
         }
 
