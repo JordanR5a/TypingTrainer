@@ -17,7 +17,7 @@
         <TextBlock x:ConnectionId='2' x:Name="WPMDisplay" 
                        HorizontalAlignment="Left"
                        Foreground="White"
-                       FontSize="34"
+                       FontSize="28"
                        FontFamily="Palatino Linotype"
                        FontWeight="Bold"
                    Margin="15 15 0 0"

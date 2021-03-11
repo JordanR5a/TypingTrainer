@@ -28,7 +28,7 @@ namespace TypingTrainer
     public sealed partial class MainPage : Page
     {
         static readonly int DISPLAY_SIZE = 200;
-        static string CURRENT_NOVEL = "Martial_World";
+        static string CURRENT_NOVEL = "The_Shadow";
 
         int startText;
         bool rawFormat;
@@ -92,7 +92,11 @@ namespace TypingTrainer
 
             if (e.VirtualKey == VirtualKey.Escape && !AnyContentDialogOpen()) ChangeNovelPrompt();
             else if (e.VirtualKey == VirtualKey.CapitalLock && !AnyContentDialogOpen()) UpdateWPMDisplay();
-            else if (e.VirtualKey == VirtualKey.Tab && !AnyContentDialogOpen()) rawFormat = rawFormat ? false : true;
+            else if (e.VirtualKey == VirtualKey.Tab && !AnyContentDialogOpen())
+            {
+                rawFormat = rawFormat ? false : true;
+                if (WPMDisplay.Opacity > 0) UpdateWPMDisplay();
+            }
             else if (e.VirtualKey == VirtualKey.Right && !AnyContentDialogOpen())
             {
                 if (trainer.NextChapter())
@@ -205,16 +209,15 @@ namespace TypingTrainer
             return false;
         }
 
-        async void UpdateWPMDisplay()
+        void UpdateWPMDisplay()
         {
-            if (WPMData.Count > 0)
-            {
-                timer.Stop();
-                WPMDisplay.Opacity = 0.8;
-                double average = WPMData.Average();
-                WPMDisplay.Text = $"Time: {string.Format("{0:F2}", totalSeconds / 60.0)}\nWPM: {string.Format("{0:F2}", average)}";
-            }
-            else await PlaySound("error.wav", true);
+            timer.Stop();
+            WPMDisplay.Opacity = 0.8;
+            double average = 0;
+            if (WPMData.Count > 0) average = WPMData.Average();
+            WPMDisplay.Text = $"Time: {string.Format("{0:F2}", totalSeconds / 60.0)}\n" +
+                              $"WPM: {(WPMData.Count > 0 ? string.Format("{0:F2}", average) : "No data")}\n" +
+                              $"Mode: {(rawFormat ? "Raw Format" : "Formatted")}";
         }
 
         void UpdateMainDisplay()
@@ -462,6 +465,7 @@ namespace TypingTrainer
                 if (!Char.IsWhiteSpace(c)) units.Add(new Unit(c));
                 else
                 {
+                    Section section = new Section(units.ToArray(), BuildModifier(c));
                     words.Add(new Section(units.ToArray(), BuildModifier(c)));
                     units = new List<Unit>();
                 }
@@ -478,10 +482,8 @@ namespace TypingTrainer
 
         string BuildModifier(char c)
         {
-            string mod = " ";
-            if (c.Equals("\n") || c.Equals((char)10)) mod = "\n\n";
-            else if (c.Equals("\t")) mod = "\t";
-            return mod;
+            if (c.Equals('\n') || c.Equals('\r')) return "\n\n";
+            else return " ";
         }
 
         string GetRawHtml(string filename)
@@ -747,10 +749,10 @@ namespace TypingTrainer
         string modifier;
         public string Modifier { get { return modifier; } set { modifier = value; } }
 
-        public Section(Unit[] word, string modifier)
+        public Section(Unit[] word, string mod)
         {
             Word = word;
-            Modifier = modifier;
+            Modifier = mod;
         }
 
         public void unTypeAll()
