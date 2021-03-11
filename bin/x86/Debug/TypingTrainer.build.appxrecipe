@@ -40,56 +40,62 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\1.html">
-      <PackagePath>Data\Everything_Will_Be_My_Way!\1.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Aristotle_Complete_Works\1.txt">
+      <PackagePath>Data\Aristotle_Complete_Works\1.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\2.html">
-      <PackagePath>Data\Everything_Will_Be_My_Way!\2.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Aristotle_Complete_Works\2.txt">
+      <PackagePath>Data\Aristotle_Complete_Works\2.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\3.html">
-      <PackagePath>Data\Everything_Will_Be_My_Way!\3.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Aristotle_Complete_Works\3.txt">
+      <PackagePath>Data\Aristotle_Complete_Works\3.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\4.html">
-      <PackagePath>Data\Everything_Will_Be_My_Way!\4.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Aristotle_Complete_Works\4.txt">
+      <PackagePath>Data\Aristotle_Complete_Works\4.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\5.html">
-      <PackagePath>Data\Everything_Will_Be_My_Way!\5.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Aristotle_Complete_Works\5.txt">
+      <PackagePath>Data\Aristotle_Complete_Works\5.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\6.html">
-      <PackagePath>Data\Everything_Will_Be_My_Way!\6.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Free_The_Darkness\0.txt">
+      <PackagePath>Data\Free_The_Darkness\0.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1.html">
-      <PackagePath>Data\Martial_World\1.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Free_The_Darkness\1.txt">
+      <PackagePath>Data\Free_The_Darkness\1.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\10.html">
-      <PackagePath>Data\Martial_World\10.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\The_Shadow\0.txt">
+      <PackagePath>Data\The_Shadow\0.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\2.html">
-      <PackagePath>Data\Martial_World\2.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\The_Shadow\1.txt">
+      <PackagePath>Data\The_Shadow\1.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\3.html">
-      <PackagePath>Data\Martial_World\3.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\181.html">
+      <PackagePath>Data\Everything_Will_Be_My_Way!\181.html</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\4.html">
-      <PackagePath>Data\Martial_World\4.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\182.html">
+      <PackagePath>Data\Everything_Will_Be_My_Way!\182.html</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\5.html">
-      <PackagePath>Data\Martial_World\5.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\183.html">
+      <PackagePath>Data\Everything_Will_Be_My_Way!\183.html</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\6.html">
-      <PackagePath>Data\Martial_World\6.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1405.html">
+      <PackagePath>Data\Martial_World\1405.html</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\7.html">
-      <PackagePath>Data\Martial_World\7.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1406.html">
+      <PackagePath>Data\Martial_World\1406.html</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\8.html">
-      <PackagePath>Data\Martial_World\8.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1407.html">
+      <PackagePath>Data\Martial_World\1407.html</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\9.html">
-      <PackagePath>Data\Martial_World\9.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1408.html">
+      <PackagePath>Data\Martial_World\1408.html</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Prime_Originator\1.html">
-      <PackagePath>Data\Prime_Originator\1.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1409.html">
+      <PackagePath>Data\Martial_World\1409.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1410.html">
+      <PackagePath>Data\Martial_World\1410.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Prime_Originator\322.html">
+      <PackagePath>Data\Prime_Originator\322.html</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>

@@ -23,8 +23,8 @@
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontFamily" />
       <RootProperty Name="FontWeight" />
-      <RootProperty Name="Opacity" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Opacity" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="LineHeight" />
     </RootType>

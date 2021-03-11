@@ -20,6 +20,7 @@
                        FontSize="34"
                        FontFamily="Palatino Linotype"
                        FontWeight="Bold"
+                   Margin="15 15 0 0"
                        Opacity="0"/>
         <StackPanel Grid.Column="1" 
                     Orientation="Vertical">

@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-03-10T03:33:57.260</Modified>
+      <Modified>2021-03-10T23:18:53.891</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\TypingTrainer.exe">
       <PackagePath>entrypoint\TypingTrainer.exe</PackagePath>
-      <Modified>2021-03-10T03:33:56.750</Modified>
+      <Modified>2021-03-10T23:18:53.372</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\.nuget\packages\htmlagilitypack\1.11.31\lib\uap10.0\HtmlAgilityPack.dll">
       <PackagePath>HtmlAgilityPack.dll</PackagePath>
@@ -54,73 +54,81 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2019-03-18T22:36:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\1.html">
-      <PackagePath>Data\Everything_Will_Be_My_Way!\1.html</PackagePath>
-      <Modified>2021-03-09T17:30:11.914</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Aristotle_Complete_Works\1.txt">
+      <PackagePath>Data\Aristotle_Complete_Works\1.txt</PackagePath>
+      <Modified>2021-03-10T22:32:28.888</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\2.html">
-      <PackagePath>Data\Everything_Will_Be_My_Way!\2.html</PackagePath>
-      <Modified>2021-03-10T03:32:26.867</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Aristotle_Complete_Works\2.txt">
+      <PackagePath>Data\Aristotle_Complete_Works\2.txt</PackagePath>
+      <Modified>2021-03-10T22:32:53.732</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\3.html">
-      <PackagePath>Data\Everything_Will_Be_My_Way!\3.html</PackagePath>
-      <Modified>2021-03-10T03:32:57.708</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Aristotle_Complete_Works\3.txt">
+      <PackagePath>Data\Aristotle_Complete_Works\3.txt</PackagePath>
+      <Modified>2021-03-10T22:33:17.177</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\4.html">
-      <PackagePath>Data\Everything_Will_Be_My_Way!\4.html</PackagePath>
-      <Modified>2021-03-10T03:33:05.946</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Aristotle_Complete_Works\4.txt">
+      <PackagePath>Data\Aristotle_Complete_Works\4.txt</PackagePath>
+      <Modified>2021-03-10T22:35:12.970</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\5.html">
-      <PackagePath>Data\Everything_Will_Be_My_Way!\5.html</PackagePath>
-      <Modified>2021-03-10T03:33:14.254</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Aristotle_Complete_Works\5.txt">
+      <PackagePath>Data\Aristotle_Complete_Works\5.txt</PackagePath>
+      <Modified>2021-03-10T22:34:35.011</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\6.html">
-      <PackagePath>Data\Everything_Will_Be_My_Way!\6.html</PackagePath>
-      <Modified>2021-03-10T03:33:31.474</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Free_The_Darkness\0.txt">
+      <PackagePath>Data\Free_The_Darkness\0.txt</PackagePath>
+      <Modified>2021-03-10T22:22:44.989</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1.html">
-      <PackagePath>Data\Martial_World\1.html</PackagePath>
-      <Modified>2021-03-09T04:40:07.830</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Free_The_Darkness\1.txt">
+      <PackagePath>Data\Free_The_Darkness\1.txt</PackagePath>
+      <Modified>2021-03-10T22:24:32.387</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\10.html">
-      <PackagePath>Data\Martial_World\10.html</PackagePath>
-      <Modified>2021-03-09T04:44:16.869</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\The_Shadow\0.txt">
+      <PackagePath>Data\The_Shadow\0.txt</PackagePath>
+      <Modified>2021-03-10T22:29:05.451</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\2.html">
-      <PackagePath>Data\Martial_World\2.html</PackagePath>
-      <Modified>2021-03-09T04:40:12.739</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\The_Shadow\1.txt">
+      <PackagePath>Data\The_Shadow\1.txt</PackagePath>
+      <Modified>2021-03-10T22:29:26.078</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\3.html">
-      <PackagePath>Data\Martial_World\3.html</PackagePath>
-      <Modified>2021-03-09T04:40:17.461</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\181.html">
+      <PackagePath>Data\Everything_Will_Be_My_Way!\181.html</PackagePath>
+      <Modified>2021-03-10T22:07:48.581</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\4.html">
-      <PackagePath>Data\Martial_World\4.html</PackagePath>
-      <Modified>2021-03-09T04:40:21.895</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\182.html">
+      <PackagePath>Data\Everything_Will_Be_My_Way!\182.html</PackagePath>
+      <Modified>2021-03-10T22:07:59.192</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\5.html">
-      <PackagePath>Data\Martial_World\5.html</PackagePath>
-      <Modified>2021-03-09T04:40:26.107</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\183.html">
+      <PackagePath>Data\Everything_Will_Be_My_Way!\183.html</PackagePath>
+      <Modified>2021-03-10T22:08:09.439</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\6.html">
-      <PackagePath>Data\Martial_World\6.html</PackagePath>
-      <Modified>2021-03-09T04:40:29.856</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1405.html">
+      <PackagePath>Data\Martial_World\1405.html</PackagePath>
+      <Modified>2021-03-10T22:06:40.448</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\7.html">
-      <PackagePath>Data\Martial_World\7.html</PackagePath>
-      <Modified>2021-03-09T04:40:34.389</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1406.html">
+      <PackagePath>Data\Martial_World\1406.html</PackagePath>
+      <Modified>2021-03-10T22:06:45.155</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\8.html">
-      <PackagePath>Data\Martial_World\8.html</PackagePath>
-      <Modified>2021-03-09T04:40:39.261</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1407.html">
+      <PackagePath>Data\Martial_World\1407.html</PackagePath>
+      <Modified>2021-03-10T22:07:12.683</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\9.html">
-      <PackagePath>Data\Martial_World\9.html</PackagePath>
-      <Modified>2021-03-09T04:44:12.738</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1408.html">
+      <PackagePath>Data\Martial_World\1408.html</PackagePath>
+      <Modified>2021-03-10T22:07:16.991</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Prime_Originator\1.html">
-      <PackagePath>Data\Prime_Originator\1.html</PackagePath>
-      <Modified>2021-03-09T15:47:29.874</Modified>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1409.html">
+      <PackagePath>Data\Martial_World\1409.html</PackagePath>
+      <Modified>2021-03-10T22:07:21.571</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1410.html">
+      <PackagePath>Data\Martial_World\1410.html</PackagePath>
+      <Modified>2021-03-10T22:07:31.050</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Prime_Originator\322.html">
+      <PackagePath>Data\Prime_Originator\322.html</PackagePath>
+      <Modified>2021-03-10T22:08:27.663</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
@@ -198,19 +206,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\TypingTrainer.xr.xml">
       <PackagePath>TypingTrainer.xr.xml</PackagePath>
-      <Modified>2021-03-09T21:00:39.714</Modified>
+      <Modified>2021-03-10T23:03:29.198</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-03-10T03:24:07.871</Modified>
+      <Modified>2021-03-10T23:18:53.290</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-03-10T03:24:07.871</Modified>
+      <Modified>2021-03-10T23:18:53.290</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\NewNovel.xbf">
       <PackagePath>NewNovel.xbf</PackagePath>
-      <Modified>2021-03-10T03:24:07.871</Modified>
+      <Modified>2021-03-10T23:18:53.290</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -218,11 +226,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-03-10T03:33:56.870</Modified>
+      <Modified>2021-03-10T23:18:53.499</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\Core\TypingTrainer.exe">
       <PackagePath>TypingTrainer.exe</PackagePath>
-      <Modified>2021-03-10T03:33:57.256</Modified>
+      <Modified>2021-03-10T23:18:53.886</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

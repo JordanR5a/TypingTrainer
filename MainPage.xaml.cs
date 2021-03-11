@@ -28,15 +28,13 @@ namespace TypingTrainer
     public sealed partial class MainPage : Page
     {
         static readonly int DISPLAY_SIZE = 200;
-        static string CURRENT_NOVEL = "Everything_Will_Be_My_Way!";
+        static string CURRENT_NOVEL = "Aristotle_Complete_Works";
 
-        int currentChapter;
         int startText;
         Trainer trainer;
         DispatcherTimer timer;
         List<int> WPMData;
         int totalSeconds;
-        int secondsPast;
 
         public MainPage()
         {
@@ -49,35 +47,28 @@ namespace TypingTrainer
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += TimerTick;
 
-            currentChapter = 1;
-            StartChapter(@"Data\" + CURRENT_NOVEL + @"\" + currentChapter);
-
+            StartChapter(CURRENT_NOVEL);
         }
 
-        void StartChapter(string filename)
+        void StartChapter(string novelName)
         {
             WPMData = new List<int>();
-            secondsPast = 0;
-            totalSeconds = secondsPast;
+            totalSeconds = 0;
 
-            trainer = new Trainer(filename + ".html");
+            trainer = new Trainer(novelName);
 
             startText = trainer.Place;
             updateMainDisplay();
-            CurrentChapterDisplay.Text = "Current Chapter: " + currentChapter;
         }
 
         private void TimerTick(object o, Object e)
         {
-            if (secondsPast >= 60)
+            totalSeconds++;
+            if (totalSeconds % 60 == 0)
             {
-                totalSeconds += secondsPast;
-                secondsPast = 0;
-
                 WPMData.Add(trainer.WordsTyped);
                 trainer.WordsTyped = 0;
             }
-            else secondsPast++;
 
         }
 
@@ -100,27 +91,23 @@ namespace TypingTrainer
             else if (e.VirtualKey == VirtualKey.CapitalLock && !AnyContentDialogOpen()) updateWPMDisplay();
             else if (e.VirtualKey == VirtualKey.Right && !AnyContentDialogOpen())
             {
-                try
+                if (trainer.NextChapter()) 
                 {
-                    StartChapter(@"Data\" + CURRENT_NOVEL + @"\" + ++currentChapter);
+                    startText = trainer.Place;
+                    updateMainDisplay();
+                    await PlaySound("shortMove.wav");
                 }
-                catch (FileNotFoundException error)
-                {
-                    currentChapter--;
-                    await PlaySound("error.wav");
-                }
+                else await PlaySound("error.wav");
             }
             else if (e.VirtualKey == VirtualKey.Left && !AnyContentDialogOpen())
             {
-                try
+                if (trainer.PreviousChapter())
                 {
-                    StartChapter(@"Data\" + CURRENT_NOVEL + @"\" + --currentChapter);
+                    startText = trainer.Place;
+                    updateMainDisplay();
+                    await PlaySound("shortMove.wav");
                 }
-                catch (FileNotFoundException error)
-                {
-                    currentChapter++;
-                    await PlaySound("error.wav");
-                }
+                else await PlaySound("error.wav");
             }
             else if (e.VirtualKey == VirtualKey.Down && !AnyContentDialogOpen()) moveDown(1, "return.mp3");
             else if (e.VirtualKey == VirtualKey.PageDown && !AnyContentDialogOpen()) moveDown(5, "shortMove.wav");
@@ -147,7 +134,7 @@ namespace TypingTrainer
             }
             else if (InputParser.GetCharEquivalent(e) != '~' && !EndOfChapter() && !AnyContentDialogOpen())
             {
-                timer.Start();
+                if (!timer.IsEnabled) timer.Start();
                 WPMDisplay.Opacity = 0;
                 if (trainer.Check(InputParser.GetCharEquivalent(e))) await PlaySound("erikaTap.mp3");
                 else await PlaySound("error.wav");
@@ -174,7 +161,7 @@ namespace TypingTrainer
             if (trainer.Rewind(change))
             {
                 timer.Stop();
-                //await PlaySound(goodSound);
+                await PlaySound(goodSound);
                 startText = trainer.Place;
                 trainer.Restart();
                 updateMainDisplay();
@@ -190,17 +177,14 @@ namespace TypingTrainer
 
             if (result == ContentDialogResult.Primary)
             {
-                int pastChapter = currentChapter;
                 try
                 {
-                    currentChapter = 1;
-                    StartChapter(@"Data\" + contentDialog.title + @"\" + currentChapter);
+                    StartChapter(contentDialog.title);
                     CURRENT_NOVEL = contentDialog.title;
                 }
                 catch (DirectoryNotFoundException error)
                 {
                     await PlaySound("error.wav");
-                    currentChapter = pastChapter;
                 }
             }
             Window.Current.CoreWindow.PointerCursor = null;
@@ -223,7 +207,7 @@ namespace TypingTrainer
                 timer.Stop();
                 WPMDisplay.Opacity = 0.8;
                 double average = WPMData.Average();
-                WPMDisplay.Text = $"Seconds: {totalSeconds}\n WPM: {string.Format("{0:F2}", average)}";
+                WPMDisplay.Text = $"Time: {string.Format("{0:F2}", totalSeconds / 60.0)}\nWPM: {string.Format("{0:F2}", average)}";
             }
             else await PlaySound("error.wav");
         }
@@ -233,6 +217,7 @@ namespace TypingTrainer
             Display.Inlines.Clear();
             if (EndOfChapter())
             {
+                updateWPMDisplay();
                 CurrentChapterDisplay.Opacity = 0;
                 Display.Text = "End of Chapter\n";
                 Display.FontSize = 72;
@@ -240,12 +225,13 @@ namespace TypingTrainer
                 Display.TextAlignment = TextAlignment.Center;
 
                 Run instructions = new Run();
-                instructions.Text = "Please use the left or right arrow keys to change your currently selected chapter; or press enter to switch your current novel.";
+                instructions.Text = "Please use the left or right arrow keys to change your currently selected chapter; or press Escape to switch your current novel.";
                 instructions.FontSize = 45;
                 Display.Inlines.Add(instructions);
             }
             else
             {
+                CurrentChapterDisplay.Text = "Current Chapter: " + trainer.CurrentChapterNumber;
                 CurrentChapterDisplay.Opacity = 0.7;
                 Display.FontSize = 34;
                 Display.TextAlignment = TextAlignment.Left;
@@ -329,27 +315,111 @@ namespace TypingTrainer
 
     public class Trainer
     {
+        public static readonly string DATA_FOLDER = "Data";
+        public static readonly string DEFAULT_EXTENSION = "txt";
         public static readonly char START_QUOTATION = (char)8220;
         public static readonly char END_QUOTATION = (char)8221;
 
+        string currentNovel;
+        public string CurrentNovel { get { return currentNovel; } }
+
+        string currentChapter;
+        public string CurrentChapter { get { return currentChapter; } }
+
+        public int CurrentChapterNumber { get { return int.Parse(currentChapter.Split('.')[0]); } }
+
         Section[] sections;
-        public Section[] Sections { get { return sections; } set { sections = value; } }
+        public Section[] Sections { get { return sections; } }
 
         int place;
-        public int Place { get { return place; } set { place = value; } }
+        public int Place { get { return place; } }
 
         int focus;
-        public int Focus { get { return focus; } set { focus = value; } }
+        public int Focus { get { return focus; } }
 
         int wordsTyped;
         public int WordsTyped { get { return wordsTyped; } set { wordsTyped = value; } }
 
-        public Trainer(string filename)
+        public Trainer(string novelName)
+        {
+            currentChapter = GetFirstNovel(novelName);
+            currentNovel = novelName;
+            wordsTyped = 0;
+            place = 0;
+            focus = 0;
+            sections = ParseData(DATA_FOLDER + "\\" + currentNovel + "\\" + currentChapter);
+        }
+
+        string GetCurrentPath()
+        {
+            return DATA_FOLDER + "\\" + currentNovel + "\\" + currentChapter;
+        }
+
+        string GetFirstNovel(string novelName)
+        {
+            string[] availableChapters = Directory.GetFiles(DATA_FOLDER + "\\" + novelName);
+            if (availableChapters.Length <= 0) throw new Exception("No avialable chapters");
+
+            string extension = DEFAULT_EXTENSION;
+            int firstChapter = int.MaxValue;
+            foreach (string chapter in availableChapters)
+            {
+                string chapterName = chapter.Substring(chapter.IndexOf(novelName) + novelName.Length + 1);
+                int chapterNumber;
+                string[] parts = chapterName.Split('.');
+                if (int.TryParse(parts[0], out chapterNumber))
+                {
+                    if (chapterNumber < firstChapter)
+                    {
+                        firstChapter = chapterNumber;
+                        extension = parts[1];
+                    }
+                }
+            }
+            return firstChapter.ToString() + "." + extension;
+        }
+
+        public bool NextChapter()
+        {
+            string[] availableChapters = Directory.GetFiles(DATA_FOLDER + "\\" + currentNovel);
+            string[] parts = currentChapter.Split('.');
+            int currentChapterNumber = int.Parse(parts[0]);
+            string nextChapter = ++currentChapterNumber + "." + parts[1];
+            foreach(string chapter in availableChapters)
+            {
+                if (chapter.Contains(nextChapter))
+                {
+                    currentChapter = nextChapter;
+                    ReParse();
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool PreviousChapter()
+        {
+            string[] availableChapters = Directory.GetFiles(DATA_FOLDER + "\\" + currentNovel);
+            string[] parts = currentChapter.Split('.');
+            int currentChapterNumber = int.Parse(parts[0]);
+            string prevChapter = --currentChapterNumber + "." + parts[1];
+            foreach (string chapter in availableChapters)
+            {
+                if (chapter.Contains(prevChapter))
+                {
+                    currentChapter = prevChapter;
+                    ReParse();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        void ReParse()
         {
             wordsTyped = 0;
             place = 0;
             focus = 0;
-            sections = ParseData(filename);
+            sections = ParseData(GetCurrentPath());
         }
 
         public void Restart()
@@ -575,6 +645,7 @@ namespace TypingTrainer
         {
             if (character.Equals('c') && currentUnit.Equals((char)169)) return true;
             if (character.Equals('-') && currentUnit.Equals((char)8211)) return true;
+            if (character.Equals('\'') && currentUnit.Equals((char)8216)) return true;
             if (character.Equals('"') && currentUnit.Equals((char)8220)) return true;
             if (character.Equals('"') && currentUnit.Equals((char)8221)) return true;
             if (character.Equals('.') && currentUnit.Equals((char)8230)) return true;
