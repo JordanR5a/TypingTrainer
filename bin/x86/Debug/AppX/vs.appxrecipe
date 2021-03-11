@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>295564AC62C451FF7671DA0D5F7BA61D3D66145D33B695B6D4E8D093D559FD80</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>1917E1FC721B5FBF19F1325B99EFE7BE3D5BFE4247F17AE95A3703198D3D4F39</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>07dfed3c-d7c0-4a26-8ff1-3ea6ea2c1b0a_1.0.0.0_x86__ascqrq7qq0g20</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>07dfed3c-d7c0-4a26-8ff1-3ea6ea2c1b0a_ascqrq7qq0g20!App</RegisteredUserModeAppID>
     <RegisteredPackageID>07dfed3c-d7c0-4a26-8ff1-3ea6ea2c1b0a</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-03-10T23:18:53.891</Modified>
+      <Modified>2021-03-11T04:09:09.388</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\TypingTrainer.exe">
       <PackagePath>entrypoint\TypingTrainer.exe</PackagePath>
-      <Modified>2021-03-10T23:18:53.372</Modified>
+      <Modified>2021-03-11T04:09:08.886</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\.nuget\packages\htmlagilitypack\1.11.31\lib\uap10.0\HtmlAgilityPack.dll">
       <PackagePath>HtmlAgilityPack.dll</PackagePath>
@@ -53,6 +53,260 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2019-03-18T22:36:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\LargeTile.scale-100.png">
+      <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.265</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\LargeTile.scale-125.png">
+      <PackagePath>Assets\LargeTile.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.284</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\LargeTile.scale-150.png">
+      <PackagePath>Assets\LargeTile.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.307</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\LargeTile.scale-200.png">
+      <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.344</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\LargeTile.scale-400.png">
+      <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.483</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\SmallTile.scale-100.png">
+      <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.041</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\SmallTile.scale-125.png">
+      <PackagePath>Assets\SmallTile.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.046</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\SmallTile.scale-150.png">
+      <PackagePath>Assets\SmallTile.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.052</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\SmallTile.scale-200.png">
+      <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.059</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\SmallTile.scale-400.png">
+      <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.070</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T04:04:03.336</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\SplashScreen.scale-125.png">
+      <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T04:04:03.366</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\SplashScreen.scale-150.png">
+      <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T04:04:03.407</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T04:04:03.735</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square150x150Logo.scale-100.png">
+      <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.077</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square150x150Logo.scale-125.png">
+      <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.085</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square150x150Logo.scale-150.png">
+      <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.094</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square150x150Logo.scale-400.png">
+      <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.138</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.582</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.586</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.608</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.591</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.596</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.551</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.577</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.altform-unplated_targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-32.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.560</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.565</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.scale-100.png">
+      <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.489</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.scale-125.png">
+      <PackagePath>Assets\Square44x44Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.494</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.scale-150.png">
+      <PackagePath>Assets\Square44x44Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.499</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.scale-400.png">
+      <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.514</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.520</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.targetsize-24.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.526</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.546</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-32.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.530</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.535</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:25.008</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\StoreLogo.scale-125.png">
+      <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:25.013</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\StoreLogo.scale-150.png">
+      <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:25.019</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\StoreLogo.scale-200.png">
+      <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:25.025</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\StoreLogo.scale-400.png">
+      <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:25.034</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Wide310x150Logo.scale-100.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.146</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Wide310x150Logo.scale-125.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.157</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Wide310x150Logo.scale-150.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.169</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Wide310x150Logo.scale-400.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.251</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\LockScreenLogo.scale-200.png">
+      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+      <Modified>2021-01-06T21:39:18.530</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\SplashScreen.scale-200.png">
+      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T04:04:03.474</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square150x150Logo.scale-200.png">
+      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.105</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.scale-200.png">
+      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.506</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.556</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Wide310x150Logo.scale-200.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2021-03-11T03:53:24.189</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Aristotle_Complete_Works\1.txt">
       <PackagePath>Data\Aristotle_Complete_Works\1.txt</PackagePath>
@@ -134,40 +388,6 @@
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2021-03-07T02:58:06.144</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\LockScreenLogo.scale-200.png">
-      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2021-01-06T21:39:18.530</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\SplashScreen.scale-200.png">
-      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-01-06T21:39:18.533</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square150x150Logo.scale-200.png">
-      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-01-06T21:39:18.533</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.scale-200.png">
-      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-01-06T21:39:18.534</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
-      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-01-06T21:39:18.535</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\StoreLogo.png">
-      <PackagePath>Assets\StoreLogo.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-01-06T21:39:18.535</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Assets\Wide310x150Logo.scale-200.png">
-      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-01-06T21:39:18.537</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Resources\backspace.mp3">
       <PackagePath>Resources\backspace.mp3</PackagePath>
       <Modified>2021-03-08T19:56:31.180</Modified>
@@ -210,15 +430,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-03-10T23:18:53.290</Modified>
+      <Modified>2021-03-11T04:09:08.807</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-03-10T23:18:53.290</Modified>
+      <Modified>2021-03-11T04:09:08.808</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\NewNovel.xbf">
       <PackagePath>NewNovel.xbf</PackagePath>
-      <Modified>2021-03-10T23:18:53.290</Modified>
+      <Modified>2021-03-11T04:09:08.808</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -226,11 +446,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-03-10T23:18:53.499</Modified>
+      <Modified>2021-03-11T04:04:17.598</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\Core\TypingTrainer.exe">
       <PackagePath>TypingTrainer.exe</PackagePath>
-      <Modified>2021-03-10T23:18:53.886</Modified>
+      <Modified>2021-03-11T04:09:09.382</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

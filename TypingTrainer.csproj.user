@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Source>C:\Users\Reece\Pictures\loading_logo.png</Source>
+    <SmallTileSource>C:\Users\Reece\Pictures\type_trainer_logo.PNG</SmallTileSource>
+    <MediumTileSource>C:\Users\Reece\Pictures\type_trainer_logo.PNG</MediumTileSource>
+    <WideTileSource>C:\Users\Reece\Pictures\type_trainer_logo.PNG</WideTileSource>
+    <LargeTileSource>C:\Users\Reece\Pictures\type_trainer_logo.PNG</LargeTileSource>
+    <AppIconSource>C:\Users\Reece\Pictures\type_trainer_logo.PNG</AppIconSource>
+    <SplashScreenSource>C:\Users\Reece\Pictures\loading_logo.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\Reece\Pictures\type_trainer_logo.PNG</PackageLogoSource>
+  </PropertyGroup>
+</Project>
