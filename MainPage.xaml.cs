@@ -58,7 +58,7 @@ namespace TypingTrainer
             trainer = new Trainer(novelName);
 
             startText = trainer.Place;
-            updateMainDisplay();
+            UpdateMainDisplay();
         }
 
         private void TimerTick(object o, Object e)
@@ -72,9 +72,9 @@ namespace TypingTrainer
 
         }
 
-        async Task PlaySound(string filename)
+        async Task PlaySound(string filename, Boolean enabled)
         {
-            if (filename != "error.wav") return;
+            if (!enabled) return;
             var element = new MediaElement();
             var folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync("Resources");
             var file = await folder.GetFileAsync(filename);
@@ -87,89 +87,89 @@ namespace TypingTrainer
         {
             
 
-            if (e.VirtualKey == VirtualKey.Escape && !AnyContentDialogOpen()) changeNovelPrompt();
-            else if (e.VirtualKey == VirtualKey.CapitalLock && !AnyContentDialogOpen()) updateWPMDisplay();
+            if (e.VirtualKey == VirtualKey.Escape && !AnyContentDialogOpen()) ChangeNovelPrompt();
+            else if (e.VirtualKey == VirtualKey.CapitalLock && !AnyContentDialogOpen()) UpdateWPMDisplay();
             else if (e.VirtualKey == VirtualKey.Right && !AnyContentDialogOpen())
             {
                 if (trainer.NextChapter()) 
                 {
                     startText = trainer.Place;
-                    updateMainDisplay();
-                    await PlaySound("shortMove.wav");
+                    UpdateMainDisplay();
+                    await PlaySound("shortMove.wav", true);
                 }
-                else await PlaySound("error.wav");
+                else await PlaySound("error.wav", true);
             }
             else if (e.VirtualKey == VirtualKey.Left && !AnyContentDialogOpen())
             {
                 if (trainer.PreviousChapter())
                 {
                     startText = trainer.Place;
-                    updateMainDisplay();
-                    await PlaySound("shortMove.wav");
+                    UpdateMainDisplay();
+                    await PlaySound("shortMove.wav", true);
                 }
-                else await PlaySound("error.wav");
+                else await PlaySound("error.wav", true);
             }
-            else if (e.VirtualKey == VirtualKey.Down && !AnyContentDialogOpen()) moveDown(1, "return.mp3");
-            else if (e.VirtualKey == VirtualKey.PageDown && !AnyContentDialogOpen()) moveDown(5, "shortMove.wav");
-            else if (e.VirtualKey == VirtualKey.Up && !AnyContentDialogOpen()) moveUp(2, "return.mp3");
-            else if (e.VirtualKey == VirtualKey.PageUp && !AnyContentDialogOpen()) moveUp(6, "shortMove.wav");
+            else if (e.VirtualKey == VirtualKey.Down && !AnyContentDialogOpen()) MoveDown(1, "return.mp3");
+            else if (e.VirtualKey == VirtualKey.PageDown && !AnyContentDialogOpen()) MoveDown(5, "shortMove.wav");
+            else if (e.VirtualKey == VirtualKey.Up && !AnyContentDialogOpen()) MoveUp(2, "return.mp3");
+            else if (e.VirtualKey == VirtualKey.PageUp && !AnyContentDialogOpen()) MoveUp(6, "shortMove.wav");
             else if (e.VirtualKey == VirtualKey.Enter && !AnyContentDialogOpen())
             {
                 if (trainer.Space())
                 {
-                    await PlaySound("returnBell.wav");
+                    await PlaySound("returnBell.wav", false);
                     startText = trainer.Place;
                 }
-                else await PlaySound("error.wav");
+                else await PlaySound("error.wav", true);
             }
             else if (e.VirtualKey == VirtualKey.Space && !EndOfChapter() && !AnyContentDialogOpen())
             {
-                if (trainer.Space()) await PlaySound("space.mp3");
-                else await PlaySound("error.wav");
+                if (trainer.Space()) await PlaySound("space.mp3", false);
+                else await PlaySound("error.wav", true);
             }
             else if (e.VirtualKey == VirtualKey.Back && !EndOfChapter() && !AnyContentDialogOpen())
             {
-                if (trainer.BackSpace()) await PlaySound("backspace.mp3");
-                else await PlaySound("error.wav");
+                if (trainer.BackSpace()) await PlaySound("backspace.mp3", false);
+                else await PlaySound("error.wav", true);
             }
             else if (InputParser.GetCharEquivalent(e) != '~' && !EndOfChapter() && !AnyContentDialogOpen())
             {
                 if (!timer.IsEnabled) timer.Start();
                 WPMDisplay.Opacity = 0;
-                if (trainer.Check(InputParser.GetCharEquivalent(e))) await PlaySound("erikaTap.mp3");
-                else await PlaySound("error.wav");
+                if (trainer.Check(InputParser.GetCharEquivalent(e))) await PlaySound("erikaTap.mp3", false);
+                else await PlaySound("error.wav", true);
             }
 
-            updateMainDisplay();
+            UpdateMainDisplay();
         }
 
-        async void moveDown(int change, string goodSound)
+        async void MoveDown(int change, string goodSound)
         {
             if (trainer.Forward(change))
             {
                 timer.Stop();
-                await PlaySound(goodSound);
+                await PlaySound(goodSound, false);
                 startText = trainer.Place;
                 trainer.Restart();
-                updateMainDisplay();
+                UpdateMainDisplay();
             }
-            else await PlaySound("error.wav");
+            else await PlaySound("error.wav", true);
         }
 
-        async void moveUp(int change, string goodSound)
+        async void MoveUp(int change, string goodSound)
         {
             if (trainer.Rewind(change))
             {
                 timer.Stop();
-                await PlaySound(goodSound);
+                await PlaySound(goodSound, false);
                 startText = trainer.Place;
                 trainer.Restart();
-                updateMainDisplay();
+                UpdateMainDisplay();
             }
-            else await PlaySound("error.wav");
+            else await PlaySound("error.wav", true);
         }
 
-        async void changeNovelPrompt()
+        async void ChangeNovelPrompt()
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
             NewNovel contentDialog = new NewNovel();
@@ -181,10 +181,11 @@ namespace TypingTrainer
                 {
                     StartChapter(contentDialog.title);
                     CURRENT_NOVEL = contentDialog.title;
+                    await PlaySound("shortMove.wav", true);
                 }
                 catch (DirectoryNotFoundException error)
                 {
-                    await PlaySound("error.wav");
+                    await PlaySound("error.wav", true);
                 }
             }
             Window.Current.CoreWindow.PointerCursor = null;
@@ -200,7 +201,7 @@ namespace TypingTrainer
             return false;
         }
 
-        async void updateWPMDisplay()
+        async void UpdateWPMDisplay()
         {
             if (WPMData.Count > 0)
             {
@@ -209,15 +210,15 @@ namespace TypingTrainer
                 double average = WPMData.Average();
                 WPMDisplay.Text = $"Time: {string.Format("{0:F2}", totalSeconds / 60.0)}\nWPM: {string.Format("{0:F2}", average)}";
             }
-            else await PlaySound("error.wav");
+            else await PlaySound("error.wav", true);
         }
 
-        void updateMainDisplay()
+        void UpdateMainDisplay()
         {
             Display.Inlines.Clear();
             if (EndOfChapter())
             {
-                updateWPMDisplay();
+                UpdateWPMDisplay();
                 CurrentChapterDisplay.Opacity = 0;
                 Display.Text = "End of Chapter\n";
                 Display.FontSize = 72;
@@ -249,20 +250,20 @@ namespace TypingTrainer
                     for (int innerLoc = 0; innerLoc < currentSection.Word.Length; innerLoc++)
                     {
                         Unit focus = currentSection.Word[innerLoc];
-                        string spacing = buildSpacing(loc, focus, currentSection, innerLoc, inQuotes);
+                        string spacing = BuildSpacing(loc, focus, currentSection, innerLoc, inQuotes);
                         if (focus.Typed && focus.Correct)
                         {
-                            Run typedText = buildRun(focus, spacing, Colors.DarkGray);
+                            Run typedText = BuildRun(focus, spacing, Colors.DarkGray);
                             Display.Inlines.Add(typedText);
                         }
                         else if (focus.Typed && !focus.Correct)
                         {
-                            Run incorrectText = buildRun(focus, spacing, Colors.DarkRed);
+                            Run incorrectText = BuildRun(focus, spacing, Colors.DarkRed);
                             Display.Inlines.Add(incorrectText);
                         }
                         else
                         {
-                            Run untypedText = buildRun(focus, spacing, Colors.White);
+                            Run untypedText = BuildRun(focus, spacing, Colors.White);
                             Display.Inlines.Add(untypedText);
                         }
 
@@ -271,7 +272,7 @@ namespace TypingTrainer
             }
         }
 
-        string buildSpacing(int loc, Unit focus, Section currentSection, int innerLoc, bool inQuotes)
+        string BuildSpacing(int loc, Unit focus, Section currentSection, int innerLoc, bool inQuotes)
         {
             string spacing = "";
             if (loc < trainer.Sections.Length - 1)
@@ -287,7 +288,7 @@ namespace TypingTrainer
             return spacing;
         }
 
-        string buildText(Unit focus, string spacing)
+        string BuildText(Unit focus, string spacing)
         {
             StringBuilder builder = new StringBuilder();
             builder.Append(focus);
@@ -296,10 +297,10 @@ namespace TypingTrainer
             return builder.ToString();
         }
 
-        Run buildRun(Unit focus, string spacing, Color color)
+        Run BuildRun(Unit focus, string spacing, Color color)
         {
             Run run = new Run();
-            run.Text = buildText(focus, spacing);
+            run.Text = BuildText(focus, spacing);
             run.Foreground = new SolidColorBrush(color);
 
             return run;
@@ -347,7 +348,7 @@ namespace TypingTrainer
             wordsTyped = 0;
             place = 0;
             focus = 0;
-            sections = ParseData(DATA_FOLDER + "\\" + currentNovel + "\\" + currentChapter);
+            sections = ParseData(GetCurrentPath());
         }
 
         string GetCurrentPath()
