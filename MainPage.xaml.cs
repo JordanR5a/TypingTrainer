@@ -28,10 +28,12 @@ namespace TypingTrainer
     public sealed partial class MainPage : Page
     {
         static readonly int DISPLAY_SIZE = 200;
-        static string CURRENT_NOVEL = "Aristotle_Complete_Works";
+        static string CURRENT_NOVEL = "Martial_World";
 
         int startText;
+        bool rawFormat;
         Trainer trainer;
+
         DispatcherTimer timer;
         List<int> WPMData;
         int totalSeconds;
@@ -47,6 +49,7 @@ namespace TypingTrainer
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += TimerTick;
 
+            rawFormat = false;
             StartChapter(CURRENT_NOVEL);
         }
 
@@ -85,13 +88,14 @@ namespace TypingTrainer
 
         async void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs e)
         {
-            
+
 
             if (e.VirtualKey == VirtualKey.Escape && !AnyContentDialogOpen()) ChangeNovelPrompt();
             else if (e.VirtualKey == VirtualKey.CapitalLock && !AnyContentDialogOpen()) UpdateWPMDisplay();
+            else if (e.VirtualKey == VirtualKey.Tab && !AnyContentDialogOpen()) rawFormat = rawFormat ? false : true;
             else if (e.VirtualKey == VirtualKey.Right && !AnyContentDialogOpen())
             {
-                if (trainer.NextChapter()) 
+                if (trainer.NextChapter())
                 {
                     startText = trainer.Place;
                     UpdateMainDisplay();
@@ -145,7 +149,7 @@ namespace TypingTrainer
 
         async void MoveDown(int change, string goodSound)
         {
-            if (trainer.Forward(change))
+            if (trainer.Forward(change, rawFormat))
             {
                 timer.Stop();
                 await PlaySound(goodSound, false);
@@ -158,7 +162,7 @@ namespace TypingTrainer
 
         async void MoveUp(int change, string goodSound)
         {
-            if (trainer.Rewind(change))
+            if (trainer.Rewind(change, rawFormat))
             {
                 timer.Stop();
                 await PlaySound(goodSound, false);
@@ -266,7 +270,12 @@ namespace TypingTrainer
                             Run untypedText = BuildRun(focus, spacing, Colors.White);
                             Display.Inlines.Add(untypedText);
                         }
-
+                    }
+                    if (rawFormat)
+                    {
+                        Run modifierText = new Run();
+                        modifierText.Text = currentSection.Modifier;
+                        Display.Inlines.Add(modifierText);
                     }
                 }
             }
@@ -274,6 +283,8 @@ namespace TypingTrainer
 
         string BuildSpacing(int loc, Unit focus, Section currentSection, int innerLoc, bool inQuotes)
         {
+            if (rawFormat) return "";
+
             string spacing = "";
             if (loc < trainer.Sections.Length - 1)
             {
@@ -437,21 +448,8 @@ namespace TypingTrainer
         Section[] ParseData(string filename)
         {
             string text = "";
-            if (filename.Contains(".html"))
-            {
-                var doc = new HtmlDocument();
-                doc.Load(filename);
-                var node = doc.DocumentNode.SelectNodes("//p");
-                text = "";
-                foreach (var n in node)
-                {
-                    text += " " + n.InnerText;
-                }
-            }
-            else if (filename.Contains(".txt"))
-            {
-                text = File.ReadAllText(filename);
-            }
+            if (filename.Contains(".html")) text = GetRawHtml(filename);
+            else if (filename.Contains(".txt")) text = File.ReadAllText(filename);
             else throw new Exception("File type supported");
 
             text = ConvertContent(text);
@@ -461,24 +459,42 @@ namespace TypingTrainer
             List<Unit> units = new List<Unit>();
             foreach (char c in textChars)
             {
-                if (!Char.IsWhiteSpace(c))
-                {
-                    units.Add(new Unit(c));
-                }
+                if (!Char.IsWhiteSpace(c)) units.Add(new Unit(c));
                 else
                 {
-                    words.Add(new Section(units.ToArray()));
+                    words.Add(new Section(units.ToArray(), BuildModifier(c)));
                     units = new List<Unit>();
                 }
             }
             if (units.Count > 0)
             {
-                words.Add(new Section(units.ToArray()));
+                words.Add(new Section(units.ToArray(), ""));
                 units = new List<Unit>();
             }
             words = words.Where(s => !string.IsNullOrWhiteSpace(s.ToString())).ToList();
 
             return words.ToArray();
+        }
+
+        string BuildModifier(char c)
+        {
+            string mod = " ";
+            if (c.Equals("\n") || c.Equals((char)10)) mod = "\n\n";
+            else if (c.Equals("\t")) mod = "\t";
+            return mod;
+        }
+
+        string GetRawHtml(string filename)
+        {
+            var doc = new HtmlDocument();
+            doc.Load(filename);
+            var node = doc.DocumentNode.SelectNodes("//p");
+            string text = "";
+            foreach (var n in node)
+            {
+                text += "\n" + n.InnerText;
+            }
+            return text;
         }
 
         string ConvertContent(string rawText)
@@ -513,7 +529,7 @@ namespace TypingTrainer
             return rawText;
         }
 
-        public bool Rewind(int change)
+        public bool Rewind(int change, bool rawFormat)
         {
 
             if (place == 0) return false;
@@ -521,18 +537,36 @@ namespace TypingTrainer
             for (int focus = place; focus > 0; focus--)
             {
                 Section section = sections[focus - 1];
-                if (section.ToString().Last().Equals(END_QUOTATION)) inQuotes = true;
-                else if (section.ToString().First().Equals(START_QUOTATION)) inQuotes = false;
-                if (change <= 0)
+
+                if (rawFormat)
                 {
-                    place = focus + 1;
-                    Restart();
-                    return true;
+                    if (change <= 0)
+                    {
+                        place = focus + 1;
+                        Restart();
+                        return true;
+                    }
+                    else if (section.Modifier.Equals("\n\n"))
+                    {
+                        change--;
+                    }
                 }
-                else if (!inQuotes && (section.ToString().Last().Equals('.') || section.ToString().Last().Equals('!') || section.ToString().Last().Equals('?')))
+                else
                 {
-                    change--;
+                    if (section.ToString().Last().Equals(END_QUOTATION)) inQuotes = true;
+                    else if (section.ToString().First().Equals(START_QUOTATION)) inQuotes = false;
+                    if (change <= 0)
+                    {
+                        place = focus + 1;
+                        Restart();
+                        return true;
+                    }
+                    else if (!inQuotes && (section.ToString().Last().Equals('.') || section.ToString().Last().Equals('!') || section.ToString().Last().Equals('?')))
+                    {
+                        change--;
+                    }
                 }
+                
             }
             place = 0;
             return true;
@@ -557,7 +591,7 @@ namespace TypingTrainer
             else return false;*/
         }
 
-        public bool Forward(int change)
+        public bool Forward(int change, bool rawFormat)
         {
 
             if (place == sections.Length) return false;
@@ -566,18 +600,37 @@ namespace TypingTrainer
                 bool inQuotes = false;
                 for (int focus = place; focus <= sections.Length; focus++)
                 {
-                    Section section = sections[focus + 1];
-                    if (section.ToString().First().Equals(START_QUOTATION)) inQuotes = true;
-                    else if (section.ToString().Last().Equals(END_QUOTATION)) inQuotes = false;
-                    if (change <= 0)
+                    Section section;
+
+                    if (rawFormat)
                     {
-                        place = focus + 1;
-                        Restart();
-                        return true;
+                        section = sections[focus];
+                        if (change <= 0)
+                        {
+                            place = focus;
+                            Restart();
+                            return true;
+                        }
+                        else if (section.Modifier.Equals("\n\n"))
+                        {
+                            change--;
+                        }
                     }
-                    else if (!inQuotes && (section.ToString().Last().Equals('.') || section.ToString().Last().Equals('!') || section.ToString().Last().Equals('?')))
+                    else
                     {
-                        change--;
+                        section = sections[focus + 1];
+                        if (section.ToString().First().Equals(START_QUOTATION)) inQuotes = true;
+                        else if (section.ToString().Last().Equals(END_QUOTATION)) inQuotes = false;
+                        if (change <= 0)
+                        {
+                            place = focus + 1;
+                            Restart();
+                            return true;
+                        }
+                        else if (!inQuotes && (section.ToString().Last().Equals('.') || section.ToString().Last().Equals('!') || section.ToString().Last().Equals('?')))
+                        {
+                            change--;
+                        }
                     }
                 }
                 place = sections.Length;
@@ -691,9 +744,13 @@ namespace TypingTrainer
         Unit[] word;
         public Unit[] Word { get { return word; } set { word = value; } }
 
-        public Section(Unit[] word)
+        string modifier;
+        public string Modifier { get { return modifier; } set { modifier = value; } }
+
+        public Section(Unit[] word, string modifier)
         {
             Word = word;
+            Modifier = modifier;
         }
 
         public void unTypeAll()
