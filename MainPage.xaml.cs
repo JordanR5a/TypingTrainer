@@ -28,7 +28,7 @@ namespace TypingTrainer
     public sealed partial class MainPage : Page
     {
         static readonly int DISPLAY_SIZE = 200;
-        static string CURRENT_NOVEL = "The_Shadow";
+        static string CURRENT_NOVEL = "Legend_of_the_Arch_Magus";
 
         int startText;
         bool rawFormat;
@@ -37,6 +37,8 @@ namespace TypingTrainer
         DispatcherTimer timer;
         List<int> WPMData;
         int totalSeconds;
+        int highest;
+        int lowest;
 
         public MainPage()
         {
@@ -57,6 +59,8 @@ namespace TypingTrainer
         {
             WPMData = new List<int>();
             totalSeconds = 0;
+            highest = int.MinValue;
+            lowest = int.MaxValue;
 
             trainer = new Trainer(novelName);
 
@@ -71,8 +75,18 @@ namespace TypingTrainer
             {
                 WPMData.Add(trainer.WordsTyped);
                 trainer.WordsTyped = 0;
+                setLimits();
             }
 
+        }
+
+        private void setLimits()
+        {
+            foreach (int num in WPMData)
+            {
+                if (num > highest) highest = num;
+                if (num < lowest) lowest = num;
+            }
         }
 
         async Task PlaySound(string filename, Boolean enabled)
@@ -91,14 +105,15 @@ namespace TypingTrainer
 
 
             if (e.VirtualKey == VirtualKey.Escape && !AnyContentDialogOpen()) ChangeNovelPrompt();
-            else if (e.VirtualKey == VirtualKey.CapitalLock && !AnyContentDialogOpen()) UpdateWPMDisplay();
-            else if (e.VirtualKey == VirtualKey.Tab && !AnyContentDialogOpen())
+            else if (e.VirtualKey == VirtualKey.Tab && !AnyContentDialogOpen()) UpdateWPMDisplay();
+            else if (e.VirtualKey == VirtualKey.CapitalLock && !AnyContentDialogOpen())
             {
                 rawFormat = rawFormat ? false : true;
                 if (WPMDisplay.Opacity > 0) UpdateWPMDisplay();
             }
             else if (e.VirtualKey == VirtualKey.Right && !AnyContentDialogOpen())
             {
+                WPMDisplay.Opacity = 0;
                 if (trainer.NextChapter())
                 {
                     startText = trainer.Place;
@@ -109,6 +124,7 @@ namespace TypingTrainer
             }
             else if (e.VirtualKey == VirtualKey.Left && !AnyContentDialogOpen())
             {
+                WPMDisplay.Opacity = 0;
                 if (trainer.PreviousChapter())
                 {
                     startText = trainer.Place;
@@ -123,29 +139,32 @@ namespace TypingTrainer
             else if (e.VirtualKey == VirtualKey.PageUp && !AnyContentDialogOpen()) MoveUp(6, "shortMove.wav");
             else if (e.VirtualKey == VirtualKey.Enter && !AnyContentDialogOpen())
             {
+                WPMDisplay.Opacity = 0;
                 if (trainer.Space())
                 {
                     await PlaySound("returnBell.wav", false);
                     startText = trainer.Place;
                 }
-                else await PlaySound("error.wav", true);
+                else await PlaySound("error.wav", false);
             }
             else if (e.VirtualKey == VirtualKey.Space && !EndOfChapter() && !AnyContentDialogOpen())
             {
+                WPMDisplay.Opacity = 0;
                 if (trainer.Space()) await PlaySound("space.mp3", false);
-                else await PlaySound("error.wav", true);
+                else await PlaySound("error.wav", false);
             }
             else if (e.VirtualKey == VirtualKey.Back && !EndOfChapter() && !AnyContentDialogOpen())
             {
-                if (trainer.BackSpace()) await PlaySound("backspace.mp3", false);
-                else await PlaySound("error.wav", true);
-            }
-            else if (InputParser.GetCharEquivalent(e) != '~' && !EndOfChapter() && !AnyContentDialogOpen())
-            {
-                if (!timer.IsEnabled) timer.Start();
                 WPMDisplay.Opacity = 0;
+                if (trainer.BackSpace()) await PlaySound("backspace.mp3", false);
+                else await PlaySound("error.wav", false);
+            }
+            else if (InputParser.GetCharEquivalent(e) != ' ' && !EndOfChapter() && !AnyContentDialogOpen())
+            {
+                WPMDisplay.Opacity = 0;
+                if (!timer.IsEnabled) timer.Start();
                 if (trainer.Check(InputParser.GetCharEquivalent(e))) await PlaySound("erikaTap.mp3", false);
-                else await PlaySound("error.wav", true);
+                else await PlaySound("error.wav", false);
             }
 
             UpdateMainDisplay();
@@ -215,8 +234,10 @@ namespace TypingTrainer
             WPMDisplay.Opacity = 0.8;
             double average = 0;
             if (WPMData.Count > 0) average = WPMData.Average();
-            WPMDisplay.Text = $"Time: {string.Format("{0:F2}", totalSeconds / 60.0)}\n" +
+            WPMDisplay.Text = $"Time: {new TimeSpan(0, 0, totalSeconds)}\n" +
                               $"WPM: {(WPMData.Count > 0 ? string.Format("{0:F2}", average) : "No data")}\n" +
+                              $"High: {(WPMData.Count > 0 ? highest.ToString() : "No data")}\n" +
+                              $"Low: {(WPMData.Count > 0 ? lowest.ToString() : "No data")}\n" +
                               $"Mode: {(rawFormat ? "Raw Format" : "Formatted")}";
         }
 
@@ -258,7 +279,12 @@ namespace TypingTrainer
                     {
                         Unit focus = currentSection.Word[innerLoc];
                         string spacing = BuildSpacing(loc, focus, currentSection, innerLoc, inQuotes);
-                        if (focus.Typed && focus.Correct)
+                        if (trainer.Place == loc && trainer.Focus == innerLoc)
+                        {
+                            Run focusText = BuildRun(focus, spacing, Colors.LightGray);
+                            Display.Inlines.Add(focusText);
+                        }
+                        else if (focus.Typed && focus.Correct)
                         {
                             Run typedText = BuildRun(focus, spacing, Colors.DarkGray);
                             Display.Inlines.Add(typedText);
@@ -510,9 +536,9 @@ namespace TypingTrainer
             {
                 rawText = rawText.Substring(0, rawText.IndexOf("Does anyone want to become a moderator for this novel?"));
             }
-            if (rawText.Contains("More Privileged Chapters Download the app"))
+            if (rawText.Contains("More Privileged Chapters"))
             {
-                rawText = rawText.Substring(0, rawText.IndexOf("More Privileged Chapters Download the app"));
+                rawText = rawText.Substring(0, rawText.IndexOf("More Privileged Chapters"));
             }
             if (rawText.Contains("Find authorized novels in Webnovel"))
             {
@@ -700,7 +726,11 @@ namespace TypingTrainer
         private bool SpecialMatch(char character, Unit currentUnit)
         {
             if (character.Equals('c') && currentUnit.Equals((char)169)) return true;
+            if (character.Equals('A') && currentUnit.Equals((char)1040)) return true;
+            if (character.Equals('K') && currentUnit.Equals((char)1050)) return true;
+            if (character.Equals('y') && currentUnit.Equals((char)1091)) return true;
             if (character.Equals('-') && currentUnit.Equals((char)8211)) return true;
+            if (character.Equals('-') && currentUnit.Equals((char)8212)) return true;
             if (character.Equals('\'') && currentUnit.Equals((char)8216)) return true;
             if (character.Equals('"') && currentUnit.Equals((char)8220)) return true;
             if (character.Equals('"') && currentUnit.Equals((char)8221)) return true;
@@ -856,6 +886,8 @@ namespace TypingTrainer
                 case "I": return IsShiftPressed() ? 'I' : 'i';
                 case "O": return IsShiftPressed() ? 'O' : 'o';
                 case "P": return IsShiftPressed() ? 'P' : 'p';
+                case "219": return IsShiftPressed() ? '{' : '[';
+                case "221": return IsShiftPressed() ? '}' : ']';
                 case "A": return IsShiftPressed() ? 'A' : 'a';
                 case "S": return IsShiftPressed() ? 'S' : 's';
                 case "D": return IsShiftPressed() ? 'D' : 'd';
@@ -877,8 +909,8 @@ namespace TypingTrainer
                 case "188": return IsShiftPressed() ? '<' : ',';
                 case "190": return IsShiftPressed() ? '>' : '.';
                 case "191": return IsShiftPressed() ? '?' : '/';
-                case "192": return '`';
-                default: return '~';
+                case "192": return IsShiftPressed() ? '~' : '`';
+                default: return ' ';
             }
         }
     }

@@ -264,20 +264,32 @@
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Free_The_Darkness\1.txt">
       <PackagePath>Data\Free_The_Darkness\1.txt</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Legend_of_the_Arch_Magus\0.txt">
+      <PackagePath>Data\Legend_of_the_Arch_Magus\0.txt</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\The_Shadow\0.txt">
       <PackagePath>Data\The_Shadow\0.txt</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\The_Shadow\1.txt">
       <PackagePath>Data\The_Shadow\1.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\181.html">
-      <PackagePath>Data\Everything_Will_Be_My_Way!\181.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\225.html">
+      <PackagePath>Data\Everything_Will_Be_My_Way!\225.html</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\182.html">
-      <PackagePath>Data\Everything_Will_Be_My_Way!\182.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\226.html">
+      <PackagePath>Data\Everything_Will_Be_My_Way!\226.html</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\183.html">
-      <PackagePath>Data\Everything_Will_Be_My_Way!\183.html</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\227.html">
+      <PackagePath>Data\Everything_Will_Be_My_Way!\227.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\228.html">
+      <PackagePath>Data\Everything_Will_Be_My_Way!\228.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\229.html">
+      <PackagePath>Data\Everything_Will_Be_My_Way!\229.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\230.html">
+      <PackagePath>Data\Everything_Will_Be_My_Way!\230.html</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1405.html">
       <PackagePath>Data\Martial_World\1405.html</PackagePath>
