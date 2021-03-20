@@ -28,7 +28,7 @@ namespace TypingTrainer
     public sealed partial class MainPage : Page
     {
         static readonly int DISPLAY_SIZE = 200;
-        static string CURRENT_NOVEL = "Legend_of_the_Arch_Magus";
+        static string CURRENT_NOVEL = "Martial_World";
 
         int startText;
         bool rawFormat;
@@ -73,7 +73,7 @@ namespace TypingTrainer
             totalSeconds++;
             if (totalSeconds % 60 == 0)
             {
-                WPMData.Add(trainer.WordsTyped);
+                if (trainer.WordsTyped > 20) WPMData.Add(trainer.WordsTyped);
                 trainer.WordsTyped = 0;
                 setLimits();
             }
@@ -273,12 +273,12 @@ namespace TypingTrainer
                 for (int loc = startText; loc < dynamicDisplaySize; loc++)
                 {
                     Section currentSection = trainer.Sections[loc];
-                    if (currentSection.ToString().First().Equals(Trainer.START_QUOTATION)) inQuotes = true;
-                    if (currentSection.ToString().Last().Equals(Trainer.END_QUOTATION)) inQuotes = false;
+                    if (currentSection.ToString().Contains(Trainer.START_QUOTATION)) inQuotes = true;
+                    if (currentSection.ToString().Contains(Trainer.END_QUOTATION)) inQuotes = false;
                     for (int innerLoc = 0; innerLoc < currentSection.Word.Length; innerLoc++)
                     {
                         Unit focus = currentSection.Word[innerLoc];
-                        string spacing = BuildSpacing(loc, focus, currentSection, innerLoc, inQuotes);
+                        string spacing = BuildSpacing(loc, innerLoc, inQuotes);
                         if (trainer.Place == loc && trainer.Focus == innerLoc)
                         {
                             Run focusText = BuildRun(focus, spacing, Colors.LightGray);
@@ -310,11 +310,13 @@ namespace TypingTrainer
             }
         }
 
-        string BuildSpacing(int loc, Unit focus, Section currentSection, int innerLoc, bool inQuotes)
+        string BuildSpacing(int loc, int innerLoc, bool inQuotes)
         {
             if (rawFormat) return "";
 
             string spacing = "";
+            Section currentSection = trainer.Sections[loc];
+            Unit focus = currentSection.Word[innerLoc];
             if (loc < trainer.Sections.Length - 1)
             {
                 if (focus.Equals(Trainer.END_QUOTATION) && trainer.Sections[loc + 1].ToString().First().Equals(Trainer.START_QUOTATION)) spacing = "\n\n";
@@ -581,8 +583,6 @@ namespace TypingTrainer
                 }
                 else
                 {
-                    if (section.ToString().Last().Equals(END_QUOTATION)) inQuotes = true;
-                    else if (section.ToString().First().Equals(START_QUOTATION)) inQuotes = false;
                     if (change <= 0)
                     {
                         place = focus + 1;
@@ -592,6 +592,20 @@ namespace TypingTrainer
                     else if (!inQuotes && (section.ToString().Last().Equals('.') || section.ToString().Last().Equals('!') || section.ToString().Last().Equals('?')))
                     {
                         change--;
+                    }
+                    try
+                    {
+                        if (section.ToString().Contains(END_QUOTATION)) inQuotes = true;
+                        else if (section.ToString().Contains(START_QUOTATION) && sections[focus - 2].ToString().Contains(END_QUOTATION))
+                        {
+                            inQuotes = true;
+                            focus--;
+                            change--;
+                        }
+                        else if (section.ToString().Contains(START_QUOTATION)) inQuotes = false;
+                    } catch (IndexOutOfRangeException e)
+                    {
+                        inQuotes = false;
                     }
                 }
                 
@@ -646,12 +660,18 @@ namespace TypingTrainer
                     }
                     else
                     {
-                        section = sections[focus + 1];
-                        if (section.ToString().First().Equals(START_QUOTATION)) inQuotes = true;
-                        else if (section.ToString().Last().Equals(END_QUOTATION)) inQuotes = false;
+                        section = sections[focus];
+                        if (section.ToString().Contains(START_QUOTATION)) inQuotes = true;
+                        else if (section.ToString().Contains(END_QUOTATION) && sections[focus + 1].ToString().Contains(START_QUOTATION))
+                        {
+                            inQuotes = false;
+                            focus++;
+                            change--;
+                        }
+                        else if (section.ToString().Contains(END_QUOTATION)) inQuotes = false;
                         if (change <= 0)
                         {
-                            place = focus + 1;
+                            place = focus;
                             Restart();
                             return true;
                         }
@@ -726,6 +746,7 @@ namespace TypingTrainer
         private bool SpecialMatch(char character, Unit currentUnit)
         {
             if (character.Equals('c') && currentUnit.Equals((char)169)) return true;
+            if (character.Equals('i') && currentUnit.Equals((char)239)) return true;
             if (character.Equals('A') && currentUnit.Equals((char)1040)) return true;
             if (character.Equals('K') && currentUnit.Equals((char)1050)) return true;
             if (character.Equals('y') && currentUnit.Equals((char)1091)) return true;

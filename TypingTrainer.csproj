@@ -191,8 +191,6 @@
     <Content Include="Data\Everything_Will_Be_My_Way!\230.html" />
     <Content Include="Data\Free_The_Darkness\0.txt" />
     <Content Include="Data\Free_The_Darkness\1.txt" />
-    <Content Include="Data\Legend_of_the_Arch_Magus\0.txt" />
-    <Content Include="Data\Legend_of_the_Arch_Magus\1.txt" />
     <Content Include="Data\Martial_World\1405.html" />
     <Content Include="Data\Martial_World\1406.html" />
     <Content Include="Data\Martial_World\1407.html" />
@@ -244,7 +242,9 @@
       <Version>4.5.4</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Data\Legend_of_the_Arch_Magus\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

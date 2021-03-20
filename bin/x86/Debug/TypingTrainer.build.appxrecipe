@@ -264,9 +264,6 @@
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Free_The_Darkness\1.txt">
       <PackagePath>Data\Free_The_Darkness\1.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Legend_of_the_Arch_Magus\0.txt">
-      <PackagePath>Data\Legend_of_the_Arch_Magus\0.txt</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\The_Shadow\0.txt">
       <PackagePath>Data\The_Shadow\0.txt</PackagePath>
     </AppxPackagedFile>
