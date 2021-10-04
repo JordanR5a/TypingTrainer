@@ -530,7 +530,41 @@ namespace TypingTrainer
         string ConvertContent(string rawText)
         {
 
-            
+            if (rawText.Contains((char)169))
+            {
+                rawText = rawText.Substring(0, rawText.IndexOf((char)169));
+            }
+            if (rawText.Contains("Does anyone want to become a moderator for this novel?"))
+            {
+                rawText = rawText.Substring(0, rawText.IndexOf("Does anyone want to become a moderator for this novel?"));
+            }
+            if (rawText.Contains("More Privileged Chapters"))
+            {
+                rawText = rawText.Substring(0, rawText.IndexOf("More Privileged Chapters"));
+            }
+            if (rawText.Contains("Follow me:"))
+            {
+                rawText = rawText.Substring(0, rawText.IndexOf("Follow me:"));
+            }
+            if (rawText.Contains("Advertisement Pornographic Personal attack"))
+            {
+                rawText = rawText.Substring(0, rawText.IndexOf("Advertisement Pornographic Personal attack"));
+            }
+            if (rawText.Contains("Find authorized novels in Webnovel"))
+            {
+                string fluff = rawText.Substring(rawText.IndexOf("Find authorized novels in Webnovel"),
+                                (rawText.LastIndexOf("a&gt; for visiting.") + 19) - rawText.IndexOf("Find authorized novels in Webnovel"));
+
+                rawText = rawText.Replace(fluff, "");
+            }
+
+            rawText = rawText.Replace("&nbsp;", "");
+            rawText = rawText.Replace((char)8217, '\'');
+            rawText = rawText.Replace((char)171, START_QUOTATION);
+            rawText = rawText.Replace((char)187, END_QUOTATION);
+
+
+            return rawText;
         }
 
         public bool Rewind(int change, bool rawFormat)
