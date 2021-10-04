@@ -28,7 +28,7 @@ namespace TypingTrainer
     public sealed partial class MainPage : Page
     {
         static readonly int DISPLAY_SIZE = 200;
-        static string CURRENT_NOVEL = "Martial_World";
+        static string CURRENT_NOVEL = "Birth_of_The_Demonic_Sword";
 
         int startText;
         bool rawFormat;
@@ -43,7 +43,7 @@ namespace TypingTrainer
         public MainPage()
         {
             this.InitializeComponent();
-            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
+            //ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
             Window.Current.CoreWindow.PointerCursor = null;
             Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
 
@@ -260,7 +260,7 @@ namespace TypingTrainer
             }
             else
             {
-                CurrentChapterDisplay.Text = "Current Chapter: " + trainer.CurrentChapterNumber;
+                CurrentChapterDisplay.Text = "Chapter " + trainer.CurrentChapterNumber;
                 CurrentChapterDisplay.Opacity = 0.7;
                 Display.FontSize = 34;
                 Display.TextAlignment = TextAlignment.Left;
@@ -541,6 +541,14 @@ namespace TypingTrainer
             if (rawText.Contains("More Privileged Chapters"))
             {
                 rawText = rawText.Substring(0, rawText.IndexOf("More Privileged Chapters"));
+            }
+            if (rawText.Contains("Follow me:"))
+            {
+                rawText = rawText.Substring(0, rawText.IndexOf("Follow me:"));
+            }
+            if (rawText.Contains("Advertisement Pornographic Personal attack"))
+            {
+                rawText = rawText.Substring(0, rawText.IndexOf("Advertisement Pornographic Personal attack"));
             }
             if (rawText.Contains("Find authorized novels in Webnovel"))
             {

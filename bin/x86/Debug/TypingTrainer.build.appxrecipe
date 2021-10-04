@@ -264,11 +264,23 @@
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Free_The_Darkness\1.txt">
       <PackagePath>Data\Free_The_Darkness\1.txt</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Free_The_Darkness\2.txt">
+      <PackagePath>Data\Free_The_Darkness\2.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Free_The_Darkness\3.txt">
+      <PackagePath>Data\Free_The_Darkness\3.txt</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\The_Shadow\0.txt">
       <PackagePath>Data\The_Shadow\0.txt</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\The_Shadow\1.txt">
       <PackagePath>Data\The_Shadow\1.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Birth_of_The_Demonic_Sword\1168.html">
+      <PackagePath>Data\Birth_of_The_Demonic_Sword\1168.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Birth_of_The_Demonic_Sword\1169.html">
+      <PackagePath>Data\Birth_of_The_Demonic_Sword\1169.html</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\225.html">
       <PackagePath>Data\Everything_Will_Be_My_Way!\225.html</PackagePath>
@@ -305,6 +317,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1410.html">
       <PackagePath>Data\Martial_World\1410.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\My_Senior_Brother_Is_Too_Steady\398.html">
+      <PackagePath>Data\My_Senior_Brother_Is_Too_Steady\398.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\My_Senior_Brother_Is_Too_Steady\399.html">
+      <PackagePath>Data\My_Senior_Brother_Is_Too_Steady\399.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\My_Senior_Brother_Is_Too_Steady\400.html">
+      <PackagePath>Data\My_Senior_Brother_Is_Too_Steady\400.html</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Prime_Originator\322.html">
       <PackagePath>Data\Prime_Originator\322.html</PackagePath>

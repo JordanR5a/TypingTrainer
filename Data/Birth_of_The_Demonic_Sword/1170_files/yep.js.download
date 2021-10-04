@@ -1,0 +1,235 @@
+!function(e) {
+    function r(t) {
+        if (n[t]) return n[t].exports;
+        var o = n[t] = {
+            "i": t,
+            "l": !1,
+            "exports": {}
+        };
+        return e[t].call(o.exports, o, o.exports, r), o.l = !0, o.exports;
+    }
+    var n = {};
+    r.m = e, r.c = n, r.d = function(e, n, t) {
+        r.o(e, n) || Object.defineProperty(e, n, {
+            "configurable": !1,
+            "enumerable": !0,
+            "get": t
+        });
+    }, r.n = function(e) {
+        var n = e && e.__esModule ? function() {
+            return e["default"];
+        } : function() {
+            return e;
+        };
+        return r.d(n, "a", n), n;
+    }, r.o = function(e, r) {
+        return Object.prototype.hasOwnProperty.call(e, r);
+    }, r.p = "/dist/", r(r.s = 0);
+}([ function(module, exports, __webpack_require__) {
+    var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
+    !function(e) {
+        var r = Date.now ? Date.now() : +new Date(), n = e.performance || {}, t = [], o = {}, a = function(e, r) {
+            for (var n = 0, o = t.length, a = []; n < o; n++) t[n][e] == r && a.push(t[n]);
+            return a;
+        }, i = function(e, r) {
+            for (var n, o = t.length; o--; ) n = t[o], n.entryType != e || void 0 !== r && n.name != r || t.splice(o, 1);
+        };
+        n.now || (n.now = n.webkitNow || n.mozNow || n.msNow || function() {
+            return (Date.now ? Date.now() : +new Date()) - r;
+        }), n.mark || (n.mark = n.webkitMark || function(e) {
+            var r = {
+                "name": e,
+                "entryType": "mark",
+                "startTime": n.now(),
+                "duration": 0
+            };
+            t.push(r), o[e] = r;
+        }), n.measure || (n.measure = n.webkitMeasure || function(e, r, n) {
+            r = o[r].startTime, n = o[n].startTime, t.push({
+                "name": e,
+                "entryType": "measure",
+                "startTime": r,
+                "duration": n - r
+            });
+        }), n.getEntriesByType || (n.getEntriesByType = n.webkitGetEntriesByType || function(e) {
+            return a("entryType", e);
+        }), n.getEntriesByName || (n.getEntriesByName = n.webkitGetEntriesByName || function(e) {
+            return a("name", e);
+        }), n.clearMarks || (n.clearMarks = n.webkitClearMarks || function(e) {
+            i("mark", e);
+        }), n.clearMeasures || (n.clearMeasures = n.webkitClearMeasures || function(e) {
+            i("measure", e);
+        }), e.performance = n, __WEBPACK_AMD_DEFINE_ARRAY__ = [], void 0 !== (__WEBPACK_AMD_DEFINE_RESULT__ = function() {
+            return n;
+        }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__);
+    }(window), function(window) {
+        function report() {
+            yep.config.appid && (yep.config.href = location.href, Math.random() <= yep.config.rate && setTimeout(function() {
+                yep.config.isPage && reportPage(), yep.config.isResource && reportResource();
+            }, 300));
+        }
+        function reportPage() {
+            if (window.performance) try {
+                var e = {}, r = performance.timing;
+                if (e.dnsDuration = Number(r.domainLookupEnd - r.domainLookupStart), e.tcpDuration = Number(r.connectEnd - r.connectStart), 
+                e.ttfbDuration = Number(r.responseStart - r.requestStart), e.transDuration = Number(r.responseEnd - r.responseStart), 
+                e.domParseDuration = Number(r.domInteractive - r.domLoading), e.resourceDuration = Number(r.domContentLoadedEventEnd - r.domContentLoadedEventStart), 
+                e.fbDuration = Number(r.responseStart - r.domainLookupStart), e.fptDuration = Number(r.domLoading - r.navigationStart), 
+                e.ttiDuration = Number(r.domInteractive - r.navigationStart), e.readyDuration = Number(r.domContentLoadedEventEnd - r.navigationStart), 
+                e.loadDuration = Number(r.loadEventStart - r.navigationStart), Number(r.loadEventStart - r.navigationStart) < 0) return;
+                var n = checkPerformanceIndicator(r, performanceTimingIndicator), t = extend(n, e), o = extend(t, yep.config);
+                yep.config.appid && sendAnalytics("/report/page", o);
+            } catch (a) {
+                console.log(a);
+            }
+        }
+        function reportResource() {
+            if (window.performance && performance.getEntriesByType("resource")) {
+                var e = performance.getEntriesByType("resource");
+                try {
+                    for (var r = [ "navigation", "script", "css", "fetch", "link", "img", "iframe", "other", "xmlhttprequest" ], n = [ "/report/error", "/report/source", "/report/page", "/report/custom", "/sockjs-node/", "favicon.ico", "yep.js", "yep.min.js", "qreport", "pingd" ], t = 0; t < e.length; t++) {
+                        e[t]._sourceType = checkResourceType(e[t]);
+                        var o = !1;
+                        if (-1 !== r.indexOf(e[t].initiatorType)) {
+                            for (var a = 0; a < n.length; a++) if (e[t].name.indexOf(n[a]) > -1) {
+                                o = !0;
+                                break;
+                            }
+                        } else o = !0;
+                        if (!o) {
+                            var i = checkPerformanceIndicator(e[t], performanceEntriesIndicator), c = extend(i, yep.config);
+                            -1 !== c.name.indexOf("_csrfToken") && (c.name = replaceUrlParamVal(c.name, "_csrfToken", "")), 
+                            sendAnalytics("/report/source", c);
+                        }
+                    }
+                } catch (s) {
+                    console.log(s);
+                }
+            }
+        }
+        function sendAnalytics(e, r) {
+            if (e && r) {
+                var n = yep.config.url + e, t = {
+                    "data": encodeURIComponent(JSON.stringify(r))
+                }, o = n + setQueryString(t);
+                if (navigator.sendBeacon) navigator.sendBeacon(o); else {
+                    new Image().src = o;
+                }
+            }
+        }
+        function getUuid() {
+            var e = getCookie("_yep_uuid");
+            if (e && e.length) return e;
+            var r = generatorUuid();
+            return setCookie("_yep_uuid", r, 3650), r;
+        }
+        function getEffectiveType() {
+            return navigator && navigator.connection && navigator.connection.effectiveType ? navigator.connection.effectiveType : "-";
+        }
+        function setCookie(e, r, n) {
+            var t = e + "=" + escape(r);
+            if (n > 0) {
+                var o = new Date();
+                o.setTime(o.getTime + 3600 * n * 1e3), t = t + "; expire=" + o.toUTCString();
+            }
+            document.cookie = t;
+        }
+        function getCookie(e) {
+            for (var r = document.cookie, n = r.split("; "), t = 0; t < n.length; t++) {
+                var o = n[t].split("=");
+                if (o[0] == e) return o[1];
+            }
+            return "";
+        }
+        function generatorUuid() {
+            function e() {
+                return Math.floor(65536 * (1 + Math.random())).toString(16).substring(1);
+            }
+            return e() + e() + "-" + e() + "-" + e() + "-" + e() + "-" + e() + e() + e();
+        }
+        function checkResourceType(e) {
+            switch (e.initiatorType) {
+              case "other":
+                return "other";
+
+              case "xmlhttprequest":
+                return "xmlhttprequest";
+
+              case "iframe":
+                return "iframe";
+
+              default:
+                var r = e.name.lastIndexOf("."), n = e.name.substr(r + 1), t = [ "png", "jpg", "jpeg", "bmp", "gif", "webp", "psd", "svg", "tiff", "ico" ], o = [ "css" ], a = [ "eot", "woff", "woff2", "ttf", "otf", "svg#" ], i = [ "script", "js" ];
+                return -1 !== a.indexOf(n.toLowerCase()) ? "font" : -1 !== o.indexOf(n.toLowerCase()) ? "css" : -1 !== t.indexOf(n.toLowerCase()) ? "img" : i.indexOf(-1 !== n.toLowerCase()) ? "script" : "other";
+            }
+        }
+        function extend(e, r) {
+            var n, t = {};
+            for (n in e) Object.prototype.hasOwnProperty.call(e, n) && (t[n] = e[n]);
+            for (n in r) Object.prototype.hasOwnProperty.call(r, n) && (t[n] = r[n]);
+            return t;
+        }
+        function checkPerformanceIndicator(e, r) {
+            var n = {};
+            return e ? (r.forEach(function(r) {
+                void 0 !== e[r] && (n[r] = e[r]);
+            }), n) : n;
+        }
+        function setQueryString(e) {
+            return "?" + Object.keys(e).map(function(r) {
+                return r + "=" + e[r];
+            }).join("&");
+        }
+        function replaceUrlParamVal(url, paramName, replaceWith) {
+            var re = eval("/(" + paramName + "=)([^&]*)/gi");
+            return url.replace(re, paramName + "=" + replaceWith);
+        }
+        function setHistoryListener() {
+            var e = function(e) {
+                var r = history[e];
+                return function() {
+                    var n = r.apply(this, arguments), t = new Event(e);
+                    return t.arguments = arguments, window.dispatchEvent(t), n;
+                };
+            };
+            history.pushState = e("pushState"), history.replaceState = e("replaceState");
+        }
+        var performanceTimingIndicator = [ "fetchStart", "domainLookupStart", "domainLookupEnd", "connectStart", "connectEnd", "secureConnectionStart", "requestStart", "responseStart", "responseEnd", "domLoading", "domInteractive", "domContentLoadedEventStart", "domContentLoadedEventEnd", "domComplete", "navigationStart", "loadEventStart", "loadEventEnd", "unloadEventStart", "unloadEventEnd" ], performanceEntriesIndicator = [ "name", "entryType", "startTime", "duration", "initiatorType", "nextHopProtocol", "fetchStart", "requestStart", "responseStart", "responseEnd", "transferSize", "encodedBodySize", "_sourceType" ], yep = function() {
+            var e = [].slice.call(arguments, 0);
+            if (0 === e.length) throw new Error("method name required.");
+            yep[e[0]].apply(null, e.slice(1));
+        };
+        yep.VERSION = "0.0.52", yep.set = function(e) {
+            yep.config.appid || (yep.config = extend(yep.config, e));
+        }, yep.custom = function(e) {
+            var r = extend(yep.config, e);
+            Math.random() <= yep.config.rate && yep.config.appid && sendAnalytics("/report/custom", r);
+        }, yep.config = {
+            "appid": null,
+            "url": "https://yep.yuewen.com",
+            "rate": .1,
+            "autoReport": !1,
+            "isPage": !0,
+            "isResource": !1,
+            "isError": !1,
+            "connection": getEffectiveType(),
+            "uuid": getUuid(),
+            "href": location.href
+        }, setHistoryListener(), window.yep && window.yep.q && window.yep.q.forEach(function(e) {
+            yep.apply(null, e);
+        }), window.yep = yep, "complete" === document.readyState ? (window.performance && window.performance.clearResourceTimings && performance.clearResourceTimings(), 
+        report()) : window.addEventListener && window.addEventListener("load", function() {
+            window.performance && window.performance.clearResourceTimings && performance.clearResourceTimings(), 
+            report();
+        }), window.addEventListener && window.addEventListener("hashchange", function() {
+            window.performance && window.performance.clearResourceTimings && performance.clearResourceTimings(), 
+            report();
+        }), window.addEventListener && window.addEventListener("pushState", function() {
+            window.performance && window.performance.clearResourceTimings && performance.clearResourceTimings(), 
+            report();
+        }), window.addEventListener && window.addEventListener("replaceState", function() {
+            window.performance && window.performance.clearResourceTimings && performance.clearResourceTimings(), 
+            report();
+        });
+    }(window);
+} ]);

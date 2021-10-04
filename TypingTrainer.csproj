@@ -183,6 +183,9 @@
     <Content Include="Data\Aristotle_Complete_Works\3.txt" />
     <Content Include="Data\Aristotle_Complete_Works\4.txt" />
     <Content Include="Data\Aristotle_Complete_Works\5.txt" />
+    <Content Include="Data\Birth_of_The_Demonic_Sword\1168.html" />
+    <Content Include="Data\Birth_of_The_Demonic_Sword\1169.html" />
+    <Content Include="Data\Birth_of_The_Demonic_Sword\1170.html" />
     <Content Include="Data\Everything_Will_Be_My_Way!\225.html" />
     <Content Include="Data\Everything_Will_Be_My_Way!\226.html" />
     <Content Include="Data\Everything_Will_Be_My_Way!\227.html" />
@@ -191,12 +194,17 @@
     <Content Include="Data\Everything_Will_Be_My_Way!\230.html" />
     <Content Include="Data\Free_The_Darkness\0.txt" />
     <Content Include="Data\Free_The_Darkness\1.txt" />
+    <Content Include="Data\Free_The_Darkness\2.txt" />
+    <Content Include="Data\Free_The_Darkness\3.txt" />
     <Content Include="Data\Martial_World\1405.html" />
     <Content Include="Data\Martial_World\1406.html" />
     <Content Include="Data\Martial_World\1407.html" />
     <Content Include="Data\Martial_World\1408.html" />
     <Content Include="Data\Martial_World\1409.html" />
     <Content Include="Data\Martial_World\1410.html" />
+    <Content Include="Data\My_Senior_Brother_Is_Too_Steady\398.html" />
+    <Content Include="Data\My_Senior_Brother_Is_Too_Steady\399.html" />
+    <Content Include="Data\My_Senior_Brother_Is_Too_Steady\400.html" />
     <Content Include="Data\Prime_Originator\322.html" />
     <Content Include="Data\The_Shadow\0.txt" />
     <Content Include="Data\The_Shadow\1.txt" />

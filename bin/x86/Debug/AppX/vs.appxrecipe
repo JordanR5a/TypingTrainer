@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>1917E1FC721B5FBF19F1325B99EFE7BE3D5BFE4247F17AE95A3703198D3D4F39</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>5D74F10AF82CD752F854F88C48C27763DD458E66D726BCCB37070820973EDF51</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>07dfed3c-d7c0-4a26-8ff1-3ea6ea2c1b0a_1.0.0.0_x86__ascqrq7qq0g20</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>07dfed3c-d7c0-4a26-8ff1-3ea6ea2c1b0a_ascqrq7qq0g20!App</RegisteredUserModeAppID>
     <RegisteredPackageID>07dfed3c-d7c0-4a26-8ff1-3ea6ea2c1b0a</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-03-20T17:11:27.438</Modified>
+      <Modified>2021-10-04T16:59:06.225</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\TypingTrainer.exe">
       <PackagePath>entrypoint\TypingTrainer.exe</PackagePath>
-      <Modified>2021-03-20T17:11:26.347</Modified>
+      <Modified>2021-10-04T16:59:05.284</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\.nuget\packages\htmlagilitypack\1.11.31\lib\uap10.0\HtmlAgilityPack.dll">
       <PackagePath>HtmlAgilityPack.dll</PackagePath>
@@ -336,6 +336,14 @@
       <PackagePath>Data\Free_The_Darkness\1.txt</PackagePath>
       <Modified>2021-03-10T22:24:32.387</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Free_The_Darkness\2.txt">
+      <PackagePath>Data\Free_The_Darkness\2.txt</PackagePath>
+      <Modified>2021-07-26T15:36:53.215</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Free_The_Darkness\3.txt">
+      <PackagePath>Data\Free_The_Darkness\3.txt</PackagePath>
+      <Modified>2021-07-26T15:38:50.190</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\The_Shadow\0.txt">
       <PackagePath>Data\The_Shadow\0.txt</PackagePath>
       <Modified>2021-03-10T22:29:05.451</Modified>
@@ -343,6 +351,14 @@
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\The_Shadow\1.txt">
       <PackagePath>Data\The_Shadow\1.txt</PackagePath>
       <Modified>2021-03-10T22:29:26.078</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Birth_of_The_Demonic_Sword\1168.html">
+      <PackagePath>Data\Birth_of_The_Demonic_Sword\1168.html</PackagePath>
+      <Modified>2021-08-02T15:50:59.951</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Birth_of_The_Demonic_Sword\1169.html">
+      <PackagePath>Data\Birth_of_The_Demonic_Sword\1169.html</PackagePath>
+      <Modified>2021-08-02T15:51:26.236</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Everything_Will_Be_My_Way!\225.html">
       <PackagePath>Data\Everything_Will_Be_My_Way!\225.html</PackagePath>
@@ -391,6 +407,18 @@
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Martial_World\1410.html">
       <PackagePath>Data\Martial_World\1410.html</PackagePath>
       <Modified>2021-03-10T22:07:31.050</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\My_Senior_Brother_Is_Too_Steady\398.html">
+      <PackagePath>Data\My_Senior_Brother_Is_Too_Steady\398.html</PackagePath>
+      <Modified>2021-08-02T14:13:32.057</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\My_Senior_Brother_Is_Too_Steady\399.html">
+      <PackagePath>Data\My_Senior_Brother_Is_Too_Steady\399.html</PackagePath>
+      <Modified>2021-08-02T14:13:42.084</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\My_Senior_Brother_Is_Too_Steady\400.html">
+      <PackagePath>Data\My_Senior_Brother_Is_Too_Steady\400.html</PackagePath>
+      <Modified>2021-08-02T14:13:48.847</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\Data\Prime_Originator\322.html">
       <PackagePath>Data\Prime_Originator\322.html</PackagePath>
@@ -442,15 +470,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-03-18T20:13:33.742</Modified>
+      <Modified>2021-07-22T15:20:38.137</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-03-18T20:13:33.742</Modified>
+      <Modified>2021-07-22T15:20:38.137</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\NewNovel.xbf">
       <PackagePath>NewNovel.xbf</PackagePath>
-      <Modified>2021-03-18T20:13:33.743</Modified>
+      <Modified>2021-07-22T15:20:38.137</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -458,11 +486,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-03-20T17:11:26.778</Modified>
+      <Modified>2021-08-02T15:51:56.821</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\Core\TypingTrainer.exe">
       <PackagePath>TypingTrainer.exe</PackagePath>
-      <Modified>2021-03-20T17:11:27.427</Modified>
+      <Modified>2021-10-04T16:59:06.214</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
