@@ -119,6 +119,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationObjects\InputParser.cs" />
+    <Compile Include="ApplicationObjects\Section.cs" />
+    <Compile Include="ApplicationObjects\Trainer.cs" />
+    <Compile Include="ApplicationObjects\Unit.cs" />
+    <Compile Include="DatabaseObjects\Book.cs" />
+    <Compile Include="DatabaseObjects\Chapter.cs" />
+    <Compile Include="DatabaseObjects\DatabaseManager.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
