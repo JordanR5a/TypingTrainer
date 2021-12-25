@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TypingTrainer.DatabaseObjects
 {
     class DatabaseManager
     {
-        static readonly string DATABASE_CONNECTION = @"Data Source=RZ-LAPTOP;Initial Catalog=TT_Data;User ID=sa;Password=A9WEmkvJBBB55yzcMFry!r$SAt9sn7p2arVfmGxgDBukV6PUrYaPwn%pRB@3";
+        static readonly string DATABASE_CONNECTION = @"Data Source=RZ-LAPTOP,1433;Initial Catalog=TT_DataSource;User ID=sa;Password=HFq1qYSE7LP3vHsRmVBa";
 
         public static Book GetBook(string novelName)
         {
-            string GetBookQuery = String.Format("SELECT TOP 1 * FROM Books WHERE BookTitle = '{0}'", novelName);
+            string GetBookQuery = String.Format("SELECT TOP 1 * FROM books WHERE Book_title = '{0}'", novelName);
 
             try
             {
@@ -51,10 +47,10 @@ namespace TypingTrainer.DatabaseObjects
 
         public static ObservableCollection<Chapter> GetChapters(int novel)
         {
-            string GetBookQuery = String.Format("SELECT Chapters.ChapterID, Chapters.ChapterNumber, Chapters.ChapterText "
+            string GetBookQuery = String.Format("SELECT Chapters.ChapterID, Chapters.chapter_number, Chapters.chapter_text "
                                             + "FROM Chapters "
-                                            + "INNER JOIN BooksChapters ON BooksChapters.ChapterID = Chapters.ChapterID "
-                                            + "WHERE BooksChapters.BookID = {0}", novel);
+                                            + "INNER JOIN books ON books.bookid = Chapters.book_bookid "
+                                            + "WHERE books.bookid = {0}", novel);
 
             var chapters = new ObservableCollection<Chapter>();
             try

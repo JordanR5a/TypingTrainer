@@ -13,24 +13,18 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+
 namespace TypingTrainer
 {
-    public sealed partial class NewNovel : ContentDialog
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
+    public sealed partial class UplinkPage : Page
     {
-        public string title;
-
-        public NewNovel()
+        public UplinkPage()
         {
             this.InitializeComponent();
-        }
-
-        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
-            title = txtTitle.Text.Trim();
-        }
-
-        private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
         }
     }
 }
