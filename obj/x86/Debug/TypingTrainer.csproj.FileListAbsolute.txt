@@ -52,3 +52,13 @@ C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\NewNovel.x
 C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\HtmlAgilityPack.dll
 C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\HtmlAgilityPack.pdb
 C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\HtmlAgilityPack.pri.xml
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\TrainerPage.g.i.cs
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\TrainerPage.g.cs
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\UplinkPage.g.i.cs
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\UplinkPage.g.cs
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\UplinkPage.xaml
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\TrainerPage.xaml
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\UplinkPage.xbf
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\TrainerPage.xbf
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\TrainerPage.xbf
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\UplinkPage.xbf

@@ -7,7 +7,7 @@ namespace TypingTrainer.DatabaseObjects
 {
     class DatabaseManager
     {
-        static readonly string DATABASE_CONNECTION = @"Data Source=RZ-LAPTOP,1433;Initial Catalog=TT_DataSource;User ID=sa;Password=HFq1qYSE7LP3vHsRmVBa";
+        static readonly string DATABASE_CONNECTION = @"Data Source=RZ-LAPTOP,1433;Initial Catalog=TT_Data;User ID=sa;Password=HFq1qYSE7LP3vHsRmVBa";
 
         public static Book GetBook(string novelName)
         {

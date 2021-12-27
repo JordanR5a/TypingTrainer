@@ -8,42 +8,21 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="Black">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:ConnectionId='2' x:Name="WPMDisplay" 
-                       HorizontalAlignment="Left"
-                       Foreground="White"
-                       FontSize="28"
-                       FontFamily="Palatino Linotype"
-                       FontWeight="Bold"
-                   Margin="15 15 0 0"
-                       Opacity="0"/>
-        <StackPanel Grid.Column="1" 
-                    Orientation="Vertical">
+        <ListView x:ConnectionId='2' x:Name="MainPageListView" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             
-            <TextBlock x:ConnectionId='3' x:Name="CurrentChapterDisplay"
-                       Margin="0 120 0 0"
-                       Foreground="White"
-                       FontSize="34"
-                       FontFamily="Palatino Linotype"
-                       FontWeight="Bold"
-                       Opacity="0.7"/>
-            <TextBlock x:ConnectionId='4' Grid.Column="1"
-                   Margin="0 70 0 0"
-                   x:Name="Display"
-                   Foreground="White"
-                   FontSize="34"
-                   FontFamily="Imprint MT Shadow"
-                   TextWrapping="WrapWholeWords" 
-                   LineHeight="10" 
-                   Opacity="0.8">
-
-            </TextBlock>
-        </StackPanel>
+            
+        </ListView>
     </Grid>
 </Page>
 

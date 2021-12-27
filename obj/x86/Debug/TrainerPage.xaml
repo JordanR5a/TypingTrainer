@@ -14,7 +14,7 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="WPMDisplay" 
+        <TextBlock x:ConnectionId='2' x:Name="WPMDisplay" 
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="28"
@@ -25,14 +25,14 @@
         <StackPanel Grid.Column="1" 
                     Orientation="Vertical">
 
-            <TextBlock x:Name="CurrentChapterDisplay"
+            <TextBlock x:ConnectionId='3' x:Name="CurrentChapterDisplay"
                        Margin="0 120 0 0"
                        Foreground="White"
                        FontSize="34"
                        FontFamily="Palatino Linotype"
                        FontWeight="Bold"
                        Opacity="0.7"/>
-            <TextBlock Grid.Column="1"
+            <TextBlock x:ConnectionId='4' Grid.Column="1"
                    Margin="0 70 0 0"
                    x:Name="Display"
                    Foreground="White"
@@ -46,3 +46,4 @@
         </StackPanel>
     </Grid>
 </Page>
+
