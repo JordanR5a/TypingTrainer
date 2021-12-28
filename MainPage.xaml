@@ -11,7 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="9*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -19,9 +19,10 @@
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="MainPageListView" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            
-            
-        </ListView>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock Text="Typing Center" HorizontalAlignment="Center" FontSize="100"/>
+            <Button x:Name="MainPageTrainerPageBtn" Click="MainPageTrainerPageBtn_Click" Content="Trainer" FontSize="50" Padding="100, 10, 100, 10" HorizontalAlignment="Center" Margin="0, 90, 0, 35"/>
+            <Button x:Name="MainPageUplinkPageBtn" Click="MainPageUplinkPageBtn_Click" Content="Uplink" FontSize="50" Padding="100, 10, 100, 10" HorizontalAlignment="Center" Margin="0, 35, 0 , 25"/>
+        </StackPanel>
     </Grid>
 </Page>

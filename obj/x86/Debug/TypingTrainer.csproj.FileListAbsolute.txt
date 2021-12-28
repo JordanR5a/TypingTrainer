@@ -62,3 +62,4 @@ C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\UplinkPage
 C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\TrainerPage.xbf
 C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\TrainerPage.xbf
 C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\UplinkPage.xbf
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\Newtonsoft.Json.dll
