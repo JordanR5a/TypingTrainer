@@ -25,7 +25,7 @@ namespace TypingTrainer
             this.InitializeComponent();
         }
 
-        private string SendGetRequest()
+        private string SendGetRequest(string url)
         {
             //Create an HTTP client object
             Windows.Web.Http.HttpClient httpClient = new Windows.Web.Http.HttpClient();
@@ -47,7 +47,7 @@ namespace TypingTrainer
                 throw new Exception("Invalid header value: " + header);
             }
 
-            Uri requestUri = new Uri("http://localhost:8080/book");
+            Uri requestUri = new Uri(url);
 
             //Send the GET request asynchronously and retrieve the response as a string.
             Windows.Web.Http.HttpResponseMessage httpResponse = new Windows.Web.Http.HttpResponseMessage();
@@ -68,12 +68,50 @@ namespace TypingTrainer
             return httpResponseBody;
         }
 
+        private async void DisplayAddNovelDialog()
+        {
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
+            ContentDialog unknownVIdeoDialog = new ContentDialog
+            {
+                Title = "Add Novel To Collection?",
+                PrimaryButtonText = "Yes",
+                CloseButtonText = "No"
+            };
+
+            ContentDialogResult result = ContentDialogResult.None;
+            try
+            {
+                result = await unknownVIdeoDialog.ShowAsync();
+            }
+            catch (Exception e) { return; }
+
+            if (result == ContentDialogResult.Primary)
+            {
+                
+            }
+        }
+
+        private bool AnyContentDialogOpen()
+        {
+            var openedpopups = VisualTreeHelper.GetOpenPopups(Window.Current);
+            foreach (var popup in openedpopups)
+            {
+                if (popup.Child is ContentDialog) return true;
+            }
+            return false;
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
-            List<Book> books = JsonConvert.DeserializeObject<List<Book>>(SendGetRequest());
+            List<Book> books = JsonConvert.DeserializeObject<List<Book>>(SendGetRequest("http://localhost:8080/book"));
             CreateBookDisplay(books);
 
+        }
+
+        private void NovelBtn_Click(Object sender, RoutedEventArgs agrs)
+        {
+            if (!AnyContentDialogOpen()) DisplayAddNovelDialog();
         }
 
         private void CreateBookDisplay(List<Book> books)
@@ -87,6 +125,7 @@ namespace TypingTrainer
                 btn.FontSize = 40;
                 btn.Margin = new Thickness(10);
                 btn.CornerRadius = new CornerRadius(25);
+                btn.Click += NovelBtn_Click;
                 UplinkPageBookDisplay.Children.Add(btn);
             }
         }
