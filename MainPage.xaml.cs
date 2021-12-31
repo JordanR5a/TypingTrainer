@@ -27,16 +27,18 @@ namespace TypingTrainer
         public MainPage()
         {
             this.InitializeComponent();
+            App.PageNavigation = new PageNavigation(typeof(MainPage));
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
         }
 
         private void MainPageTrainerPageBtn_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(TrainerPage));
+            App.PageNavigation.Navigate(Frame, typeof(TrainerPage));
         }
 
         private void MainPageUplinkPageBtn_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(UplinkPage));
+            App.PageNavigation.Navigate(Frame, typeof(UplinkPage));
         }
     }
 }

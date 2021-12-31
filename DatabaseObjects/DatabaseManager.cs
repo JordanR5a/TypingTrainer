@@ -45,6 +45,42 @@ namespace TypingTrainer.DatabaseObjects
             return null;
         }
 
+        public static bool BookExists(string bookId)
+        {
+            string GetBookQuery = String.Format("SELECT TOP 1 * FROM books WHERE bookid = {0}", bookId);
+
+            try
+            {
+                Book book = null;
+                using (SqlConnection conn = new SqlConnection(DATABASE_CONNECTION))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.CommandText = GetBookQuery;
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    book = new Book();
+                                    book.BookID = reader.GetInt32(0);
+                                    book.BookTitle = reader.GetString(1);
+                                }
+                            }
+                        }
+                    }
+                }
+                return book != null;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            return false;
+        }
+
         public static ObservableCollection<Chapter> GetChapters(int novel)
         {
             string GetBookQuery = String.Format("SELECT Chapters.ChapterID, Chapters.chapter_number, Chapters.chapter_text "
@@ -84,6 +120,62 @@ namespace TypingTrainer.DatabaseObjects
                 Debug.WriteLine("Exception: " + eSql.Message);
             }
             return null;
+        }
+
+        public static bool CreateBook(Book book)
+        {
+            string bookCreationQuery = String.Format("INSERT INTO books VALUES ({0}, '{1}')",
+                                                        book.BookID, book.BookTitle.Replace("'", "''"));
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DATABASE_CONNECTION))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.CommandText = bookCreationQuery;
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            return false;
+        }
+
+        public static bool CreateChapter(Chapter chapter, string bookId)
+        {
+            string chapterCreationQuery = String.Format(@"INSERT INTO chapters VALUES ({0}, {1}, '{2}', {3})",
+                                                        chapter.ChapterID, chapter.ChapterNumber, chapter.ChapterText.Replace("'", "''"), bookId);
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DATABASE_CONNECTION))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.CommandText = chapterCreationQuery;
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            return false;
         }
     }
 }

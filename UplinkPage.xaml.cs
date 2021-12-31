@@ -20,6 +20,7 @@ namespace TypingTrainer
 {
     public sealed partial class UplinkPage : Page
     {
+        private List<Book> bookGallery;
         public UplinkPage()
         {
             this.InitializeComponent();
@@ -68,14 +69,16 @@ namespace TypingTrainer
             return httpResponseBody;
         }
 
-        private async void DisplayAddNovelDialog()
+        private async void DisplayAddNovelDialog(Object sender)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
             ContentDialog unknownVIdeoDialog = new ContentDialog
             {
                 Title = "Add Novel To Collection?",
+                Content = "Decide whether to import this novel into your own library.",
                 PrimaryButtonText = "Yes",
-                CloseButtonText = "No"
+                CloseButtonText = "No",
+                DefaultButton = ContentDialogButton.Primary
             };
 
             ContentDialogResult result = ContentDialogResult.None;
@@ -87,7 +90,15 @@ namespace TypingTrainer
 
             if (result == ContentDialogResult.Primary)
             {
-                
+                string bookId = (sender as Button).Name;
+                var relevantChapters = SendGetRequest("http://localhost:8080/book/" + bookId);
+                List<Chapter> chapters = JsonConvert.DeserializeObject<List<Chapter>>(relevantChapters);
+
+                if (!DatabaseManager.BookExists(bookId)) DatabaseManager.CreateBook(bookGallery.Find(x => x.BookID.ToString().Equals(bookId)));
+                foreach (Chapter chapter in chapters)
+                {
+                    DatabaseManager.CreateChapter(chapter, bookId);
+                }
             }
         }
 
@@ -104,14 +115,14 @@ namespace TypingTrainer
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
-            List<Book> books = JsonConvert.DeserializeObject<List<Book>>(SendGetRequest("http://localhost:8080/book"));
-            CreateBookDisplay(books);
+            bookGallery = JsonConvert.DeserializeObject<List<Book>>(SendGetRequest("http://localhost:8080/book"));
+            CreateBookDisplay(bookGallery);
 
         }
 
         private void NovelBtn_Click(Object sender, RoutedEventArgs agrs)
         {
-            if (!AnyContentDialogOpen()) DisplayAddNovelDialog();
+            if (!AnyContentDialogOpen()) DisplayAddNovelDialog(sender);
         }
 
         private void CreateBookDisplay(List<Book> books)
@@ -128,6 +139,11 @@ namespace TypingTrainer
                 btn.Click += NovelBtn_Click;
                 UplinkPageBookDisplay.Children.Add(btn);
             }
+        }
+
+        private void UplinkPageBackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            App.PageNavigation.Back(Frame);
         }
     }
 }

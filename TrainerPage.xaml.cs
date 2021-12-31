@@ -100,7 +100,7 @@ namespace TypingTrainer
         {
 
 
-            if (e.VirtualKey == VirtualKey.Escape && !AnyContentDialogOpen()) ChangeNovelPrompt();
+            if (e.VirtualKey == VirtualKey.Escape && !AnyContentDialogOpen()) MenuDialog();
             else if (e.VirtualKey == VirtualKey.Tab && !AnyContentDialogOpen()) UpdateWPMDisplay();
             else if (e.VirtualKey == VirtualKey.CapitalLock && !AnyContentDialogOpen())
             {
@@ -192,9 +192,34 @@ namespace TypingTrainer
             else await PlaySound("error.wav", true);
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDown;
+        }
+
+        async void MenuDialog()
+        {
+            if (AnyContentDialogOpen()) return;
+            ContentDialog dialog = new ContentDialog
+            {
+                Title = "Menu",
+                Content = "Please select an action.",
+                PrimaryButtonText = "Change Novel",
+                SecondaryButtonText = "Return To Home Page",
+                CloseButtonText = "Close",
+                DefaultButton = ContentDialogButton.Primary
+            };
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
+            ContentDialogResult result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary) ChangeNovelPrompt();
+            else if (result == ContentDialogResult.Secondary) App.PageNavigation.Back(Frame);
+            else Window.Current.CoreWindow.PointerCursor = null;
+        }
+
         async void ChangeNovelPrompt()
         {
-            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
+            if (AnyContentDialogOpen()) return;
             NewNovel contentDialog = new NewNovel();
             ContentDialogResult result = await contentDialog.ShowAsync();
 

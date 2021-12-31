@@ -22,6 +22,8 @@ namespace TypingTrainer
     /// </summary>
     sealed partial class App : Application
     {
+        public static PageNavigation PageNavigation;
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
