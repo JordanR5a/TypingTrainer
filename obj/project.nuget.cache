@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sO1ph0SW3asDGs+xxT7brR4f+0IKNTt3b8OUPBPYwx5ad9Amgudom3K6T0t2A4zGDIrnROqD5vCOrgQYJREr4g==",
+  "dgSpecHash": "XV8h+JpEnYAwJWKxXtFiZ3yjzH3Bb06IHd2p44DaF0AvVV6WAxE4ZGIsw5+6F8xTtE+Nzy4r5wCJFhgy5ul0IA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Reece\\source\\repos\\TypingTrainer\\TypingTrainer\\TypingTrainer.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,11 @@
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.uwpcoreruntimesdk\\2.2.10\\microsoft.net.uwpcoreruntimesdk.2.2.10.nupkg.sha512",
     "C:\\Users\\Reece\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.netcore.universalwindowsplatform\\6.2.10\\microsoft.netcore.universalwindowsplatform.6.2.10.nupkg.sha512",
+    "C:\\Users\\Reece\\.nuget\\packages\\microsoft.toolkit\\7.1.2\\microsoft.toolkit.7.1.2.nupkg.sha512",
+    "C:\\Users\\Reece\\.nuget\\packages\\microsoft.toolkit.uwp\\7.1.2\\microsoft.toolkit.uwp.7.1.2.nupkg.sha512",
+    "C:\\Users\\Reece\\.nuget\\packages\\microsoft.toolkit.uwp.ui\\7.1.2\\microsoft.toolkit.uwp.ui.7.1.2.nupkg.sha512",
+    "C:\\Users\\Reece\\.nuget\\packages\\microsoft.toolkit.uwp.ui.controls.primitives\\7.1.2\\microsoft.toolkit.uwp.ui.controls.primitives.7.1.2.nupkg.sha512",
+    "C:\\Users\\Reece\\.nuget\\packages\\microsoft.ui.xaml\\2.7.0\\microsoft.ui.xaml.2.7.0.nupkg.sha512",
     "C:\\Users\\Reece\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\Reece\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\runtime.win10-arm-aot.microsoft.netcore.universalwindowsplatform\\6.2.10\\runtime.win10-arm-aot.microsoft.netcore.universalwindowsplatform.6.2.10.nupkg.sha512",

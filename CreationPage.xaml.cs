@@ -24,7 +24,7 @@ namespace TypingTrainer
 
         private void CreationPageBackBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            App.PageNavigation.Back(Frame);
         }
     }
 }

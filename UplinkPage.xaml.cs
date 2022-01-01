@@ -178,7 +178,7 @@ namespace TypingTrainer
 
         private void UplinkPageCreateBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            App.PageNavigation.Navigate(Frame, typeof(CreationPage));
         }
     }
 }

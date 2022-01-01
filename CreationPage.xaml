@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TypingTrainer"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -22,9 +22,14 @@
         <Button x:Name="CreationPageBackBtn" Click="CreationPageBackBtn_Click" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="40"/>
         <TextBox x:Name="CreationPageNovelTitleTextBox" Grid.Column="1" PlaceholderText="Novel Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" TextAlignment="Center" Margin="5" MinWidth="400"/>
         <ScrollViewer Grid.Row="1" Grid.Column="1" Height="500">
-            <StackPanel x:Name="CreationPageChapterDisplay" Orientation="Horizontal">
-                <Button Content="Chapter 1" FontSize="30" Margin="5" VerticalAlignment="Top"/>
-            </StackPanel>
+            <controls:WrapPanel x:Name="CreationPageChapterDisplay" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Chapter 1" FontSize="40" Margin="5" VerticalAlignment="Top"/>
+                <Button Content="Chapter 1" FontSize="40" Margin="5" VerticalAlignment="Top"/>
+                <Button Content="Chapter 1" FontSize="40" Margin="5" VerticalAlignment="Top"/>
+                <Button Content="Chapter 1" FontSize="40" Margin="5" VerticalAlignment="Top"/>
+                <Button Content="Chapter 1" FontSize="40" Margin="5" VerticalAlignment="Top"/>
+                <Button Content="Chapter 1" FontSize="40" Margin="5" VerticalAlignment="Top"/>
+            </controls:WrapPanel>
         </ScrollViewer>
     </Grid>
 </Page>

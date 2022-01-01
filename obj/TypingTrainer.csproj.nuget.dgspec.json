@@ -45,6 +45,10 @@
               "target": "Package",
               "version": "[6.2.10, )"
             },
+            "Microsoft.Toolkit.Uwp.UI.Controls.Primitives": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"

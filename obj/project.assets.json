@@ -212,6 +212,64 @@
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
         }
       },
+      "Microsoft.Toolkit/7.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls.Primitives/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "7.1.2",
+          "Microsoft.UI.Xaml": "2.7.0"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        }
+      },
+      "Microsoft.UI.Xaml/2.7.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "type": "package",
         "dependencies": {
@@ -557,6 +615,64 @@
         "build": {
           "build/Microsoft.NETCore.UniversalWindowsPlatform.props": {},
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
+        }
+      },
+      "Microsoft.Toolkit/7.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls.Primitives/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "7.1.2",
+          "Microsoft.UI.Xaml": "2.7.0"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        }
+      },
+      "Microsoft.UI.Xaml/2.7.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -1082,6 +1198,64 @@
         "build": {
           "build/Microsoft.NETCore.UniversalWindowsPlatform.props": {},
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
+        }
+      },
+      "Microsoft.Toolkit/7.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls.Primitives/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "7.1.2",
+          "Microsoft.UI.Xaml": "2.7.0"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        }
+      },
+      "Microsoft.UI.Xaml/2.7.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -1610,6 +1784,64 @@
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
         }
       },
+      "Microsoft.Toolkit/7.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls.Primitives/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "7.1.2",
+          "Microsoft.UI.Xaml": "2.7.0"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        }
+      },
+      "Microsoft.UI.Xaml/2.7.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "type": "package",
         "dependencies": {
@@ -2136,6 +2368,64 @@
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
         }
       },
+      "Microsoft.Toolkit/7.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls.Primitives/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "7.1.2",
+          "Microsoft.UI.Xaml": "2.7.0"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        }
+      },
+      "Microsoft.UI.Xaml/2.7.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "type": "package",
         "dependencies": {
@@ -2659,6 +2949,64 @@
         "build": {
           "build/Microsoft.NETCore.UniversalWindowsPlatform.props": {},
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
+        }
+      },
+      "Microsoft.Toolkit/7.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls.Primitives/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "7.1.2",
+          "Microsoft.UI.Xaml": "2.7.0"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        }
+      },
+      "Microsoft.UI.Xaml/2.7.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -3187,6 +3535,64 @@
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
         }
       },
+      "Microsoft.Toolkit/7.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls.Primitives/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "7.1.2",
+          "Microsoft.UI.Xaml": "2.7.0"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        }
+      },
+      "Microsoft.UI.Xaml/2.7.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "type": "package",
         "dependencies": {
@@ -3710,6 +4116,64 @@
         "build": {
           "build/Microsoft.NETCore.UniversalWindowsPlatform.props": {},
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
+        }
+      },
+      "Microsoft.Toolkit/7.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "7.1.2"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls.Primitives/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "7.1.2",
+          "Microsoft.UI.Xaml": "2.7.0"
+        },
+        "compile": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll": {}
+        }
+      },
+      "Microsoft.UI.Xaml/2.7.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -4455,6 +4919,121 @@
         "ref/uap10.0.15138/mscorlib.dll",
         "ref/uap10.0.15138/netstandard.dll",
         "runtime.json"
+      ]
+    },
+    "Microsoft.Toolkit/7.1.2": {
+      "sha512": "0yBm7zWDU8jI93UySLeXTJnzl1PPl80+E+myEy6W2UIQsEgGpiWSMcKkV5/1F7dfHWcydBMveMjXZKt1/ocV2A==",
+      "type": "package",
+      "path": "microsoft.toolkit/7.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "License.md",
+        "ThirdPartyNotices.txt",
+        "lib/net5.0/Microsoft.Toolkit.dll",
+        "lib/net5.0/Microsoft.Toolkit.pdb",
+        "lib/net5.0/Microsoft.Toolkit.xml",
+        "lib/netstandard1.4/Microsoft.Toolkit.dll",
+        "lib/netstandard1.4/Microsoft.Toolkit.pdb",
+        "lib/netstandard1.4/Microsoft.Toolkit.xml",
+        "lib/netstandard2.0/Microsoft.Toolkit.dll",
+        "lib/netstandard2.0/Microsoft.Toolkit.pdb",
+        "lib/netstandard2.0/Microsoft.Toolkit.xml",
+        "lib/netstandard2.1/Microsoft.Toolkit.dll",
+        "lib/netstandard2.1/Microsoft.Toolkit.pdb",
+        "lib/netstandard2.1/Microsoft.Toolkit.xml",
+        "microsoft.toolkit.7.1.2.nupkg.sha512",
+        "microsoft.toolkit.nuspec"
+      ]
+    },
+    "Microsoft.Toolkit.Uwp/7.1.2": {
+      "sha512": "27QBAg5ZCBOEIrYTa+6Hhoww7LV7D3sgdlzqS8QX/ZslNGTKEPLuZskVj5yfDumAosWe7CVN3T/wJP3A0OsEDg==",
+      "type": "package",
+      "path": "microsoft.toolkit.uwp/7.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "License.md",
+        "ThirdPartyNotices.txt",
+        "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.dll",
+        "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.pdb",
+        "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.pri",
+        "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.xml",
+        "microsoft.toolkit.uwp.7.1.2.nupkg.sha512",
+        "microsoft.toolkit.uwp.nuspec"
+      ]
+    },
+    "Microsoft.Toolkit.Uwp.UI/7.1.2": {
+      "sha512": "GBok8UuCxtjhf5u91X50jrAo9aR/ZVe2ctwdESDxglUMEaArdJWJ9yI9vuCHzxpbSYFkA8zRCagfGZfIKJa56A==",
+      "type": "package",
+      "path": "microsoft.toolkit.uwp.ui/7.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "License.md",
+        "ThirdPartyNotices.txt",
+        "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.dll",
+        "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.pdb",
+        "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.pri",
+        "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.xml",
+        "microsoft.toolkit.uwp.ui.7.1.2.nupkg.sha512",
+        "microsoft.toolkit.uwp.ui.nuspec"
+      ]
+    },
+    "Microsoft.Toolkit.Uwp.UI.Controls.Primitives/7.1.2": {
+      "sha512": "EV8kRaGII6ktatqTUEk7aQED5N+Xv6ND91CGi/0dULEGPgU0Ghfns6W/cT222g/Gj321qHayIpaGQkkKflIQCQ==",
+      "type": "package",
+      "path": "microsoft.toolkit.uwp.ui.controls.primitives/7.1.2",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "License.md",
+        "ThirdPartyNotices.txt",
+        "lib/uap10.0.17763/Design/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.DesignTools.dll",
+        "lib/uap10.0.17763/Design/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.DesignTools.pdb",
+        "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll",
+        "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.pdb",
+        "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.pri",
+        "lib/uap10.0.17763/Microsoft.Toolkit.Uwp.UI.Controls.Primitives.xml",
+        "microsoft.toolkit.uwp.ui.controls.primitives.7.1.2.nupkg.sha512",
+        "microsoft.toolkit.uwp.ui.controls.primitives.nuspec",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
+    "Microsoft.UI.Xaml/2.7.0": {
+      "sha512": "dB4im13tfmMgL/V3Ei+3kD2rUF+/lTxAmR4gjJ45l577eljHfdo/KUrxpq/3I1Vp6e5GCDG1evDaEGuDxypLMg==",
+      "type": "package",
+      "path": "microsoft.ui.xaml/2.7.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Common.targets",
+        "build/Microsoft.UI.Xaml.props",
+        "build/MicrosoftUIXamlVersion.props",
+        "build/native/Microsoft.UI.Xaml.targets",
+        "buildTransitive/Common.targets",
+        "buildTransitive/Microsoft.UI.Xaml.props",
+        "buildTransitive/MicrosoftUIXamlVersion.props",
+        "lib/uap10.0/Design/Microsoft.UI.Xaml.Design.dll",
+        "lib/uap10.0/Microsoft.UI.Xaml.pri",
+        "lib/uap10.0/Microsoft.UI.Xaml.winmd",
+        "lib/uap10.0/Microsoft.UI.Xaml.xml",
+        "lib/uap10.0/Microsoft.UI.Xaml/Themes/Generic.xaml",
+        "license.txt",
+        "microsoft.ui.xaml.2.7.0.nupkg.sha512",
+        "microsoft.ui.xaml.nuspec",
+        "readme.txt",
+        "tools/AppX/arm/Release/Microsoft.UI.Xaml.2.7.appx",
+        "tools/AppX/arm64/Release/Microsoft.UI.Xaml.2.7.appx",
+        "tools/AppX/x64/Release/Microsoft.UI.Xaml.2.7.appx",
+        "tools/AppX/x86/Release/Microsoft.UI.Xaml.2.7.appx",
+        "tools/VisualStudioToolsManifest.xml"
       ]
     },
     "NETStandard.Library/2.0.3": {
@@ -8588,6 +9167,7 @@
     "UAP,Version=v10.0.17763": [
       "HtmlAgilityPack >= 1.11.31",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.10",
+      "Microsoft.Toolkit.Uwp.UI.Controls.Primitives >= 7.1.2",
       "Newtonsoft.Json >= 13.0.1",
       "System.Memory >= 4.5.4"
     ]
@@ -8636,6 +9216,10 @@
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.2.10, )"
+          },
+          "Microsoft.Toolkit.Uwp.UI.Controls.Primitives": {
+            "target": "Package",
+            "version": "[7.1.2, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
