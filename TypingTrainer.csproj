@@ -123,9 +123,13 @@
     <Compile Include="ApplicationObjects\Section.cs" />
     <Compile Include="ApplicationObjects\Trainer.cs" />
     <Compile Include="ApplicationObjects\Unit.cs" />
+    <Compile Include="CreationPage.xaml.cs">
+      <DependentUpon>CreationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseObjects\Book.cs" />
     <Compile Include="DatabaseObjects\Chapter.cs" />
     <Compile Include="DatabaseObjects\DatabaseManager.cs" />
+    <Compile Include="DatabaseObjects\LocalBook.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -244,6 +248,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CreationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

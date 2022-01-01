@@ -20,7 +20,7 @@ namespace TypingTrainer
 {
     public sealed partial class UplinkPage : Page
     {
-        private List<Book> bookGallery;
+        private List<LocalBook> bookGallery;
         public UplinkPage()
         {
             this.InitializeComponent();
@@ -69,7 +69,7 @@ namespace TypingTrainer
             return httpResponseBody;
         }
 
-        private async void DisplayAddNovelDialog(Object sender)
+        private async void DisplayAddNewNovelDialog(Object sender)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
             ContentDialog unknownVIdeoDialog = new ContentDialog
@@ -88,17 +88,41 @@ namespace TypingTrainer
             }
             catch (Exception e) { return; }
 
-            if (result == ContentDialogResult.Primary)
-            {
-                string bookId = (sender as Button).Name;
-                var relevantChapters = SendGetRequest("http://localhost:8080/book/" + bookId);
-                List<Chapter> chapters = JsonConvert.DeserializeObject<List<Chapter>>(relevantChapters);
+            if (result == ContentDialogResult.Primary) ImportNovel(sender);
+        }
 
-                if (!DatabaseManager.BookExists(bookId)) DatabaseManager.CreateBook(bookGallery.Find(x => x.BookID.ToString().Equals(bookId)));
-                foreach (Chapter chapter in chapters)
-                {
-                    DatabaseManager.CreateChapter(chapter, bookId);
-                }
+        private async void DisplayLocalNovelDialog(Object sender)
+        {
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
+            ContentDialog unknownVIdeoDialog = new ContentDialog
+            {
+                Title = "Update Local Novel?",
+                Content = "This novel is already present in your library, do you wish to override and replace it with its global version?",
+                PrimaryButtonText = "Yes",
+                CloseButtonText = "No",
+                DefaultButton = ContentDialogButton.Primary
+            };
+
+            ContentDialogResult result = ContentDialogResult.None;
+            try
+            {
+                result = await unknownVIdeoDialog.ShowAsync();
+            }
+            catch (Exception e) { return; }
+
+            if (result == ContentDialogResult.Primary) ImportNovel(sender);
+        }
+
+        private void ImportNovel(Object sender)
+        {
+            string bookId = (sender as Button).Name;
+            var relevantChapters = SendGetRequest("http://localhost:8080/book/" + bookId);
+            List<Chapter> chapters = JsonConvert.DeserializeObject<List<Chapter>>(relevantChapters);
+
+            if (!DatabaseManager.BookExists(bookId)) DatabaseManager.CreateBook(bookGallery.Find(x => x.BookID.ToString().Equals(bookId)));
+            foreach (Chapter chapter in chapters)
+            {
+                DatabaseManager.CreateChapter(chapter, bookId);
             }
         }
 
@@ -114,20 +138,25 @@ namespace TypingTrainer
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-
-            bookGallery = JsonConvert.DeserializeObject<List<Book>>(SendGetRequest("http://localhost:8080/book"));
+            bookGallery = DatabaseManager.GetBooks().Select(x => new LocalBook(x.BookID, x.BookTitle, true)).ToList();
+            bookGallery.AddRange(JsonConvert.DeserializeObject<List<Book>>(SendGetRequest("http://localhost:8080/book")).Where(x => bookGallery.TrueForAll(j => x.BookID != j.BookID)).Select(x => new LocalBook(x.BookID, x.BookTitle, false)));
             CreateBookDisplay(bookGallery);
 
         }
 
         private void NovelBtn_Click(Object sender, RoutedEventArgs agrs)
         {
-            if (!AnyContentDialogOpen()) DisplayAddNovelDialog(sender);
+            if (!AnyContentDialogOpen()) DisplayAddNewNovelDialog(sender);
         }
 
-        private void CreateBookDisplay(List<Book> books)
+        private void LocalNovelBtn_Click(Object sender, RoutedEventArgs args)
         {
-            foreach (Book book in books)
+            if (!AnyContentDialogOpen()) DisplayLocalNovelDialog(sender);
+        }
+
+        private void CreateBookDisplay(List<LocalBook> books)
+        {
+            foreach (LocalBook book in books)
             {
                 Button btn = new Button();
                 btn.Name = book.BookID.ToString();
@@ -136,7 +165,8 @@ namespace TypingTrainer
                 btn.FontSize = 40;
                 btn.Margin = new Thickness(10);
                 btn.CornerRadius = new CornerRadius(25);
-                btn.Click += NovelBtn_Click;
+                if (book.IsLocal) btn.Click += LocalNovelBtn_Click;
+                else btn.Click += NovelBtn_Click;
                 UplinkPageBookDisplay.Children.Add(btn);
             }
         }
@@ -144,6 +174,11 @@ namespace TypingTrainer
         private void UplinkPageBackBtn_Click(object sender, RoutedEventArgs e)
         {
             App.PageNavigation.Back(Frame);
+        }
+
+        private void UplinkPageCreateBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

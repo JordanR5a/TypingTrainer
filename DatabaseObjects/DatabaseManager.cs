@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -37,6 +38,43 @@ namespace TypingTrainer.DatabaseObjects
                     }
                 }
                 return book;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            return null;
+        }
+
+        public static List<Book> GetBooks()
+        {
+            string GetBookQuery = String.Format("SELECT * FROM books");
+
+            try
+            {
+                List<Book> books = new List<Book>();
+                using (SqlConnection conn = new SqlConnection(DATABASE_CONNECTION))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.CommandText = GetBookQuery;
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    Book book = new Book();
+                                    book.BookID = reader.GetInt32(0);
+                                    book.BookTitle = reader.GetString(1);
+                                    books.Add(book);
+                                }
+                            }
+                        }
+                    }
+                }
+                return books;
             }
             catch (Exception eSql)
             {
