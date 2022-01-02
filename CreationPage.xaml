@@ -22,14 +22,10 @@
         <Button x:Name="CreationPageBackBtn" Click="CreationPageBackBtn_Click" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="40"/>
         <TextBox x:Name="CreationPageNovelTitleTextBox" Grid.Column="1" PlaceholderText="Novel Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" TextAlignment="Center" Margin="5" MinWidth="400"/>
         <ScrollViewer Grid.Row="1" Grid.Column="1" Height="500">
-            <controls:WrapPanel x:Name="CreationPageChapterDisplay" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Chapter 1" FontSize="40" Margin="5" VerticalAlignment="Top"/>
-                <Button Content="Chapter 1" FontSize="40" Margin="5" VerticalAlignment="Top"/>
-                <Button Content="Chapter 1" FontSize="40" Margin="5" VerticalAlignment="Top"/>
-                <Button Content="Chapter 1" FontSize="40" Margin="5" VerticalAlignment="Top"/>
-                <Button Content="Chapter 1" FontSize="40" Margin="5" VerticalAlignment="Top"/>
-                <Button Content="Chapter 1" FontSize="40" Margin="5" VerticalAlignment="Top"/>
+            <controls:WrapPanel x:Name="CreationPageChapterDisplay" Orientation="Horizontal">
+                <Button x:Name="CreationPageAddChapter" Click="CreationPageAddChapter_Click" Content="Add First Chapter" FontSize="35" Margin="0" VerticalAlignment="Top"/>
             </controls:WrapPanel>
         </ScrollViewer>
+        <Button x:Name="CreationPageSaveNovel" Click="CreationPageSaveNovel_Click" Grid.Row="1" Grid.Column="2" Content="Save" FontSize="50" HorizontalAlignment="Right" Padding="25"/>
     </Grid>
 </Page>

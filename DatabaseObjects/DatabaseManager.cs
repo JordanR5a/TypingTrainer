@@ -119,6 +119,43 @@ namespace TypingTrainer.DatabaseObjects
             return false;
         }
 
+        public static bool ChapterExists(string chapterId)
+        {
+            string GetBookQuery = String.Format("SELECT TOP 1 * FROM chapters WHERE chapterid = {0}", chapterId);
+
+            try
+            {
+                Chapter chapter = null;
+                using (SqlConnection conn = new SqlConnection(DATABASE_CONNECTION))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.CommandText = GetBookQuery;
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    chapter = new Chapter();
+                                    chapter.ChapterID = reader.GetInt32(0);
+                                    chapter.ChapterNumber = reader.GetInt32(1);
+                                    chapter.ChapterText = reader.GetString(2);
+                                }
+                            }
+                        }
+                    }
+                }
+                return chapter != null;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            return false;
+        }
+
         public static ObservableCollection<Chapter> GetChapters(int novel)
         {
             string GetBookQuery = String.Format("SELECT Chapters.ChapterID, Chapters.chapter_number, Chapters.chapter_text "

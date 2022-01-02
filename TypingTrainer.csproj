@@ -126,6 +126,7 @@
     <Compile Include="CreationPage.xaml.cs">
       <DependentUpon>CreationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseObjects\ApiManager.cs" />
     <Compile Include="DatabaseObjects\Book.cs" />
     <Compile Include="DatabaseObjects\Chapter.cs" />
     <Compile Include="DatabaseObjects\DatabaseManager.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="UplinkPage.xaml.cs">
       <DependentUpon>UplinkPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

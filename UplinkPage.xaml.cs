@@ -26,53 +26,10 @@ namespace TypingTrainer
             this.InitializeComponent();
         }
 
-        private string SendGetRequest(string url)
-        {
-            //Create an HTTP client object
-            Windows.Web.Http.HttpClient httpClient = new Windows.Web.Http.HttpClient();
-
-            //Add a user-agent header to the GET request. 
-            var headers = httpClient.DefaultRequestHeaders;
-
-            //The safe way to add a header value is to use the TryParseAdd method and verify the return value is true,
-            //especially if the header value is coming from user input.
-            string header = "ie";
-            if (!headers.UserAgent.TryParseAdd(header))
-            {
-                throw new Exception("Invalid header value: " + header);
-            }
-
-            header = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)";
-            if (!headers.UserAgent.TryParseAdd(header))
-            {
-                throw new Exception("Invalid header value: " + header);
-            }
-
-            Uri requestUri = new Uri(url);
-
-            //Send the GET request asynchronously and retrieve the response as a string.
-            Windows.Web.Http.HttpResponseMessage httpResponse = new Windows.Web.Http.HttpResponseMessage();
-            string httpResponseBody = "";
-
-            try
-            {
-                //Send the GET request
-                httpResponse = httpClient.GetAsync(requestUri).AsTask().GetAwaiter().GetResult();
-                httpResponse.EnsureSuccessStatusCode();
-                httpResponseBody = httpResponse.Content.ReadAsStringAsync().AsTask().GetAwaiter().GetResult();
-            }
-            catch (Exception ex)
-            {
-                httpResponseBody = "Error: " + ex.HResult.ToString("X") + " Message: " + ex.Message;
-            }
-
-            return httpResponseBody;
-        }
-
         private async void DisplayAddNewNovelDialog(Object sender)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
-            ContentDialog unknownVIdeoDialog = new ContentDialog
+            ContentDialog newNovelDialog = new ContentDialog
             {
                 Title = "Add Novel To Collection?",
                 Content = "Decide whether to import this novel into your own library.",
@@ -84,7 +41,7 @@ namespace TypingTrainer
             ContentDialogResult result = ContentDialogResult.None;
             try
             {
-                result = await unknownVIdeoDialog.ShowAsync();
+                result = await newNovelDialog.ShowAsync();
             }
             catch (Exception e) { return; }
 
@@ -94,10 +51,10 @@ namespace TypingTrainer
         private async void DisplayLocalNovelDialog(Object sender)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
-            ContentDialog unknownVIdeoDialog = new ContentDialog
+            ContentDialog localNovelDialog = new ContentDialog
             {
                 Title = "Update Local Novel?",
-                Content = "This novel is already present in your library, do you wish to override and replace it with its global version?",
+                Content = "This novel is already present in your library, do you wish to override and replace it with its global version if it exists?",
                 PrimaryButtonText = "Yes",
                 CloseButtonText = "No",
                 DefaultButton = ContentDialogButton.Primary
@@ -106,7 +63,7 @@ namespace TypingTrainer
             ContentDialogResult result = ContentDialogResult.None;
             try
             {
-                result = await unknownVIdeoDialog.ShowAsync();
+                result = await localNovelDialog.ShowAsync();
             }
             catch (Exception e) { return; }
 
@@ -116,8 +73,7 @@ namespace TypingTrainer
         private void ImportNovel(Object sender)
         {
             string bookId = (sender as Button).Name;
-            var relevantChapters = SendGetRequest("http://localhost:8080/book/" + bookId);
-            List<Chapter> chapters = JsonConvert.DeserializeObject<List<Chapter>>(relevantChapters);
+            List<Chapter> chapters = ApiManager.GetChaptersByBookId(int.Parse(bookId));
 
             if (!DatabaseManager.BookExists(bookId)) DatabaseManager.CreateBook(bookGallery.Find(x => x.BookID.ToString().Equals(bookId)));
             foreach (Chapter chapter in chapters)
@@ -139,7 +95,7 @@ namespace TypingTrainer
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             bookGallery = DatabaseManager.GetBooks().Select(x => new LocalBook(x.BookID, x.BookTitle, true)).ToList();
-            bookGallery.AddRange(JsonConvert.DeserializeObject<List<Book>>(SendGetRequest("http://localhost:8080/book")).Where(x => bookGallery.TrueForAll(j => x.BookID != j.BookID)).Select(x => new LocalBook(x.BookID, x.BookTitle, false)));
+            bookGallery.AddRange(ApiManager.GetAllBooks().Where(x => bookGallery.TrueForAll(j => x.BookID != j.BookID)).Select(x => new LocalBook(x.BookID, x.BookTitle, false)));
             CreateBookDisplay(bookGallery);
 
         }

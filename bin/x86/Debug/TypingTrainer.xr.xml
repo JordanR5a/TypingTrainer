@@ -29,8 +29,8 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Content" />
       <RootProperty Name="FontSize" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="Padding" />
+      <RootProperty Name="Margin" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
@@ -49,7 +49,6 @@
     </RootType>
     <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.WrapPanel">
       <RootProperty Name="Orientation" />
-      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Children" />
     </RootType>
     <RootType FullName="TypingTrainer.CreationPage" />

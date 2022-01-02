@@ -38,7 +38,7 @@ namespace TypingTrainer
 
         private void MainPageUplinkPageBtn_Click(object sender, RoutedEventArgs e)
         {
-            App.PageNavigation.Navigate(Frame, typeof(UplinkPage));
+            if (ApiManager.SystemOnline()) App.PageNavigation.Navigate(Frame, typeof(UplinkPage));
         }
     }
 }
