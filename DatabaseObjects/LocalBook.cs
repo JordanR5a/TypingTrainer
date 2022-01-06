@@ -8,13 +8,20 @@ namespace TypingTrainer.DatabaseObjects
 {
     public class LocalBook : Book
     {
-        public bool IsLocal { get; set; }
+        public BookType Type{ get; set; }
 
-        public LocalBook(int bookID, string bookTitle, bool isLocal)
+        public LocalBook(int bookID, string bookTitle, BookType type)
         {
             BookID = bookID;
             BookTitle = bookTitle;
-            IsLocal = isLocal;
+            Type = type;
+        }
+
+        public enum BookType
+        {
+            LOCAL,
+            PSUEDO_LOCAL,
+            EXTERNAL
         }
 
     }

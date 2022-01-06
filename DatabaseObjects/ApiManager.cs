@@ -4,15 +4,59 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Web.Http;
 
 namespace TypingTrainer.DatabaseObjects
 {
     public class ApiManager
     {
+        private static async Task<string> TryPostJsonAsync(string url, Object content)
+        {
+            string httpResponseBody;
+            try
+            {
+                // Construct the HttpClient and Uri. This endpoint is for test purposes only.
+                HttpClient httpClient = new HttpClient();
+                Uri uri = new Uri(url);
+
+                // Construct the JSON to post.
+                HttpStringContent httpContent = new HttpStringContent(JsonConvert.SerializeObject(content));
+
+                // Post the JSON and wait for a response.
+                HttpResponseMessage httpResponseMessage = await httpClient.PostAsync(uri, httpContent);
+
+                // Make sure the post succeeded, and write out the response.
+                httpResponseMessage.EnsureSuccessStatusCode();
+                httpResponseBody = await httpResponseMessage.Content.ReadAsStringAsync();
+                return httpResponseBody;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        private class PostObject
+        {
+            public Book book { get; set; }
+            public List<Chapter> chapters { get; set; }
+
+            public PostObject(Book book, List<Chapter> chapters)
+            {
+                this.book = book;
+                this.chapters = chapters;
+            }
+        }
+
+        public static bool CreateBook(Book book, List<Chapter> chapters)
+        {
+            return TryPostJsonAsync("http://localhost:8080", new PostObject(book, chapters)).GetAwaiter().GetResult().Equals("True");
+        }
+
         private static string SendGetRequest(string url)
         {
             //Create an HTTP client object
-            Windows.Web.Http.HttpClient httpClient = new Windows.Web.Http.HttpClient();
+            HttpClient httpClient = new HttpClient();
 
             //Add a user-agent header to the GET request. 
             var headers = httpClient.DefaultRequestHeaders;
@@ -34,7 +78,7 @@ namespace TypingTrainer.DatabaseObjects
             Uri requestUri = new Uri(url);
 
             //Send the GET request asynchronously and retrieve the response as a string.
-            Windows.Web.Http.HttpResponseMessage httpResponse = new Windows.Web.Http.HttpResponseMessage();
+            HttpResponseMessage httpResponse = new HttpResponseMessage();
             string httpResponseBody = "";
 
             try

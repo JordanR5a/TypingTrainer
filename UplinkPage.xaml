@@ -21,6 +21,7 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="UplinkPageBackBtn" Click="UplinkPageBackBtn_Click" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="40"/>
         <Button x:Name="UplinkPageCreateBtn" Click="UplinkPageCreateBtn_Click" Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Content="Create" FontSize="50" Padding="50, 0, 50, 0" Margin="10"/>
+        
         <ScrollViewer Grid.Row="1" Grid.Column="1" Height="500">
             <StackPanel Orientation="Vertical" x:Name="UplinkPageBookDisplay"/>
         </ScrollViewer>

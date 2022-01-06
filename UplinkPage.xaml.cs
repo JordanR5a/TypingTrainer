@@ -25,13 +25,42 @@ namespace TypingTrainer
         {
             this.InitializeComponent();
         }
+        private async void DisplayLocalNovelDialog(Object sender)
+        {
+            ContentDialog localNovelDialog = new ContentDialog
+            {
+                Title = "Export Novel",
+                Content = "Do you wish to share this novel to the world?",
+                PrimaryButtonText = "Yes",
+                CloseButtonText = "No",
+                DefaultButton = ContentDialogButton.Primary
+            };
+
+            ContentDialogResult result = ContentDialogResult.None;
+            try
+            {
+                result = await localNovelDialog.ShowAsync();
+            }
+            catch (Exception e) { return; }
+
+            if (result == ContentDialogResult.Primary) ExportNovel(sender);
+        }
+
+        private void ExportNovel(Object sender)
+        {
+            string bookId = (sender as Button).Name;
+            Book book = DatabaseManager.GetBook(int.Parse(bookId));
+
+            List<Chapter> chapters = DatabaseManager.GetChapters(int.Parse(bookId));
+
+            ApiManager.CreateBook(book, chapters);
+        }
 
         private async void DisplayAddNewNovelDialog(Object sender)
         {
-            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
             ContentDialog newNovelDialog = new ContentDialog
             {
-                Title = "Add Novel To Collection?",
+                Title = "Add Novel To Collection",
                 Content = "Decide whether to import this novel into your own library.",
                 PrimaryButtonText = "Yes",
                 CloseButtonText = "No",
@@ -48,12 +77,11 @@ namespace TypingTrainer
             if (result == ContentDialogResult.Primary) ImportNovel(sender);
         }
 
-        private async void DisplayLocalNovelDialog(Object sender)
+        private async void DisplayPsuedoLocalNovelDialog(Object sender)
         {
-            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
             ContentDialog localNovelDialog = new ContentDialog
             {
-                Title = "Update Local Novel?",
+                Title = "Update Local Novel",
                 Content = "This novel is already present in your library, do you wish to override and replace it with its global version if it exists?",
                 PrimaryButtonText = "Yes",
                 CloseButtonText = "No",
@@ -94,10 +122,14 @@ namespace TypingTrainer
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            bookGallery = DatabaseManager.GetBooks().Select(x => new LocalBook(x.BookID, x.BookTitle, true)).ToList();
-            bookGallery.AddRange(ApiManager.GetAllBooks().Where(x => bookGallery.TrueForAll(j => x.BookID != j.BookID)).Select(x => new LocalBook(x.BookID, x.BookTitle, false)));
-            CreateBookDisplay(bookGallery);
+            List<Book> local = DatabaseManager.GetBooks();
+            List<Book> external = ApiManager.GetAllBooks();
 
+            bookGallery = local.Where(x => external.TrueForAll(k => x.BookTitle != k.BookTitle)).Select(x => new LocalBook(x.BookID, x.BookTitle, LocalBook.BookType.LOCAL)).ToList();
+            bookGallery.AddRange(local.Where(x => !external.TrueForAll(k => x.BookTitle != k.BookTitle)).Select(x => new LocalBook(x.BookID, x.BookTitle, LocalBook.BookType.PSUEDO_LOCAL)));
+            bookGallery.AddRange(external.Where(x => local.TrueForAll(k => x.BookTitle != k.BookTitle)).Select(x => new LocalBook(x.BookID, x.BookTitle, LocalBook.BookType.EXTERNAL)));
+
+            CreateBookDisplay(bookGallery);
         }
 
         private void NovelBtn_Click(Object sender, RoutedEventArgs agrs)
@@ -105,6 +137,10 @@ namespace TypingTrainer
             if (!AnyContentDialogOpen()) DisplayAddNewNovelDialog(sender);
         }
 
+        private void PsuedoLocalNovelBtn_Click(Object sender, RoutedEventArgs args)
+        {
+            if (!AnyContentDialogOpen()) DisplayPsuedoLocalNovelDialog(sender);
+        }
         private void LocalNovelBtn_Click(Object sender, RoutedEventArgs args)
         {
             if (!AnyContentDialogOpen()) DisplayLocalNovelDialog(sender);
@@ -121,8 +157,20 @@ namespace TypingTrainer
                 btn.FontSize = 40;
                 btn.Margin = new Thickness(10);
                 btn.CornerRadius = new CornerRadius(25);
-                if (book.IsLocal) btn.Click += LocalNovelBtn_Click;
-                else btn.Click += NovelBtn_Click;
+
+                switch (book.Type)
+                {
+                    case LocalBook.BookType.LOCAL:
+                        btn.Click += LocalNovelBtn_Click;
+                        break;
+                    case LocalBook.BookType.PSUEDO_LOCAL:
+                        btn.Click += PsuedoLocalNovelBtn_Click;
+                        break;
+                    case LocalBook.BookType.EXTERNAL:
+                        btn.Click += NovelBtn_Click;
+                        break;
+                }
+
                 UplinkPageBookDisplay.Children.Add(btn);
             }
         }

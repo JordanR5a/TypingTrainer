@@ -18,8 +18,8 @@ namespace TypingTrainer.ApplicationObjects
         int currentChapterNumber;
         public int CurrentChapterNumber { get { return currentChapterNumber; } }
 
-        ObservableCollection<Chapter> chapters;
-        public ObservableCollection<Chapter> Chapters { get { return chapters; } }
+        List<Chapter> chapters;
+        public List<Chapter> Chapters { get { return chapters; } }
 
         Section[] sections;
         public Section[] Sections { get { return sections; } }

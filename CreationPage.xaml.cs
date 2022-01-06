@@ -19,6 +19,7 @@ namespace TypingTrainer
 {
     public sealed partial class CreationPage : Page
     {
+        //TODO: Subscriptions (Experation dates and automatic reposting)
         public ViewModel viewModel { get; set; }
         private Book book;
         private List<Chapter> chapters;
@@ -39,7 +40,7 @@ namespace TypingTrainer
             {
                 availableId = new Random().Next(int.MaxValue).ToString();
             }
-            while (DatabaseManager.BookExists(availableId) || ApiManager.BookExists(availableId));
+            while (DatabaseManager.BookExists(availableId));
             book.BookID = int.Parse(availableId);
 
             chapters = new List<Chapter>();
@@ -118,7 +119,7 @@ namespace TypingTrainer
                     {
                         availableId = new Random().Next(int.MaxValue).ToString();
                     }
-                    while (DatabaseManager.ChapterExists(availableId) || !chapters.TrueForAll(x => x.ChapterID != int.Parse(availableId)) || ApiManager.ChapterExists(availableId));
+                    while (DatabaseManager.ChapterExists(availableId) || !chapters.TrueForAll(x => x.ChapterID != int.Parse(availableId)));
                     chapter.ChapterID = int.Parse(availableId);
                 }
                 chapter.ChapterText = chapter.ChapterText;

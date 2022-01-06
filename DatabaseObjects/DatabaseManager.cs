@@ -46,6 +46,42 @@ namespace TypingTrainer.DatabaseObjects
             return null;
         }
 
+        public static Book GetBook(int bookId)
+        {
+            string GetBookQuery = String.Format("SELECT TOP 1 * FROM books WHERE Bookid = '{0}'", bookId);
+
+            try
+            {
+                Book book = null;
+                using (SqlConnection conn = new SqlConnection(DATABASE_CONNECTION))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.CommandText = GetBookQuery;
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    book = new Book();
+                                    book.BookID = reader.GetInt32(0);
+                                    book.BookTitle = reader.GetString(1);
+                                }
+                            }
+                        }
+                    }
+                }
+                return book;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            return null;
+        }
+
         public static List<Book> GetBooks()
         {
             string GetBookQuery = String.Format("SELECT * FROM books");
@@ -156,14 +192,14 @@ namespace TypingTrainer.DatabaseObjects
             return false;
         }
 
-        public static ObservableCollection<Chapter> GetChapters(int novel)
+        public static List<Chapter> GetChapters(int novel)
         {
             string GetBookQuery = String.Format("SELECT Chapters.ChapterID, Chapters.chapter_number, Chapters.chapter_text "
                                             + "FROM Chapters "
                                             + "INNER JOIN books ON books.bookid = Chapters.book_bookid "
                                             + "WHERE books.bookid = {0}", novel);
 
-            var chapters = new ObservableCollection<Chapter>();
+            var chapters = new List<Chapter>();
             try
             {
                 using (SqlConnection conn = new SqlConnection(DATABASE_CONNECTION))
