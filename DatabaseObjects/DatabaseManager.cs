@@ -46,6 +46,13 @@ namespace TypingTrainer.DatabaseObjects
             return null;
         }
 
+        public static void DeleteBookAndRelatedChapters(int bookId)
+        {
+            var chapters = GetChapters(bookId);
+            foreach (Chapter chapter in chapters) DeleteChapter(chapter.ChapterID);
+            DeleteBook(bookId);
+        }
+
         public static Book GetBook(int bookId)
         {
             string GetBookQuery = String.Format("SELECT TOP 1 * FROM books WHERE Bookid = '{0}'", bookId);
@@ -276,6 +283,60 @@ namespace TypingTrainer.DatabaseObjects
                         using (SqlCommand cmd = conn.CreateCommand())
                         {
                             cmd.CommandText = chapterCreationQuery;
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            return false;
+        }
+
+        public static bool DeleteBook(int bookId)
+        {
+            string bookDeletionQuery = String.Format(@"DELETE TOP 1 FROM books WHERE bookid = {0}", bookId);
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DATABASE_CONNECTION))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.CommandText = bookDeletionQuery;
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            return false;
+        }
+
+        public static bool DeleteChapter(int chapterId)
+        {
+            string chapterDeletionQuery = String.Format(@"DELETE FROM chapters WHERE chapterid = {0}", chapterId);
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DATABASE_CONNECTION))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.CommandText = chapterDeletionQuery;
                             cmd.ExecuteNonQuery();
                         }
                     }

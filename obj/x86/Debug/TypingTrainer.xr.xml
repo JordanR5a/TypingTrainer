@@ -41,6 +41,7 @@
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="Margin" />
       <RootProperty Name="MinWidth" />
+      <RootProperty Name="Width" />
       <RootProperty Name="BorderBrush" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
@@ -54,9 +55,17 @@
     <RootType FullName="TypingTrainer.CreationPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Orientation" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Children" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Width" />
+    </RootType>
+    <RootType FullName="TypingTrainer.LoginPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
       <RootProperty Name="HorizontalAlignment" />

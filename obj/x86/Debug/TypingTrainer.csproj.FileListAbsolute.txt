@@ -80,3 +80,8 @@ C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\Microsoft.
 C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\Microsoft.Toolkit.Uwp.UI.pri.xml
 C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\Microsoft.Toolkit.Uwp.UI.Controls.Primitives.pri.xml
 C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\Microsoft.UI.Xaml.pri.xml
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\LoginPage.xbf
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\LoginPage.g.i.cs
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\LoginPage.g.cs
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\LoginPage.xaml
+C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\obj\x86\Debug\LoginPage.xbf

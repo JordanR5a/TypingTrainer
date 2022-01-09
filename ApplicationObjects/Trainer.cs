@@ -223,7 +223,7 @@ namespace TypingTrainer.ApplicationObjects
                         }
                         else if (section.ToString().Contains(START_QUOTATION)) inQuotes = false;
                     }
-                    catch (IndexOutOfRangeException e)
+                    catch (IndexOutOfRangeException)
                     {
                         inQuotes = false;
                     }
@@ -305,7 +305,7 @@ namespace TypingTrainer.ApplicationObjects
                 return false;
 
             }
-            catch (IndexOutOfRangeException error)
+            catch (IndexOutOfRangeException)
             {
                 place = sections.Length;
                 return true;

@@ -387,6 +387,9 @@
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\CreationPage.xbf">
       <PackagePath>CreationPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\LoginPage.xbf">
+      <PackagePath>LoginPage.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Reece\source\repos\TypingTrainer\TypingTrainer\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>

@@ -232,7 +232,7 @@ namespace TypingTrainer
                     CURRENT_NOVEL = newNovel;
                     await PlaySound("shortMove.wav", true);
                 }
-                catch (DirectoryNotFoundException error)
+                catch (DirectoryNotFoundException)
                 {
                     await PlaySound("error.wav", true);
                 }

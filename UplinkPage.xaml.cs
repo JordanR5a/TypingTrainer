@@ -25,6 +25,12 @@ namespace TypingTrainer
         {
             this.InitializeComponent();
         }
+
+        private void UserValidated()
+        {
+            if (App.userName == null && App.password == null) throw new UnauthorizedAccessException();
+        }
+
         private async void DisplayLocalNovelDialog(Object sender)
         {
             ContentDialog localNovelDialog = new ContentDialog
@@ -41,9 +47,13 @@ namespace TypingTrainer
             {
                 result = await localNovelDialog.ShowAsync();
             }
-            catch (Exception e) { return; }
+            catch (Exception) { return; }
 
-            if (result == ContentDialogResult.Primary) ExportNovel(sender);
+            if (result == ContentDialogResult.Primary)
+            {
+                try { ExportNovel(sender); }
+                catch (UnauthorizedAccessException) { App.PageNavigation.Navigate(Frame, typeof(LoginPage)); }
+            }
         }
 
         private void ExportNovel(Object sender)
@@ -53,7 +63,9 @@ namespace TypingTrainer
 
             List<Chapter> chapters = DatabaseManager.GetChapters(int.Parse(bookId));
 
-            ApiManager.CreateBook(book, chapters);
+            UserValidated();
+            ApiManager.CreateBook(book.BookTitle, App.userName, App.password, chapters);
+            CreateGallery();
         }
 
         private async void DisplayAddNewNovelDialog(Object sender)
@@ -95,7 +107,11 @@ namespace TypingTrainer
             }
             catch (Exception e) { return; }
 
-            if (result == ContentDialogResult.Primary) ImportNovel(sender);
+            if (result == ContentDialogResult.Primary)
+            {
+                DatabaseManager.DeleteBookAndRelatedChapters(int.Parse((sender as Button).Name));
+                ImportNovel(sender);
+            }
         }
 
         private void ImportNovel(Object sender)
@@ -108,6 +124,7 @@ namespace TypingTrainer
             {
                 DatabaseManager.CreateChapter(chapter, bookId);
             }
+            CreateGallery();
         }
 
         private bool AnyContentDialogOpen()
@@ -120,7 +137,7 @@ namespace TypingTrainer
             return false;
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void CreateGallery()
         {
             List<Book> local = DatabaseManager.GetBooks();
             List<Book> external = ApiManager.GetAllBooks();
@@ -130,6 +147,11 @@ namespace TypingTrainer
             bookGallery.AddRange(external.Where(x => local.TrueForAll(k => x.BookTitle != k.BookTitle)).Select(x => new LocalBook(x.BookID, x.BookTitle, LocalBook.BookType.EXTERNAL)));
 
             CreateBookDisplay(bookGallery);
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            CreateGallery();
         }
 
         private void NovelBtn_Click(Object sender, RoutedEventArgs agrs)

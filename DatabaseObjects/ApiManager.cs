@@ -21,9 +21,11 @@ namespace TypingTrainer.DatabaseObjects
 
                 // Construct the JSON to post.
                 HttpStringContent httpContent = new HttpStringContent(JsonConvert.SerializeObject(content));
+                var headers = httpContent.Headers;
+                headers.ContentType = new Windows.Web.Http.Headers.HttpMediaTypeHeaderValue("application/json");
 
                 // Post the JSON and wait for a response.
-                HttpResponseMessage httpResponseMessage = await httpClient.PostAsync(uri, httpContent);
+                HttpResponseMessage httpResponseMessage = httpClient.PostAsync(uri, httpContent).AsTask().GetAwaiter().GetResult();
 
                 // Make sure the post succeeded, and write out the response.
                 httpResponseMessage.EnsureSuccessStatusCode();
@@ -38,19 +40,29 @@ namespace TypingTrainer.DatabaseObjects
 
         private class PostObject
         {
-            public Book book { get; set; }
+            public string bookTitle{ get; set; }
+            public string userName { get; set; }
+            public string password { get; set; }
             public List<Chapter> chapters { get; set; }
 
-            public PostObject(Book book, List<Chapter> chapters)
+            public PostObject(string bookTitle, string userName, string password, List<Chapter> chapters)
             {
-                this.book = book;
+                this.bookTitle = bookTitle;
+                this.userName = userName;
+                this.password = password;
                 this.chapters = chapters;
+            }
+
+            public PostObject(string username, string password)
+            {
+                this.userName = username;
+                this.password = password;
             }
         }
 
-        public static bool CreateBook(Book book, List<Chapter> chapters)
+        public static bool CreateBook(string bookTitle, string userName, string password, List<Chapter> chapters)
         {
-            return TryPostJsonAsync("http://localhost:8080", new PostObject(book, chapters)).GetAwaiter().GetResult().Equals("True");
+            return TryPostJsonAsync("http://localhost:8080", new PostObject(bookTitle, userName, password, chapters)).GetAwaiter().GetResult().Equals("true");
         }
 
         private static string SendGetRequest(string url)
@@ -130,6 +142,11 @@ namespace TypingTrainer.DatabaseObjects
             }
         }
 
+        public static bool CheckValidation(string username, string password)
+        {
+            return TryPostJsonAsync("http://localhost:8080/user/check", new PostObject(username, password)).GetAwaiter().GetResult().Equals("true");
+        }
+
         public static List<Chapter> GetChaptersByBookId(int bookId)
         {
             var relevantChapters = SendGetRequest("http://localhost:8080/chapters/" + bookId);
@@ -137,7 +154,7 @@ namespace TypingTrainer.DatabaseObjects
             {
                 return JsonConvert.DeserializeObject<List<Chapter>>(relevantChapters);
             }
-            catch (JsonReaderException er) { return new List<Chapter>(); }
+            catch (JsonReaderException) { return new List<Chapter>(); }
         }
 
         public static List<Book> GetAllBooks()
@@ -146,7 +163,7 @@ namespace TypingTrainer.DatabaseObjects
             {
                 return JsonConvert.DeserializeObject<List<Book>>(SendGetRequest("http://localhost:8080"));
             }
-            catch (JsonReaderException er) { return new List<Book>(); }
+            catch (JsonReaderException) { return new List<Book>(); }
         }
 
         public static bool BookExists(string bookId)
@@ -155,7 +172,7 @@ namespace TypingTrainer.DatabaseObjects
             {
                 return JsonConvert.DeserializeObject<Book>(SendGetRequest("http://localhost:8080/book/" + bookId)) != null;
             }
-            catch (JsonReaderException er) { return false; }
+            catch (JsonReaderException) { return false; }
         }
 
         public static bool ChapterExists(string chapterId)
@@ -164,7 +181,7 @@ namespace TypingTrainer.DatabaseObjects
             {
                 return JsonConvert.DeserializeObject<Chapter>(SendGetRequest("http://localhost:8080/chapter/" + chapterId)) != null;
             }
-            catch (JsonReaderException er) { return false; }
+            catch (JsonReaderException) { return false; }
         }
     }
 }
