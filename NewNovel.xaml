@@ -10,6 +10,7 @@
     PrimaryButtonText="Change"
     SecondaryButtonText="Cancel"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    DefaultButton="Primary"
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
 
     <Grid>
